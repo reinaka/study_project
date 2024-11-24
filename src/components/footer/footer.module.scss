@@ -1,0 +1,11 @@
+@import "../../styles/colors";
+@import "../../styles/mixins";
+
+.footer__wrapper {
+  width: 100%;
+  background-color: $gray;
+}
+
+.footer {
+  @include mainLayout;
+}

@@ -1,12 +1,13 @@
 import { Footer } from "../../components/footer/footer";
 import { Header } from "../../components/header/header";
 import { Outlet } from "react-router-dom";
+import styles from "./main-layout-page.module.scss";
 
 export const MainLayoutPage = () => {
   return (
-    <div>
+    <div className={styles.mainLayout__wrapper}>
       <Header />
-      <main>
+      <main className={styles.main}>
         <Outlet />
       </main>
       <Footer />

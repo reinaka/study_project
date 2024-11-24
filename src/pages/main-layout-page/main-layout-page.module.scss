@@ -1,0 +1,18 @@
+@import "../../styles/colors";
+@import "../../styles/mixins";
+
+.mainLayout__wrapper {
+  margin: 0 auto;
+  min-height: 100dvh;
+  width: 100dvw;
+  display: flex;
+  flex-direction: column;
+  background-color: $bg;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  @include mainLayout;
+}
