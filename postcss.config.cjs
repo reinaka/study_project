@@ -4,6 +4,7 @@ module.exports = {
       variants: {
         Ubuntu: {
           400: [],
+          700: [],
         },
       },
       foundries: ["google"],

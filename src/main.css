@@ -1,7 +1,6 @@
 @import-normalize;
 
 :root {
-  box-sizing: border-box;
   font-family: "Ubuntu", serif;
   font-weight: 400;
   font-style: normal;
@@ -9,6 +8,16 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
 }
 
 body {
