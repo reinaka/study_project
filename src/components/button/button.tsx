@@ -2,7 +2,7 @@ import styles from "./button.module.scss";
 
 type ButtonPropsT = {
   children: string | React.ReactNode;
-  radius: number;
+  radius: 8 | 16 | 20;
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
 };
