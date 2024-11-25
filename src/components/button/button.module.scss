@@ -1,7 +1,6 @@
 @import "../../styles/colors";
 
 .button {
-  background-color: $blue;
   color: $white;
   font-family: "Ubuntu", serif;
   font-weight: 700;
@@ -11,13 +10,36 @@
   display: flex;
   cursor: pointer;
 
-  &:hover,
   &:disabled {
+    background-color: $gray;
+
+    &:hover {
+      background-color: $gray;
+    }
+  }
+}
+
+.button--blue {
+  background-color: $blue;
+
+  &:hover {
     background-color: $blue-dimmed;
   }
 
   &:active {
     background-color: $blue;
+  }
+}
+
+.button--violet {
+  background-color: $violet-dimmed;
+
+  &:hover {
+    background-color: $violet;
+  }
+
+  &:active {
+    background-color: $violet-dimmed;
   }
 }
 
