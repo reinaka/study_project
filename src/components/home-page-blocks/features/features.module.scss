@@ -1,0 +1,29 @@
+.features__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 64px;
+  color: #4f5665;
+}
+
+.features__heading {
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 50px;
+  margin-bottom: 20px;
+  color: #0b132a;
+}
+
+.features__text {
+  margin-bottom: 25px;
+}
+
+.features__itemsBlock {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+
+.features__contentBlock {
+  margin-top: 74px;
+}
