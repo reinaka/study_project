@@ -8,4 +8,34 @@
 
 .footer {
   @include mainLayout;
+  padding: 96px 0 92px;
+}
+
+.footer__cookiesText {
+  font-weight: 500;
+  line-height: 1.5rem;
+  padding-top: 32px;
+  border-top: 2px solid $white;
+}
+
+.footer__topBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer__logo {
+  max-height: 50px;
+}
+
+.footer__addressBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer__tel {
+  font-weight: 700;
+  font-size: 30px;
 }

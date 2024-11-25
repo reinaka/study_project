@@ -4,6 +4,7 @@ module.exports = {
       variants: {
         Ubuntu: {
           400: [],
+          500: [],
           700: [],
         },
       },
