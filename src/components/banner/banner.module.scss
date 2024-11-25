@@ -1,0 +1,24 @@
+.banner__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cardWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+  max-width: 518px;
+}
+
+.banner__applyBlock {
+  max-width: 622px;
+}
+
+.banner__heading {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 50px;
+  margin-bottom: 36px;
+}
