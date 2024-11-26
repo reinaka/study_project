@@ -7,6 +7,9 @@ module.exports = {
           500: [],
           700: [],
         },
+        "Nunito Sans": {
+          400: [],
+        },
       },
       foundries: ["google"],
     },
