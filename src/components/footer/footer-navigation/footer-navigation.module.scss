@@ -1,3 +1,5 @@
+@import "../../../styles/mixins";
+
 .navigation {
   display: flex;
   flex-direction: row;
@@ -11,4 +13,14 @@
   font-weight: 500;
   font-family: Ubuntu;
   padding: 6px 2px;
+
+  &:after {
+    @include navItemDecoration;
+  }
+
+  &:hover {
+    &:after {
+      @include navItemHoverDecoration;
+    }
+  }
 }

@@ -1,9 +1,22 @@
+@import "../../../styles/colors";
+@import "../../../styles/mixins";
+
 .link {
   color: #1d1929;
   font-weight: 700;
   padding: 10px;
+
+  &:after {
+    @include navItemDecoration;
+  }
 }
 
 .link--active {
   color: #b2a35f;
+}
+
+.link:not(.link--active):hover {
+  &:after {
+    @include navItemHoverDecoration;
+  }
 }
