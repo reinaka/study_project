@@ -13,7 +13,9 @@ export const HeaderNavLink = ({ to, children }: HeaderNavLinkPropsT) => {
     <NavLink
       to={to}
       state={{ from: location.pathname }}
-      className={styles.link}
+      className={({ isActive }) =>
+        `${styles.link} ${isActive ? styles["link--active"] : ""}`
+      }
     >
       {children}
     </NavLink>
