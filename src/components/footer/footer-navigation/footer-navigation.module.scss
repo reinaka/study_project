@@ -1,4 +1,5 @@
 @import "../../../styles/mixins";
+@import "../../../styles/media";
 
 .navigation {
   display: flex;
@@ -7,6 +8,11 @@
   column-gap: 32px;
   row-gap: 8px;
   margin: 32px 0 28px;
+  justify-content: space-evenly;
+
+  @include mobile {
+    justify-content: flex-start;
+  }
 }
 
 .navigation__item {

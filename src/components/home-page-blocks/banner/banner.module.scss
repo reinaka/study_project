@@ -1,24 +1,51 @@
+@import "../../../styles/media";
+
 .banner__wrapper {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
+
+  @include desktop {
+    flex-direction: row;
+  }
 }
 
-.cardWrapper {
+.card__wrapper {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   gap: 16px;
-  max-width: 518px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @include desktop {
+    max-width: 518px;
+  }
 }
 
 .banner__applyBlock {
-  max-width: 622px;
+  max-width: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 36px;
+
+  @include desktop {
+    max-width: 622px;
+    text-align: left;
+    align-items: flex-start;
+    margin-bottom: 0;
+  }
 }
 
 .banner__heading {
   font-weight: 700;
-  font-size: 48px;
-  line-height: 50px;
+  font-size: 32px;
+  line-height: 40px;
   margin-bottom: 36px;
+
+  @include mobile {
+    font-size: 48px;
+    line-height: 50px;
+  }
 }

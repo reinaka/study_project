@@ -11,7 +11,7 @@ export const Banner = () => {
         </h1>
         <Button radius={16}>Choose the card</Button>
       </div>
-      <div className={styles.cardWrapper}>
+      <div className={styles.card__wrapper}>
         <BannerCard card="/banner-cards/card1.jpg" />
         <BannerCard card="/banner-cards/card2.jpg" />
         <BannerCard card="/banner-cards/card3.jpg" />

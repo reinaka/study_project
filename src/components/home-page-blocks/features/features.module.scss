@@ -1,21 +1,53 @@
+@import "../../../styles/media";
+
 .features__wrapper {
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  margin-top: 64px;
+  justify-content: center;
+  gap: 20px;
   color: #4f5665;
+  margin: 0 auto;
+
+  @include desktop {
+    margin-top: 64px;
+    justify-content: space-between;
+  }
 }
 
 .features__heading {
   font-weight: 500;
-  font-size: 35px;
-  line-height: 50px;
+  font-size: 24px;
+  line-height: 32px;
   margin-bottom: 20px;
   color: #0b132a;
+  text-align: center;
+
+  @include mobile {
+    font-size: 35px;
+    ine-height: 50px;
+  }
+
+  @include desktop {
+    text-align: left;
+  }
+}
+
+.features__image {
+  display: none;
+
+  @include desktop {
+    display: block;
+  }
 }
 
 .features__text {
   margin-bottom: 25px;
+  text-align: center;
+
+  @include desktop {
+    text-align: left;
+  }
 }
 
 .features__itemsBlock {
@@ -25,5 +57,7 @@
 }
 
 .features__contentBlock {
-  margin-top: 74px;
+  @include desktop {
+    margin-top: 74px;
+  }
 }

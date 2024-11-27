@@ -4,7 +4,11 @@ import { FeatureItem } from "./feature-item/feature-item";
 export const Features = () => {
   return (
     <section className={styles.features__wrapper}>
-      <img src="/features.png" alt="features we provide" />
+      <img
+        src="/features.png"
+        alt="features we provide"
+        className={styles.features__image}
+      />
       <div className={styles.features__contentBlock}>
         <h2 className={styles.features__heading}>
           We Provide Many Features You Can Use

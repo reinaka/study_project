@@ -1,5 +1,30 @@
+@import "../../../../styles/_media.scss";
+
 .card {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   border-radius: 16px;
   overflow: hidden;
-  max-width: 250px;
+  width: calc(50% - 8px);
+
+  &:first-of-type,
+  &:nth-last-of-type(2) {
+    justify-content: flex-end;
+  }
+
+  @include tablet {
+    width: calc(25% - 12px);
+    justify-content: center;
+
+    &:first-of-type,
+    &:nth-last-of-type(2) {
+      justify-content: center;
+    }
+  }
+
+  @include desktop {
+    width: calc(50% - 8px);
+    max-width: 250px;
+  }
 }

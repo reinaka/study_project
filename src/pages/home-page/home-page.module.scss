@@ -1,6 +1,16 @@
+@import "../../styles/media";
+
 .home__wrapper {
   display: flex;
   flex-direction: column;
   row-gap: 48px;
-  margin-top: 132px;
+  margin-top: 40px;
+
+  @include mobile {
+    margin-top: 82px;
+  }
+
+  @include tablet {
+    margin-top: 132px;
+  }
 }
