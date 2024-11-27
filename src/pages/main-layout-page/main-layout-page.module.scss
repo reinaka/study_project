@@ -10,6 +10,11 @@
   background-color: $bg;
 }
 
+.mainLayout__wrapper--burgerOpen {
+  height: 100dvh;
+  overflow: hidden;
+}
+
 .main {
   display: flex;
   flex-direction: column;
