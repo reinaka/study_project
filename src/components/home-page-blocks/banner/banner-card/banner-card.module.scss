@@ -1,4 +1,4 @@
-@import "../../../../styles/_media.scss";
+@use "../../../../styles/_media.scss";
 
 .card {
   display: flex;
@@ -13,7 +13,7 @@
     justify-content: flex-end;
   }
 
-  @include tablet {
+  @include media.tablet {
     width: calc(25% - 12px);
     justify-content: center;
 
@@ -23,7 +23,7 @@
     }
   }
 
-  @include desktop {
+  @include media.desktop {
     width: calc(50% - 8px);
     max-width: 250px;
   }

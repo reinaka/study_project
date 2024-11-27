@@ -1,5 +1,5 @@
-@import "../../../styles/mixins";
-@import "../../../styles/media";
+@use "../../../styles/mixins";
+@use "../../../styles/media";
 
 .navigation {
   display: flex;
@@ -10,7 +10,7 @@
   margin: 32px 0 28px;
   justify-content: space-evenly;
 
-  @include mobile {
+  @include media.mobile {
     justify-content: flex-start;
   }
 }
@@ -21,12 +21,12 @@
   padding: 6px 2px;
 
   &:after {
-    @include navItemDecoration;
+    @include mixins.navItemDecoration;
   }
 
   &:hover {
     &:after {
-      @include navItemHoverDecoration;
+      @include mixins.navItemHoverDecoration;
     }
   }
 }

@@ -1,6 +1,6 @@
-@import "../../../styles/colors";
-@import "../../../styles/mixins";
-@import "../../../styles/media";
+@use "../../../styles/colors";
+@use "../../../styles/mixins";
+@use "../../../styles/media";
 
 .link {
   color: #1d1929;
@@ -10,10 +10,10 @@
   text-transform: uppercase;
 
   &:after {
-    @include navItemDecoration;
+    @include mixins.navItemDecoration;
   }
 
-  @include tablet {
+  @include media.tablet {
     text-transform: none;
   }
 }
@@ -24,6 +24,6 @@
 
 .link:not(.link--active):hover {
   &:after {
-    @include navItemHoverDecoration;
+    @include mixins.navItemHoverDecoration;
   }
 }

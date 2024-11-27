@@ -1,5 +1,5 @@
-@import "../../../styles/media";
-@import "../../../styles/colors";
+@use "../../../styles/media";
+@use "../../../styles/colors";
 
 .navigation__wrapper {
   position: fixed;
@@ -8,10 +8,10 @@
   opacity: 0;
   width: 0px;
   height: calc(100dvh - 66px);
-  background-color: $bg;
+  background-color: colors.$bg;
   padding-top: 20px;
 
-  @include tablet {
+  @include media.tablet {
     position: relative;
     height: auto;
     width: auto;
@@ -26,7 +26,7 @@
   width: 100vw;
   opacity: 1;
 
-  @include tablet {
+  @include media.tablet {
     width: auto;
   }
 }
@@ -40,7 +40,7 @@
   top: 66px;
   margin-top: 4px;
 
-  @include tablet {
+  @include media.tablet {
     flex-direction: row;
     gap: 20px;
     width: auto;

@@ -1,5 +1,5 @@
-@import "../../styles/colors";
-@import "../../styles/media";
+@use "../../styles/colors";
+@use "../../styles/media";
 
 .burger {
   display: block;
@@ -20,7 +20,7 @@
     transform: translateY(10px);
   }
 
-  @include tablet {
+  @include media.tablet {
     display: none;
   }
 }
@@ -35,7 +35,7 @@
   top: calc(50% - 2px);
   width: 28px;
   height: 4px;
-  background-color: $dark;
+  background-color: colors.$dark;
   transform-origin: 50% 50%;
   border-radius: 3px;
 }

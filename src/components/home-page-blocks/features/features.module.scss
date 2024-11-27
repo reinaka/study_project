@@ -1,4 +1,4 @@
-@import "../../../styles/media";
+@use "../../../styles/media";
 
 .features__wrapper {
   width: 100%;
@@ -9,7 +9,7 @@
   color: #4f5665;
   margin: 0 auto;
 
-  @include desktop {
+  @include media.desktop {
     margin-top: 64px;
     justify-content: space-between;
   }
@@ -23,12 +23,12 @@
   color: #0b132a;
   text-align: center;
 
-  @include mobile {
+  @include media.mobile {
     font-size: 35px;
-    ine-height: 50px;
+    line-height: 50px;
   }
 
-  @include desktop {
+  @include media.desktop {
     text-align: left;
   }
 }
@@ -36,7 +36,7 @@
 .features__image {
   display: none;
 
-  @include desktop {
+  @include media.desktop {
     display: block;
   }
 }
@@ -45,7 +45,7 @@
   margin-bottom: 25px;
   text-align: center;
 
-  @include desktop {
+  @include media.desktop {
     text-align: left;
   }
 }
@@ -57,7 +57,7 @@
 }
 
 .features__contentBlock {
-  @include desktop {
+  @include media.desktop {
     margin-top: 74px;
   }
 }

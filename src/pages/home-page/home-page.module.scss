@@ -1,4 +1,4 @@
-@import "../../styles/media";
+@use "../../styles/media";
 
 .home__wrapper {
   display: flex;
@@ -6,11 +6,11 @@
   row-gap: 48px;
   margin-top: 40px;
 
-  @include mobile {
+  @include media.mobile {
     margin-top: 82px;
   }
 
-  @include tablet {
+  @include media.tablet {
     margin-top: 132px;
   }
 }

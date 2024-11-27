@@ -1,11 +1,11 @@
-@import "../../../styles/media";
+@use "../../../styles/media";
 
 .banner__wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  @include desktop {
+  @include media.desktop {
     flex-direction: row;
   }
 }
@@ -17,7 +17,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
 
-  @include desktop {
+  @include media.desktop {
     max-width: 518px;
   }
 }
@@ -30,7 +30,7 @@
   align-items: center;
   margin-bottom: 36px;
 
-  @include desktop {
+  @include media.desktop {
     max-width: 622px;
     text-align: left;
     align-items: flex-start;
@@ -44,7 +44,7 @@
   line-height: 40px;
   margin-bottom: 36px;
 
-  @include mobile {
+  @include media.mobile {
     font-size: 48px;
     line-height: 50px;
   }
