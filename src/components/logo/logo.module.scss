@@ -1,7 +1,8 @@
 @use "../../styles/media";
+@use "../../styles/colors";
 
 .logo {
-  color: #b4387a;
+  color: colors.$pink;
   font-weight: 700;
   font-size: 1.5rem;
   cursor: pointer;
