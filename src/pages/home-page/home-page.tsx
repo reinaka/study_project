@@ -21,7 +21,7 @@ export const HomePage = () => {
 
   useEffect(() => {
     getCurrencyList();
-  });
+  }, []);
 
   //для получения списка валют каждые 15 минут
   useEffect(() => {
@@ -30,7 +30,7 @@ export const HomePage = () => {
       1000 * 60 * 15,
     );
     return () => clearInterval(intervalId);
-  });
+  },[]);
 
   return (
     <div className={styles.home__wrapper}>
