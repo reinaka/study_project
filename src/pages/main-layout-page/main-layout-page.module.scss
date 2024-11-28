@@ -12,7 +12,10 @@
 
 .mainLayout__wrapper--burgerOpen {
   height: 100dvh;
+  width: 100vw;
   overflow: hidden;
+  position: sticky;
+  top: 0;
 }
 
 .main {
