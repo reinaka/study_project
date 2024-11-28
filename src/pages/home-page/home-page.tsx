@@ -14,20 +14,19 @@ export const HomePage = () => {
     { title: string; rate: string }[]
   >([]);
 
+  const getCurrencyList = async() => {
+    const allRates = await getRates("RUB");
+    setChosenRates(getChosenRates(allRates, currenciesArr));
+  };
+
   useEffect(() => {
-    (async function () {
-      const allRates = await getRates("RUB");
-      setChosenRates(getChosenRates(allRates, currenciesArr));
-    })();
+    getCurrencyList();
   });
 
   //для получения списка валют каждые 15 минут
   useEffect(() => {
     const intervalId = setInterval(
-      async () => {
-        const allRates = await getRates("RUB");
-        setChosenRates(getChosenRates(allRates, currenciesArr));
-      },
+      getCurrencyList,
       1000 * 60 * 15,
     );
     return () => clearInterval(intervalId);
