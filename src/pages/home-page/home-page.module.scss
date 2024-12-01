@@ -1,0 +1,16 @@
+@use "../../styles/media";
+
+.home__wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 48px;
+  margin-top: 40px;
+
+  @include media.mobile {
+    margin-top: 82px;
+  }
+
+  @include media.tablet {
+    margin-top: 132px;
+  }
+}

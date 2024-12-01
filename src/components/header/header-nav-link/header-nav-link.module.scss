@@ -1,0 +1,29 @@
+@use "../../../styles/colors";
+@use "../../../styles/mixins";
+@use "../../../styles/media";
+
+.link {
+  color: #1d1929;
+  font-weight: 700;
+  padding: 10px;
+  line-height: 18px;
+  text-transform: uppercase;
+
+  &:after {
+    @include mixins.navItemDecoration;
+  }
+
+  @include media.tablet {
+    text-transform: none;
+  }
+}
+
+.link--active {
+  color: #b2a35f;
+}
+
+.link:not(.link--active):hover {
+  &:after {
+    @include mixins.navItemHoverDecoration;
+  }
+}

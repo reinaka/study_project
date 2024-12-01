@@ -1,0 +1,26 @@
+@mixin mainLayout {
+  width: 90%;
+  margin: 0 auto;
+
+  @media (min-width: 1400px) {
+    width: 100%;
+    max-width: 1300px;
+  }
+}
+
+@mixin navItemDecoration {
+  content: "";
+  display: block;
+  margin: 5px auto auto auto;
+  height: 1px;
+  width: 0px;
+  background: transparent;
+  transition:
+    width 0.3s ease,
+    background-color 0.5s ease;
+}
+
+@mixin navItemHoverDecoration {
+  width: 100%;
+  background: #1d1929;
+}
