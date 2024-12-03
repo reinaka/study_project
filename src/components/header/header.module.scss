@@ -1,0 +1,15 @@
+@use "../../styles/mixins";
+@use "../../styles/media";
+
+.header__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 8px 0px;
+  @include mixins.mainLayout;
+
+  @include media.tablet {
+    justify-content: space-between;
+  }
+}

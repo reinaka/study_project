@@ -1,0 +1,40 @@
+@use "../../../styles/colors";
+@use "../../../styles/media";
+
+.subscription__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subscription__support {
+  color: colors.$orange;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.subscription__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  font-size: 20px;
+
+  @include media.mobile {
+    font-size: 30px;
+    gap: 26px;
+    margin-bottom: 62px;
+  }
+}
+
+.subscription__heading--top {
+  font-weight: 700;
+  line-height: 36px;
+}
+
+.subscription__heading--bottom {
+  font-weight: 500;
+  line-height: 44px;
+}

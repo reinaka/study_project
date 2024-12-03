@@ -1,0 +1,26 @@
+@use "../../styles/colors";
+@use "../../styles/mixins";
+
+.mainLayout__wrapper {
+  margin: 0 auto;
+  min-height: 100dvh;
+  width: 100dvw;
+  display: flex;
+  flex-direction: column;
+  background-color: colors.$bg;
+}
+
+.mainLayout__wrapper--burgerOpen {
+  height: 100dvh;
+  width: 100vw;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  @include mixins.mainLayout;
+}

@@ -1,0 +1,56 @@
+@use "../../styles/colors";
+
+.button {
+  color: colors.$white;
+  font-family: "Ubuntu", serif;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 1rem;
+  border: none;
+  display: flex;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: colors.$gray;
+
+    &:hover {
+      background-color: colors.$gray;
+    }
+  }
+}
+
+.button--blue {
+  background-color: colors.$blue;
+
+  &:hover {
+    background-color: colors.$blue-dimmed;
+  }
+
+  &:active {
+    background-color: colors.$blue;
+  }
+}
+
+.button--violet {
+  background-color: colors.$violet-dimmed;
+
+  &:hover {
+    background-color: colors.$violet;
+  }
+
+  &:active {
+    background-color: colors.$violet-dimmed;
+  }
+}
+
+.button--8 {
+  border-radius: 8px;
+}
+
+.button--16 {
+  border-radius: 16px;
+}
+
+.button--20 {
+  border-radius: 20px;
+}
