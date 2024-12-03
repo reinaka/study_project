@@ -1,6 +1,8 @@
 // для приведения курса к виду "1 единица валюты = х рублей"
 const calculateRate = (num: number) => (1 / num).toFixed(2);
 
+export type ChosenRatesT = { title: string; rate: string }[] | null;
+
 export const getChosenRates = (
   ratesList: { [key: string]: number },
   ratesArr: string[],
