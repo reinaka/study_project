@@ -1,5 +1,6 @@
-import { KEY } from "../utils/const";
 import axios from "axios";
+
+import { KEY } from "../utils/const";
 
 export const getRates = async (base: string) => {
   try {

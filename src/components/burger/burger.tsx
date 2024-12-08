@@ -1,5 +1,7 @@
+import classNames from "classnames/bind";
+
+import { BurgerStatePropsT } from "../../pages/main-layout-page";
 import styles from "./burger.module.scss";
-import { BurgerStatePropsT } from "../../pages/main-layout-page/main-layout-page";
 
 export const Burger = ({
   isBurgerOpen,
@@ -8,11 +10,15 @@ export const Burger = ({
   const handleClick = () => {
     setIsBurgerOpen(!isBurgerOpen);
   };
+
+  const cx = classNames.bind(styles);
+  const burgerStyles = cx({
+    burger: true,
+    "burger--active": isBurgerOpen,
+  });
+
   return (
-    <button
-      onClick={handleClick}
-      className={`${styles.burger} ${isBurgerOpen && styles["burger--active"]}`}
-    >
+    <button onClick={handleClick} className={burgerStyles}>
       <span></span>
     </button>
   );

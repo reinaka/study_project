@@ -1,8 +1,9 @@
 import { NavLink, useLocation } from "react-router-dom";
-import styles from "./header-nav-link.module.scss";
-import { BurgerStateHandlerT } from "../header";
 
-type HeaderNavLinkPropsT = {
+import { BurgerStateHandlerT } from "../header";
+import styles from "./header-nav-link.module.scss";
+
+export type HeaderNavLinkPropsT = {
   to: string;
   children: string | React.ReactNode;
 } & BurgerStateHandlerT;

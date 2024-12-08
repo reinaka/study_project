@@ -1,10 +1,11 @@
-import styles from "./header.module.scss";
-import { Logo } from "../logo/logo";
-import { Button } from "../button/button";
-import { HeaderNavigation } from "./header-navigation/header-navigation";
-import { Burger } from "../burger/burger";
-import { BurgerStatePropsT } from "../../pages/main-layout-page/main-layout-page";
 import { useCallback } from "react";
+
+import { BurgerStatePropsT } from "../../pages/main-layout-page";
+import { Burger } from "../burger";
+import { Button } from "../button";
+import { Logo } from "../logo";
+import styles from "./header.module.scss";
+import { HeaderNavigation } from "./header-navigation";
 
 export type BurgerStateHandlerT = {
   switchBurgerState: React.MouseEventHandler<HTMLAnchorElement>;

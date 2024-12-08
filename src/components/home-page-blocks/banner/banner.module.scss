@@ -22,6 +22,40 @@
   }
 }
 
+.card__item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 16px;
+  overflow: hidden;
+  width: calc(50% - 8px);
+
+  &:first-of-type,
+  &:nth-last-of-type(2) {
+    justify-content: flex-end;
+  }
+
+  @include media.tablet {
+    width: calc(25% - 12px);
+    justify-content: center;
+
+    &:first-of-type,
+    &:nth-last-of-type(2) {
+      justify-content: center;
+    }
+  }
+
+  @include media.desktop {
+    width: calc(50% - 8px);
+    max-width: 250px;
+  }
+
+  @include media.desktop {
+    width: calc(50% - 8px);
+    max-width: 250px;
+  }
+}
+
 .banner__applyBlock {
   max-width: none;
   text-align: center;

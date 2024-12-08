@@ -1,5 +1,12 @@
+import { FeatureItem } from "./feature-item";
 import styles from "./features.module.scss";
-import { FeatureItem } from "./feature-item/feature-item";
+
+const features = [
+  "Powerfull online protection",
+  "Cashback without borders",
+  "Personal design",
+  "Work anywhere in the world",
+];
 
 export const Features = () => {
   return (
@@ -17,12 +24,13 @@ export const Features = () => {
           You can explore the features that we provide with fun and have their
           own functions each feature
         </p>
-        <div className={styles.features__itemsBlock}>
-          <FeatureItem>Powerfull online protection</FeatureItem>
-          <FeatureItem>Cashback without borders</FeatureItem>
-          <FeatureItem>Personal design</FeatureItem>
-          <FeatureItem>Work anywhere in the world</FeatureItem>
-        </div>
+        <ul className={styles.features__itemsBlock}>
+          {features.map(feature => (
+            <li key={feature}>
+              <FeatureItem>{feature}</FeatureItem>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

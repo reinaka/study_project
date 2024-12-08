@@ -1,7 +1,9 @@
-import { HeaderNavLink } from "../header-nav-link/header-nav-link";
-import styles from "./header-navigation.module.scss";
-import { BurgerStatePropsT } from "../../../pages/main-layout-page/main-layout-page";
+import classNames from "classnames/bind";
+
+import { BurgerStatePropsT } from "../../../pages/main-layout-page";
 import { BurgerStateHandlerT } from "../header";
+import { HeaderNavLink } from "../header-nav-link";
+import styles from "./header-navigation.module.scss";
 
 const links = [
   {
@@ -29,10 +31,14 @@ export const HeaderNavigation = ({
   isBurgerOpen,
   switchBurgerState,
 }: HeaderNavigationPropsT) => {
+  const cx = classNames.bind(styles);
+  const navigationStyles = cx({
+    navigation__wrapper: true,
+    "navigation__wrapper--burgerOpen": isBurgerOpen,
+  });
+
   return (
-    <nav
-      className={`${styles.navigation__wrapper} ${isBurgerOpen && styles["navigation__wrapper--burgerOpen"]}`}
-    >
+    <nav className={navigationStyles}>
       <ul className={styles.navigation}>
         {links.length &&
           links.map(item => (

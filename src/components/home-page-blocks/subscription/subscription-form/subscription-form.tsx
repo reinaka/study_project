@@ -1,6 +1,7 @@
+import { useState } from "react";
+
 import { Button } from "../../../button/button";
 import styles from "./subscription-form.module.scss";
-import { useState } from "react";
 
 export const SubscriptionForm = () => {
   const [email, setEmail] = useState("");
@@ -31,7 +32,7 @@ export const SubscriptionForm = () => {
   return (
     <form className={styles.form} onSubmit={handleFormSubmit}>
       <div className={styles.input__wrapper}>
-        <img src="/icons/mail.svg" />
+        <img src="/icons/mail.svg" alt="mail icon" />
         <input
           className={styles.form__input}
           type="email"
