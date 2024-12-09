@@ -1,22 +1,31 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
-import { BurgerStatePropsT } from "../../pages/main-layout-page";
 import { Burger } from "../burger";
 import { Button } from "../button";
 import { Logo } from "../logo";
 import styles from "./header.module.scss";
 import { HeaderNavigation } from "./header-navigation";
 
-export type BurgerStateHandlerT = {
-  switchBurgerState: React.MouseEventHandler<HTMLAnchorElement>;
+export type SwitchBurgerStateT = {
+  switchBurgerState: () => void;
 };
 
-export const Header = ({
-  isBurgerOpen,
-  setIsBurgerOpen,
-}: BurgerStatePropsT) => {
+export const Header = () => {
+  const [isBurgerOpen, setIsBurgerOpen] = useState(false);
+  const bodyElem = document.getElementsByTagName("body")[0];
+
+  const openBurger = useCallback(() => {
+    setIsBurgerOpen(true);
+    bodyElem.style.overflow = "hidden";
+  }, []);
+
+  const closeBurger = useCallback(() => {
+    setIsBurgerOpen(false);
+    bodyElem.style.overflow = "auto";
+  }, []);
+
   const switchBurgerState = useCallback(() => {
-    if (isBurgerOpen) setIsBurgerOpen(false);
+    if (isBurgerOpen) closeBurger();
   }, [isBurgerOpen, setIsBurgerOpen]);
 
   return (
@@ -26,8 +35,12 @@ export const Header = ({
         switchBurgerState={switchBurgerState}
         isBurgerOpen={isBurgerOpen}
       />
-      <Button radius={16}>Online Bank</Button>
-      <Burger isBurgerOpen={isBurgerOpen} setIsBurgerOpen={setIsBurgerOpen} />
+      <Button>Online Bank</Button>
+      <Burger
+        isBurgerOpen={isBurgerOpen}
+        openBurger={openBurger}
+        closeBurger={closeBurger}
+      />
     </header>
   );
 };
