@@ -1,0 +1,53 @@
+@use "../../../styles/media";
+@use "../../../styles/colors";
+
+.navigation__wrapper {
+  position: fixed;
+  top: 66px;
+  left: 0;
+  opacity: 0;
+  width: 0px;
+  height: calc(100dvh - 66px);
+  background-color: colors.$bg;
+  padding-top: 20px;
+
+  @include media.tablet {
+    position: relative;
+    height: auto;
+    width: auto;
+    background-color: transparent;
+    top: 0;
+    opacity: 1;
+    padding-top: 0;
+  }
+}
+
+.navigation__wrapper--burgerOpen {
+  width: 100vw;
+  opacity: 1;
+
+  @include media.tablet {
+    width: auto;
+  }
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 90%;
+  margin: 0 auto;
+  top: 66px;
+  margin-top: 4px;
+
+  @include media.tablet {
+    flex-direction: row;
+    gap: 20px;
+    width: auto;
+    top: 0;
+  }
+}
+
+.navLink__wrapper {
+  display: flex;
+}

@@ -1,0 +1,36 @@
+@use "../../../styles/media";
+
+.locations__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 32px;
+
+  @include media.mobile {
+    line-height: 50px;
+  }
+}
+
+.locations__heading {
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 8px;
+  text-align: center;
+
+  @include media.mobile {
+    font-size: 30px;
+  }
+}
+
+.locations__text {
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.locations__map {
+  max-width: 90%;
+
+  @include media.desktop {
+    max-width: 1060px;
+  }
+}

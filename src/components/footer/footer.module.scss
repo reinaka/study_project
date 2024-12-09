@@ -1,0 +1,67 @@
+@use "../../styles/colors";
+@use "../../styles/mixins";
+@use "../../styles/media";
+
+.footer__wrapper {
+  width: 100%;
+  background-color: colors.$gray;
+  margin-top: 40px;
+
+  @include media.mobile {
+    margin-top: 96px;
+  }
+}
+
+.footer {
+  padding: 30px 0 40px;
+  @include mixins.mainLayout;
+
+  @include media.mobile {
+    padding: 96px 0 92px;
+  }
+}
+
+.footer__cookiesText {
+  font-weight: 500;
+  line-height: 1.5rem;
+  padding-top: 32px;
+  border-top: 2px solid colors.$white;
+}
+
+.footer__topBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  @include media.mobile {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0;
+  }
+}
+
+.footer__logo {
+  max-height: 50px;
+}
+
+.footer__addressBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  @include media.mobile {
+    align-items: flex-start;
+  }
+}
+
+.footer__tel {
+  font-weight: 700;
+  font-size: 20px;
+
+  @include media.tablet {
+    font-size: 30px;
+  }
+}
