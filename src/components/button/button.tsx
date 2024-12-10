@@ -4,10 +4,12 @@ import styles from "./button.module.scss";
 
 export type ButtonPropsT = {
   children: string | React.ReactNode;
-  radius?: 8 | 16 | 20;
+  radius?: 8 | 16 | 20 | "rounded";
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
   color?: "blue" | "violet";
+  additionalStyles?: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 export const Button = ({
@@ -16,15 +18,15 @@ export const Button = ({
   disabled,
   type,
   color,
+  additionalStyles,
+  onClick,
 }: ButtonPropsT) => {
   const cx = classNames.bind(styles);
   const buttonStyles = cx({
     button: true,
-    "button--violet": color === "violet",
-    "button--blue": color === "blue" || color === undefined,
-    "button--8": radius === 8,
-    "button--16": radius === 16 || radius === undefined,
-    "button--20": radius === 20,
+    [`button--${color ? color : "blue"}`]: true,
+    [`button--${radius ? radius : 16}`]: true,
+    [`${additionalStyles}`]: additionalStyles,
   });
 
   return (
@@ -32,8 +34,9 @@ export const Button = ({
       className={buttonStyles}
       disabled={disabled}
       type={type || "button"}
+      onClick={onClick}
     >
-      <span>{children}</span>
+      {children}
     </button>
   );
 };

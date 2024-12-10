@@ -1,5 +1,5 @@
-import { ChosenRatesT } from "../../../utils/getChosenRates";
-import { getDate } from "../../../utils/getDate";
+import { ChosenRatesT } from "../../../utils/functions";
+import { getCurrentDate } from "../../../utils/functions";
 import { Loader } from "../../loader";
 import styles from "./exchange-rates.module.scss";
 
@@ -20,7 +20,7 @@ export const ExchangeRates = ({
         </h3>
         <p className={styles["rates__text--datetime"]}>
           <span>
-            Updates every 15 minutes, MSC <time>{getDate()}</time>
+            Updates every 15 minutes, MSC <time>{getCurrentDate()}</time>
           </span>
         </p>
       </div>

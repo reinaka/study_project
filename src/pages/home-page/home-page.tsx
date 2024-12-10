@@ -4,10 +4,11 @@ import { Banner } from "../../components/home-page-blocks/banner";
 import { ExchangeRates } from "../../components/home-page-blocks/exchange-rates";
 import { Features } from "../../components/home-page-blocks/features";
 import { Locations } from "../../components/home-page-blocks/locations";
+import { News } from "../../components/home-page-blocks/news";
 import { Subscription } from "../../components/home-page-blocks/subscription";
-import { ChosenRatesT } from "../../utils/getChosenRates";
-import { getChosenRates } from "../../utils/getChosenRates";
-import { getRates } from "../../utils/getRates";
+import { getChosenRates } from "../../utils/functions";
+import { ChosenRatesT } from "../../utils/functions";
+import { getRates } from "../../utils/functions/getRates";
 import styles from "./home-page.module.scss";
 
 export const HomePage = () => {
@@ -40,6 +41,7 @@ export const HomePage = () => {
       <Features />
       <ExchangeRates chosenRates={chosenRates} loadingState={isLoading} />
       <Locations />
+      <News />
       <Subscription />
     </div>
   );

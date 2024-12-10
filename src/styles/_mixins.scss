@@ -1,3 +1,5 @@
+@use "./media";
+
 @mixin mainLayout {
   width: 90%;
   margin: 0 auto;
@@ -23,4 +25,28 @@
 @mixin navItemHoverDecoration {
   width: 100%;
   background: #1d1929;
+}
+
+@mixin sectionTopLines {
+  line-height: 32px;
+
+  @include media.mobile {
+    line-height: 50px;
+  }
+}
+
+@mixin secondaryHeading {
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 8px;
+  text-align: center;
+
+  @include media.mobile {
+    font-size: 30px;
+  }
+}
+
+@mixin sectionText {
+  margin-bottom: 48px;
+  text-align: center;
 }

@@ -1,30 +1,19 @@
 @use "../../../styles/media";
+@use "../../../styles/mixins";
 
 .locations__wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  line-height: 32px;
-
-  @include media.mobile {
-    line-height: 50px;
-  }
+  @include mixins.sectionTopLines;
 }
 
 .locations__heading {
-  font-weight: 500;
-  font-size: 20px;
-  margin-bottom: 8px;
-  text-align: center;
-
-  @include media.mobile {
-    font-size: 30px;
-  }
+  @include mixins.secondaryHeading;
 }
 
 .locations__text {
-  margin-bottom: 48px;
-  text-align: center;
+  @include mixins.sectionText;
 }
 
 .locations__map {

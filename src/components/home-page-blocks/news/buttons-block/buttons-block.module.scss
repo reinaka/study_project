@@ -1,0 +1,20 @@
+@use "../../../../styles/colors";
+
+.carousel__button {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg path {
+    stroke: colors.$white;
+  }
+}
+
+.buttons__wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: flex-end;
+}

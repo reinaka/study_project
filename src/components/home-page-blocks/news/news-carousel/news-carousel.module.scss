@@ -1,0 +1,20 @@
+.newsCarousel__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.carousel__wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 4px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
