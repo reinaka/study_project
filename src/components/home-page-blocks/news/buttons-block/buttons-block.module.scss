@@ -12,6 +12,15 @@
   }
 }
 
+.carousel__button--blocked {
+  background-color: transparent;
+  border: 1px solid colors.$blue;
+
+  svg path {
+    stroke: colors.$dark;
+  }
+}
+
 .buttons__wrapper {
   display: flex;
   flex-direction: row;

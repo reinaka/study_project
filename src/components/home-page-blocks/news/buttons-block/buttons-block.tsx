@@ -1,27 +1,47 @@
+import classNames from "classnames/bind";
+
 import { Button } from "../../../button";
 import { ArrowLeft, ArrowRight } from "../../../icons";
 import styles from "./buttons-block.module.scss";
 
-export const ButtonsBlock = ({
-  onClickHandler,
-}: {
+export type ButtonBlockPropsT = {
   onClickHandler: (
     scrollTo: "left" | "right",
   ) => React.MouseEventHandler<HTMLButtonElement> | undefined;
-}) => {
+  leftButtonActive: boolean;
+  rightButtonActive: boolean;
+};
+
+export const ButtonsBlock = ({
+  onClickHandler,
+  leftButtonActive,
+  rightButtonActive,
+}: ButtonBlockPropsT) => {
+  const cx = classNames.bind(styles);
+  const leftButtonStyles = cx({
+    carousel__button: true,
+    "carousel__button--blocked": !leftButtonActive,
+  });
+  const rightButtonStyles = cx({
+    carousel__button: true,
+    "carousel__button--blocked": !rightButtonActive,
+  });
+
   return (
     <div className={styles.buttons__wrapper}>
       <Button
         radius="rounded"
-        additionalStyles={styles.carousel__button}
+        additionalStyles={leftButtonStyles}
         onClick={onClickHandler("left")}
+        disabled={!leftButtonActive}
       >
         <ArrowLeft />
       </Button>
       <Button
         radius="rounded"
-        additionalStyles={styles.carousel__button}
+        additionalStyles={rightButtonStyles}
         onClick={onClickHandler("right")}
+        disabled={!rightButtonActive}
       >
         <ArrowRight />
       </Button>
