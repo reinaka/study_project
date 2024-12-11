@@ -8,7 +8,7 @@ import { News } from "../../components/home-page-blocks/news";
 import { Subscription } from "../../components/home-page-blocks/subscription";
 import { getChosenRates } from "../../utils/functions";
 import { ChosenRatesT } from "../../utils/functions";
-import { getRates } from "../../utils/functions/getRates";
+import { getRates } from "../../utils/functions";
 import styles from "./home-page.module.scss";
 
 export const HomePage = () => {

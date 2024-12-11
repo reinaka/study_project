@@ -53,6 +53,7 @@ export const NewsCarousel = () => {
     } else setIsRightButtonActive(false);
   };
 
+  // Функция для получения списка новостей
   const getNews = async () => {
     const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${NEWS_KEY}&pageSize=100`;
     try {
