@@ -11,3 +11,8 @@ export type NewsArticleT = {
   publishedAt: string;
   content: string | null;
 };
+
+export type FilteredNewsArticleT = Omit<NewsArticleT, "url" | "urlToInnage"> & {
+  url: string;
+  urlToImage: string;
+};
