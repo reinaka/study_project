@@ -1,6 +1,6 @@
 import { NewsArticleT } from "../types";
 
-export const checkNewsArticle = (article: NewsArticleT) => {
+export const checkArticle = (article: NewsArticleT) => {
   if (
     !article.title ||
     !article.description ||

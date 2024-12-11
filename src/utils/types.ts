@@ -12,7 +12,7 @@ export type NewsArticleT = {
   content: string | null;
 };
 
-export type FilteredNewsArticleT = Omit<NewsArticleT, "url" | "urlToInnage"> & {
+export type FilteredNewsArticleT = Omit<NewsArticleT, "url" | "urlToImage"> & {
   url: string;
   urlToImage: string;
 };

@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { NEWS_KEY } from "../../../../utils/const";
-import { checkNewsArticle, getData } from "../../../../utils/functions";
+import { checkArticle, getData } from "../../../../utils/functions";
 import { NewsArticleT } from "../../../../utils/types";
 import { FilteredNewsArticleT } from "../../../../utils/types";
-import { ButtonsBlock } from "../buttons-block/buttons-block";
+import { ButtonsBlock } from "../buttons-block";
 import { NewsItem } from "../news-item";
-import { NewsItemPlaceholder } from "../news-item/news-item-placeholder";
+import { NewsItemPlaceholder } from "../news-item";
 import styles from "./news-carousel.module.scss";
 
 export const NewsCarousel = () => {
@@ -60,7 +60,7 @@ export const NewsCarousel = () => {
       setIsLoading(true);
       const data = await getData(url, "Unable to load articles");
       const filteredArticles = data.articles.filter((article: NewsArticleT) =>
-        checkNewsArticle(article),
+        checkArticle(article),
       );
       setArticles(filteredArticles);
       setIsRightButtonActive(true);
