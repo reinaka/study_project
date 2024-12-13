@@ -1,4 +1,4 @@
-export type NewsArticleT = {
+export type NewsItemT = {
   source: {
     id: string | null;
     name: string;
@@ -12,7 +12,10 @@ export type NewsArticleT = {
   content: string | null;
 };
 
-export type FilteredNewsArticleT = Omit<NewsArticleT, "url" | "urlToImage"> & {
+export type FilteredNewsItemT = {
   url: string;
   urlToImage: string;
+  title: string;
+  author: string | null;
+  description: string;
 };

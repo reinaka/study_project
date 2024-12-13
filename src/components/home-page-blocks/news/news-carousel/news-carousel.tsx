@@ -1,17 +1,20 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 
-import { NEWS_KEY } from "../../../../utils/const";
-import { checkArticle, getData } from "../../../../utils/functions";
-import { NewsArticleT } from "../../../../utils/types";
-import { FilteredNewsArticleT } from "../../../../utils/types";
+import { FilteredNewsItemT } from "../../../../utils/types";
 import { ButtonsBlock } from "../buttons-block";
 import { NewsItem } from "../news-item";
 import { NewsItemPlaceholder } from "../news-item";
 import styles from "./news-carousel.module.scss";
 
-export const NewsCarousel = () => {
-  const [articles, setArticles] = useState<FilteredNewsArticleT[] | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+export type NewsCarouselPropsT = {
+  filteredNews: FilteredNewsItemT[] | null;
+  isLoading: boolean;
+};
+
+export const NewsCarousel = ({
+  filteredNews,
+  isLoading,
+}: NewsCarouselPropsT) => {
   const [isLeftButtonActive, setIsLeftButtonActive] = useState(false);
   const [isRightButtonActive, setIsRightButtonActive] = useState(false);
   const ref = useRef<HTMLUListElement>(null);
@@ -53,28 +56,6 @@ export const NewsCarousel = () => {
     } else setIsRightButtonActive(false);
   };
 
-  // Функция для получения списка новостей
-  const getNews = async () => {
-    const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${NEWS_KEY}&pageSize=100`;
-    try {
-      setIsLoading(true);
-      const data = await getData(url, "Unable to load articles");
-      const filteredArticles = data.articles.filter((article: NewsArticleT) =>
-        checkArticle(article),
-      );
-      setArticles(filteredArticles);
-      setIsRightButtonActive(true);
-    } catch {
-      setArticles(null);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    void getNews();
-  }, []);
-
   return (
     <div className={styles.newsCarousel__wrapper}>
       {isLoading ? (
@@ -85,16 +66,16 @@ export const NewsCarousel = () => {
             </li>
           ))}
         </ul>
-      ) : articles ? (
+      ) : filteredNews ? (
         <ul className={styles.carousel__wrapper} ref={ref}>
-          {articles.map(item => (
+          {filteredNews.map(item => (
             <li key={item.url}>
               <NewsItem
                 title={item.title}
                 description={item.description}
                 url={item.url}
                 urlToImage={item.urlToImage}
-                author={item.author}
+                author={item.author || "unknown author"}
               />
             </li>
           ))}

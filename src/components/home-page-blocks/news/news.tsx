@@ -1,7 +1,37 @@
+import { useEffect, useState } from "react";
+
+import { NEWS_KEY } from "../../../utils/const";
+import { getFilteredArticles } from "../../../utils/functions";
+import { getData } from "../../../utils/functions";
+import { FilteredNewsItemT } from "../../../utils/types";
 import styles from "./news.module.scss";
 import { NewsCarousel } from "./news-carousel";
 
 export const News = () => {
+  const [filteredNews, setFilteredNews] = useState<FilteredNewsItemT[] | null>(
+    [],
+  );
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Функция для получения списка новостей
+  const getNews = async () => {
+    const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${NEWS_KEY}&pageSize=100`;
+    try {
+      setIsLoading(true);
+      const data = await getData(url, "Unable to load articles");
+      const filteredArticles = await getFilteredArticles(data.articles);
+      setFilteredNews(filteredArticles);
+    } catch {
+      setFilteredNews([]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    void getNews();
+  }, []);
+
   return (
     <section className={styles.news__wrapper}>
       <h2 className={styles.news__heading}>
@@ -11,7 +41,7 @@ export const News = () => {
         We update the news feed every 15 minutes. You can learn more by clicking
         on the news you are interested in.
       </p>
-      <NewsCarousel />
+      <NewsCarousel filteredNews={filteredNews} isLoading={isLoading} />
     </section>
   );
 };

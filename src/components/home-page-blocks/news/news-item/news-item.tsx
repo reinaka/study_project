@@ -1,15 +1,12 @@
 import { Link } from "react-router-dom";
 
-import { NewsArticleT } from "../../../../utils/types";
+import { FilteredNewsItemT } from "../../../../utils/types";
 import styles from "./news-item.module.scss";
 
 export type NewsItemPropsT = Pick<
-  NewsArticleT,
-  "title" | "author" | "description"
-> & {
-  url: string;
-  urlToImage: string;
-};
+  FilteredNewsItemT,
+  "title" | "author" | "description" | "url" | "urlToImage"
+>;
 
 export const NewsItem = ({
   title,
