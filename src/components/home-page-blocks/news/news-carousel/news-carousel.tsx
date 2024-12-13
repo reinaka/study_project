@@ -57,8 +57,7 @@ export const NewsCarousel = ({
           ))}
         </ul>
       ) : filteredNews ? (
-        <div className={styles.carousel__wrapper}>
-          <ul className={styles.carousel__list} ref={listRef}>
+          <ul className={styles.carousel__wrapper} ref={listRef}>
             {filteredNews.map(item => (
               <li key={item.url}>
                 <NewsItem
@@ -71,7 +70,6 @@ export const NewsCarousel = ({
               </li>
             ))}
           </ul>
-        </div>
       ) : (
         <div className={styles["carousel__wrapper--placeholder"]}>
           <p>Failed to load latest news</p>
