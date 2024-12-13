@@ -1,3 +1,5 @@
+@use "../../../../styles/colors";
+
 .newsCarousel__wrapper {
   display: flex;
   flex-direction: column;
@@ -5,14 +7,19 @@
 }
 
 .carousel__wrapper {
+  scroll-behavior: smooth;
+}
+
+.carousel__list {
   display: flex;
+  overflow-x: auto;
+  list-style: none;
+  margin: 0;
   flex-direction: row;
   gap: 80px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 4px;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  padding: 4px;
 
   &::-webkit-scrollbar {
     display: none;
@@ -24,4 +31,32 @@
   height: 384px;
   justify-content: center;
   align-items: center;
+}
+
+.buttons__wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: flex-end;
+}
+
+.carousel__button {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg path {
+    stroke: colors.$white;
+  }
+
+  &:disabled {
+    background-color: transparent;
+    border: 1px solid colors.$blue;
+  
+    svg path {
+      stroke: colors.$dark;
+    }
+  }
 }

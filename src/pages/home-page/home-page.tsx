@@ -6,6 +6,7 @@ import { Features } from "../../components/home-page-blocks/features";
 import { Locations } from "../../components/home-page-blocks/locations";
 import { News } from "../../components/home-page-blocks/news";
 import { Subscription } from "../../components/home-page-blocks/subscription";
+import { UPDATE_TIME } from "../../utils/const";
 import { getChosenRates } from "../../utils/functions";
 import { ChosenRatesT } from "../../utils/functions";
 import { getRates } from "../../utils/functions";
@@ -31,7 +32,7 @@ export const HomePage = () => {
   //для получения списка валют каждые 15 минут
   useEffect(() => {
     void getCurrencyList();
-    const intervalId = setInterval(getCurrencyList, 1000 * 60 * 15);
+    const intervalId = setInterval(getCurrencyList, UPDATE_TIME);
     return () => clearInterval(intervalId);
   }, []);
 
