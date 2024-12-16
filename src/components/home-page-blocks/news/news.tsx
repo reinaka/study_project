@@ -1,16 +1,16 @@
+import { NEWS_KEY } from "@utils/const";
+import { UPDATE_TIME } from "@utils/const";
+import { getFilteredArticles } from "@utils/functions";
+import { getData } from "@utils/functions";
+import { FilteredNewsItemT } from "@utils/types";
 import { useEffect, useState } from "react";
 
-import { NEWS_KEY } from "../../../utils/const";
-import { UPDATE_TIME } from "../../../utils/const";
-import { getFilteredArticles } from "../../../utils/functions";
-import { getData } from "../../../utils/functions";
-import { FilteredNewsItemT } from "../../../utils/types";
 import styles from "./news.module.scss";
-import { NewsCarousel } from "./news-carousel";
+import { NewsSlider } from "./news-slider";
 
 export const News = () => {
   const [filteredNews, setFilteredNews] = useState<FilteredNewsItemT[] | null>(
-    [],
+    null,
   );
   const [isLoading, setIsLoading] = useState(false);
 
@@ -23,7 +23,7 @@ export const News = () => {
       const filteredArticles = await getFilteredArticles(data.articles);
       setFilteredNews(filteredArticles);
     } catch {
-      setFilteredNews([]);
+      setFilteredNews(null);
     } finally {
       setIsLoading(false);
     }
@@ -45,7 +45,7 @@ export const News = () => {
         We update the news feed every 15 minutes. You can learn more by clicking
         on the news you are interested in.
       </p>
-      <NewsCarousel filteredNews={filteredNews} isLoading={isLoading} />
+      <NewsSlider filteredNews={filteredNews} isLoading={isLoading} />
     </section>
   );
 };

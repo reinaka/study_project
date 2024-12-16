@@ -1,4 +1,5 @@
-import { Button } from "../../button";
+import { Button } from "@ui/button";
+
 import styles from "./banner.module.scss";
 import { BannerCard } from "./banner-card";
 

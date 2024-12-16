@@ -1,22 +1,19 @@
+import { Button } from "@ui/button";
+import { ArrowLeft, ArrowRight } from "@ui/icons";
+import { FilteredNewsItemT } from "@utils/types";
 import debounce from "lodash.debounce";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { FilteredNewsItemT } from "../../../../utils/types";
-import { Button } from "../../../button";
-import { ArrowLeft, ArrowRight } from "../../../icons";
 import { NewsItem } from "../news-item";
 import { NewsItemPlaceholder } from "../news-item";
-import styles from "./news-carousel.module.scss";
+import styles from "./news-slider.module.scss";
 
-export type NewsCarouselPropsT = {
+export type NewsSliderPropsT = {
   filteredNews: FilteredNewsItemT[] | null;
   isLoading: boolean;
 };
 
-export const NewsCarousel = ({
-  filteredNews,
-  isLoading,
-}: NewsCarouselPropsT) => {
+export const NewsSlider = ({ filteredNews, isLoading }: NewsSliderPropsT) => {
   const listRef = useRef<HTMLUListElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);

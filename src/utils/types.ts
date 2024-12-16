@@ -19,3 +19,5 @@ export type FilteredNewsItemT = {
   author: string | null;
   description: string;
 };
+
+export type RateT = { title: string; rate: string };

@@ -1,22 +1,22 @@
+import { Loader } from "@ui/loader";
+import { UPDATE_TIME } from "@utils/const";
+import { getCurrentDate } from "@utils/functions";
+import { getRates } from "@utils/functions";
+import { getChosenRates } from "@utils/functions";
+import { RateT } from "@utils/types";
 import { useEffect, useState } from "react";
 
-import { UPDATE_TIME } from "../../../utils/const";
-import { ChosenRatesT } from "../../../utils/functions";
-import { getCurrentDate } from "../../../utils/functions";
-import { getRates } from "../../../utils/functions";
-import { getChosenRates } from "../../../utils/functions";
-import { Loader } from "../../loader";
 import styles from "./exchange-rates.module.scss";
 import { RatesConverter } from "./rates-converter/rates-converter";
 
 export type ExchangeRatesPropsT = {
-  chosenRates: ChosenRatesT;
+  chosenRates: RateT[];
   loadingState: boolean;
 };
 
 export const ExchangeRates = () => {
   const currenciesArr = ["USD", "CNY", "CHF", "EUR", "JPY", "TRY"];
-  const [chosenRates, setChosenRates] = useState<ChosenRatesT>([]);
+  const [chosenRates, setChosenRates] = useState<RateT[] | null>([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const getCurrencyList = async () => {

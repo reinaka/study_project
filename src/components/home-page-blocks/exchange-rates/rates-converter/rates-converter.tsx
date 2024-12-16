@@ -1,10 +1,8 @@
+import { RateT } from "@utils/types";
+
 import styles from "./rates-converter.module.scss";
 
-export const RatesConverter = ({
-  chosenRates,
-}: {
-  chosenRates: { title: string; rate: string }[];
-}) => {
+export const RatesConverter = ({ chosenRates }: { chosenRates: RateT[] }) => {
   return (
     <div className={styles.currency__wrapper}>
       <ul className={styles.currency__container}>

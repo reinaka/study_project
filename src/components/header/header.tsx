@@ -1,10 +1,10 @@
+import { Burger } from "@ui/burger";
+import { Button } from "@ui/button";
 import { useCallback, useState } from "react";
 
-import { Burger } from "../burger";
-import { Button } from "../button";
-import { Logo } from "../logo";
 import styles from "./header.module.scss";
 import { HeaderNavigation } from "./header-navigation";
+import { Logo } from "./logo";
 
 export type SwitchBurgerStateT = {
   switchBurgerState: () => void;
