@@ -25,6 +25,7 @@
     "@vitejs/plugin-react": "^4.3.3",
     "autoprefixer": "^10.4.20",
     "classnames": "^2.5.1",
+    "esbuild": "^0.24.0",
     "eslint": "^9.13.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react-hooks": "^5.0.0",
@@ -41,7 +42,8 @@
     "vite-tsconfig-paths": "^5.1.4"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "^4.6.1"
+    "@rollup/rollup-linux-x64-gnu": "^4.6.1",
+    "@esbuild/linux-x64": "0.24.0"
   },
   "browserslist": [
     "defaults"
