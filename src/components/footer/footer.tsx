@@ -1,5 +1,5 @@
+import { FooterNavigation } from "./footer-navigation";
 import styles from "./footer.module.scss";
-import { FooterNavigation } from "./footer-navigation/footer-navigation";
 
 export const Footer = () => {
   return (

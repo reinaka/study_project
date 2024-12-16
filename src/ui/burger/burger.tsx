@@ -1,16 +1,17 @@
 import classNames from "classnames/bind";
-
-import { BurgerStatePropsT } from "../../pages/main-layout-page";
 import styles from "./burger.module.scss";
+
+export type BurgerStatePropsT = {
+  isBurgerOpen: boolean;
+  openBurger: () => void;
+  closeBurger: () => void;
+};
 
 export const Burger = ({
   isBurgerOpen,
-  setIsBurgerOpen,
+  openBurger,
+  closeBurger,
 }: BurgerStatePropsT) => {
-  const handleClick = () => {
-    setIsBurgerOpen(!isBurgerOpen);
-  };
-
   const cx = classNames.bind(styles);
   const burgerStyles = cx({
     burger: true,
@@ -18,7 +19,10 @@ export const Burger = ({
   });
 
   return (
-    <button onClick={handleClick} className={burgerStyles}>
+    <button
+      onClick={isBurgerOpen ? closeBurger : openBurger}
+      className={burgerStyles}
+    >
       <span></span>
     </button>
   );

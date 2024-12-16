@@ -1,0 +1,40 @@
+@use "@styles/media";
+
+.currency__wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  margin-bottom: 38px;
+}
+
+.currency__container {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  flex-wrap: wrap;
+  max-width: none;
+
+  @include media.tablet {
+    max-width: 448px;
+  }
+}
+
+.currencyItem__wrapper {
+  font-weight: 700;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: calc(50% - 16px);
+
+  @include media.mobile {
+    gap: 20px;
+    width: calc(33% - 22px);
+  }
+}
+
+.currencyItem__title {
+  color: #808080;
+}
