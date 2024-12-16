@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "@ui/button/button";
+import { Button } from "@ui/button";
 import styles from "./subscription-form.module.scss";
 
 export const SubscriptionForm = () => {
