@@ -1,4 +1,4 @@
-import { SubscriptionForm } from "./subscription-form/subscription-form";
+import { SubscriptionForm } from "./subscription-form";
 import styles from "./subscription.module.scss";
 
 export const Subscription = () => {

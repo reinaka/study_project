@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { FilteredNewsItemT } from "@utils/types";
-import { NewsItem } from "../news-item";
-import { NewsItemPlaceholder } from "../news-item";
+import { NewsItem, NewsItemPlaceholder } from "../news-item";
 import { ButtonsBlock } from "../buttons-block";
 import styles from "./news-slider.module.scss";
 
