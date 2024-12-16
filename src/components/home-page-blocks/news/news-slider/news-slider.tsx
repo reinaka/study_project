@@ -1,12 +1,12 @@
+import { useCallback, useEffect, useRef, useState } from "react";
+import debounce from "lodash.debounce";
 import { Button } from "@ui/button";
 import { ArrowLeft, ArrowRight } from "@ui/icons";
 import { FilteredNewsItemT } from "@utils/types";
-import debounce from "lodash.debounce";
-import { useCallback, useEffect, useRef, useState } from "react";
+import styles from "./news-slider.module.scss";
 
 import { NewsItem } from "../news-item";
 import { NewsItemPlaceholder } from "../news-item";
-import styles from "./news-slider.module.scss";
 
 export type NewsSliderPropsT = {
   filteredNews: FilteredNewsItemT[] | null;
@@ -18,6 +18,7 @@ export const NewsSlider = ({ filteredNews, isLoading }: NewsSliderPropsT) => {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
+  // Отслеживание скролла
   const checkForScrollPosition = useCallback(() => {
     if (listRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = listRef.current;
@@ -32,6 +33,7 @@ export const NewsSlider = ({ filteredNews, isLoading }: NewsSliderPropsT) => {
     listRef.current?.scrollBy({ left: scrollStep, behavior: "smooth" });
   };
 
+  // Навешивание слушателя скролла на слайдер
   useEffect(() => {
     checkForScrollPosition();
     const current = listRef.current;

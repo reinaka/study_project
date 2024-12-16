@@ -1,5 +1,4 @@
 import classNames from "classnames/bind";
-
 import { SwitchBurgerStateT } from "../header";
 import { HeaderNavLink } from "../header-nav-link";
 import styles from "./header-navigation.module.scss";

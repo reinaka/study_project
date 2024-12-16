@@ -1,5 +1,4 @@
 import { RateT } from "@utils/types";
-
 import styles from "./rates-converter.module.scss";
 
 export const RatesConverter = ({ chosenRates }: { chosenRates: RateT[] }) => {

@@ -1,13 +1,12 @@
+import { useEffect, useState } from "react";
 import { Loader } from "@ui/loader";
 import { UPDATE_TIME } from "@utils/const";
+import { RatesConverter } from "./rates-converter/rates-converter";
+import { getChosenRates } from "@utils/functions";
 import { getCurrentDate } from "@utils/functions";
 import { getRates } from "@utils/functions";
-import { getChosenRates } from "@utils/functions";
 import { RateT } from "@utils/types";
-import { useEffect, useState } from "react";
-
 import styles from "./exchange-rates.module.scss";
-import { RatesConverter } from "./rates-converter/rates-converter";
 
 export type ExchangeRatesPropsT = {
   chosenRates: RateT[];

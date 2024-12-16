@@ -1,5 +1,4 @@
 import classNames from "classnames/bind";
-
 import styles from "./news-item.module.scss";
 
 export const NewsItemPlaceholder = () => {

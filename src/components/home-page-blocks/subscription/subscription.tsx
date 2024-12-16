@@ -1,5 +1,5 @@
-import styles from "./subscription.module.scss";
 import { SubscriptionForm } from "./subscription-form/subscription-form";
+import styles from "./subscription.module.scss";
 
 export const Subscription = () => {
   return (

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-
-import { FilteredNewsItemT } from "../../../../utils/types";
+import { FilteredNewsItemT } from "@utils/types";
 import styles from "./news-item.module.scss";
 
 export type NewsItemPropsT = Pick<

@@ -1,12 +1,11 @@
+import { useEffect, useState } from "react";
+import { NewsSlider } from "./news-slider";
 import { NEWS_KEY } from "@utils/const";
 import { UPDATE_TIME } from "@utils/const";
 import { getFilteredArticles } from "@utils/functions";
 import { getData } from "@utils/functions";
 import { FilteredNewsItemT } from "@utils/types";
-import { useEffect, useState } from "react";
-
 import styles from "./news.module.scss";
-import { NewsSlider } from "./news-slider";
 
 export const News = () => {
   const [filteredNews, setFilteredNews] = useState<FilteredNewsItemT[] | null>(
