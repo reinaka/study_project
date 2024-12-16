@@ -1,17 +1,43 @@
+import { useEffect, useState } from "react";
+
+import { UPDATE_TIME } from "../../../utils/const";
 import { ChosenRatesT } from "../../../utils/functions";
 import { getCurrentDate } from "../../../utils/functions";
+import { getRates } from "../../../utils/functions";
+import { getChosenRates } from "../../../utils/functions";
 import { Loader } from "../../loader";
 import styles from "./exchange-rates.module.scss";
+import { RatesConverter } from "./rates-converter/rates-converter";
 
 export type ExchangeRatesPropsT = {
   chosenRates: ChosenRatesT;
   loadingState: boolean;
 };
 
-export const ExchangeRates = ({
-  chosenRates,
-  loadingState,
-}: ExchangeRatesPropsT) => {
+export const ExchangeRates = () => {
+  const currenciesArr = ["USD", "CNY", "CHF", "EUR", "JPY", "TRY"];
+  const [chosenRates, setChosenRates] = useState<ChosenRatesT>([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const getCurrencyList = async () => {
+    try {
+      setIsLoading(true);
+      const allRates = await getRates("RUB");
+      setChosenRates(getChosenRates(allRates, currenciesArr));
+    } catch {
+      setChosenRates(null);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  //для получения списка валют каждые 15 минут
+  useEffect(() => {
+    void getCurrencyList();
+    const intervalId = setInterval(getCurrencyList, UPDATE_TIME);
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <div className={styles.rates__wrapper}>
       <div className={styles["rates--top"]}>
@@ -25,31 +51,17 @@ export const ExchangeRates = ({
         </p>
       </div>
       <h2 className={styles.currency__heading}>Currency</h2>
-      {loadingState ? (
+
+      {isLoading ? (
         <Loader />
       ) : chosenRates ? (
-        <div className={styles.currency__wrapper}>
-          <ul className={styles.currency__container}>
-            {chosenRates.map(item => (
-              <li className={styles.currencyItem__wrapper} key={item.title}>
-                <span className={styles.currencyItem__title}>
-                  {item.title}:
-                </span>
-                <span>{item.rate}</span>
-              </li>
-            ))}
-          </ul>
-          <img
-            src="/exchange-building.svg"
-            alt="exchange rates building icon"
-            className={styles.currency__image}
-          />
-        </div>
+        <RatesConverter chosenRates={chosenRates} />
       ) : (
         <div className={styles.error__wrapper}>
           <p>Failed to load currency rates</p>
         </div>
       )}
+
       <div className={styles.rates__list}>All courses</div>
     </div>
   );

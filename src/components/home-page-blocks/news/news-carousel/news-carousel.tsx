@@ -1,5 +1,5 @@
 import debounce from "lodash.debounce";
-import { useCallback,useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { FilteredNewsItemT } from "../../../../utils/types";
 import { Button } from "../../../button";
@@ -17,7 +17,6 @@ export const NewsCarousel = ({
   filteredNews,
   isLoading,
 }: NewsCarouselPropsT) => {
-  
   const listRef = useRef<HTMLUListElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -33,7 +32,8 @@ export const NewsCarousel = ({
   const debounceCheckForScrollPosition = debounce(checkForScrollPosition, 50);
 
   const scrollContainerBy = (scrollStep: number) => {
-    listRef.current?.scrollBy({ left: scrollStep, behavior: "smooth" })};
+    listRef.current?.scrollBy({ left: scrollStep, behavior: "smooth" });
+  };
 
   useEffect(() => {
     checkForScrollPosition();
@@ -57,19 +57,19 @@ export const NewsCarousel = ({
           ))}
         </ul>
       ) : filteredNews ? (
-          <ul className={styles.carousel__wrapper} ref={listRef}>
-            {filteredNews.map(item => (
-              <li key={item.url}>
-                <NewsItem
-                  title={item.title}
-                  description={item.description}
-                  url={item.url}
-                  urlToImage={item.urlToImage}
-                  author={item.author || "unknown author"}
-                />
-              </li>
-            ))}
-          </ul>
+        <ul className={styles.carousel__wrapper} ref={listRef}>
+          {filteredNews.map(item => (
+            <li key={item.url}>
+              <NewsItem
+                title={item.title}
+                description={item.description}
+                url={item.url}
+                urlToImage={item.urlToImage}
+                author={item.author || "unknown author"}
+              />
+            </li>
+          ))}
+        </ul>
       ) : (
         <div className={styles["carousel__wrapper--placeholder"]}>
           <p>Failed to load latest news</p>
