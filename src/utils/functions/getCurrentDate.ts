@@ -1,4 +1,4 @@
-export const getDate = () => {
+export const getCurrentDate = () => {
   const currentDate = new Date();
   const options = {
     timeZone: "Europe/Moscow",

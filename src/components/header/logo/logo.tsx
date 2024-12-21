@@ -1,9 +1,8 @@
 import { NavLink, useLocation } from "react-router-dom";
-
-import { BurgerStateHandlerT } from "../header/header";
+import { SwitchBurgerStateT } from "../header";
 import styles from "./logo.module.scss";
 
-export const Logo = ({ switchBurgerState }: BurgerStateHandlerT) => {
+export const Logo = ({ switchBurgerState }: SwitchBurgerStateT) => {
   const location = useLocation();
 
   return (

@@ -1,0 +1,13 @@
+@use "@styles/mixins";
+
+.news__wrapper {
+  @include mixins.sectionTopLines;
+}
+
+.news__heading {
+  @include mixins.secondaryHeading;
+}
+
+.news__text {
+  @include mixins.sectionText;
+}

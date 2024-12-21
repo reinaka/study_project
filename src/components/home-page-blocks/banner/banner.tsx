@@ -1,6 +1,6 @@
-import { Button } from "../../button";
-import styles from "./banner.module.scss";
+import { Button } from "@ui/button";
 import { BannerCard } from "./banner-card";
+import styles from "./banner.module.scss";
 
 export type BannerCardT = {
   title: string;

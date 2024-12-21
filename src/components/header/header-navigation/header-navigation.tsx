@@ -1,7 +1,5 @@
 import classNames from "classnames/bind";
-
-import { BurgerStatePropsT } from "../../../pages/main-layout-page";
-import { BurgerStateHandlerT } from "../header";
+import { SwitchBurgerStateT } from "../header";
 import { HeaderNavLink } from "../header-nav-link";
 import styles from "./header-navigation.module.scss";
 
@@ -24,8 +22,9 @@ const links = [
   },
 ];
 
-type HeaderNavigationPropsT = BurgerStateHandlerT &
-  Pick<BurgerStatePropsT, "isBurgerOpen">;
+export type HeaderNavigationPropsT = {
+  isBurgerOpen: boolean;
+} & SwitchBurgerStateT;
 
 export const HeaderNavigation = ({
   isBurgerOpen,
@@ -40,14 +39,13 @@ export const HeaderNavigation = ({
   return (
     <nav className={navigationStyles}>
       <ul className={styles.navigation}>
-        {links.length &&
-          links.map(item => (
-            <li key={item.title} className={styles.navLink__wrapper}>
-              <HeaderNavLink to={item.to} switchBurgerState={switchBurgerState}>
-                {item.title}
-              </HeaderNavLink>
-            </li>
-          ))}
+        {links.map(item => (
+          <li key={item.title} className={styles.navLink__wrapper}>
+            <HeaderNavLink to={item.to} switchBurgerState={switchBurgerState}>
+              {item.title}
+            </HeaderNavLink>
+          </li>
+        ))}
       </ul>
     </nav>
   );
