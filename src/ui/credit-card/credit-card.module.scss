@@ -1,0 +1,13 @@
+@use "@styles/media";
+
+.card {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 16px;
+  overflow: hidden;
+  img {
+    width: 100%;
+  }
+}

@@ -1,11 +1,6 @@
 import { Button } from "@ui/button";
-import { BannerCard } from "./banner-card";
+import { CreditCard } from "@ui/credit-card";
 import styles from "./banner.module.scss";
-
-export type BannerCardT = {
-  title: string;
-  src: string;
-};
 
 const bannerCards = [
   {
@@ -38,7 +33,7 @@ export const Banner = () => {
       <ul className={styles.card__wrapper}>
         {bannerCards.map(card => (
           <li key={card.src} className={styles.card__item}>
-            <BannerCard card={card} />
+            <CreditCard card={card} additionalStyles={styles.card}/>
           </li>
         ))}
       </ul>

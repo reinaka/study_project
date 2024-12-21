@@ -22,12 +22,12 @@
   }
 }
 
+.card {
+  max-width: 252px;
+}
+
 .card__item {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  border-radius: 16px;
-  overflow: hidden;
   width: calc(50% - 8px);
 
   &:first-of-type,
