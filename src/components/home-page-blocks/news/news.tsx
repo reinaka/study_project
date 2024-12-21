@@ -19,7 +19,7 @@ export const News = () => {
     try {
       setIsLoading(true);
       const data = await getData(url, "Unable to load articles");
-      const filteredArticles = await getFilteredArticles(data.articles);
+      const filteredArticles = getFilteredArticles(data.articles);
       setFilteredNews(filteredArticles);
     } catch {
       setFilteredNews(null);
