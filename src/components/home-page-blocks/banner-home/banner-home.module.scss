@@ -1,4 +1,6 @@
 @use "@styles/media";
+@use "@styles/mixins";
+@use "@styles/colors";
 
 .banner__wrapper {
   display: flex;
@@ -73,13 +75,7 @@
 }
 
 .banner__heading {
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 40px;
+  @include mixins.banner__heading;
+  color: colors.$dark;
   margin-bottom: 36px;
-
-  @include media.mobile {
-    font-size: 48px;
-    line-height: 50px;
-  }
 }

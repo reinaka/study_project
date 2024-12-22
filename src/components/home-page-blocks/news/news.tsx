@@ -29,11 +29,11 @@ export const News = () => {
   };
 
   //для получения списка новостей каждые 15 минут
-  useEffect(() => {
-    void getNews();
-    const intervalId = setInterval(getNews, UPDATE_TIME);
-    return () => clearInterval(intervalId);
-  }, []);
+  // useEffect(() => {
+  //   void getNews();
+  //   const intervalId = setInterval(getNews, UPDATE_TIME);
+  //   return () => clearInterval(intervalId);
+  // }, []);
 
   return (
     <section className={styles.news__wrapper}>

@@ -1,0 +1,31 @@
+.infoBlock__wrapper {
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    font-weight: 700;
+  }
+
+  p {
+    font-weight: 500;
+  }
+}
+
+.infoBlock--full {
+  h3 {
+    font-size: 30px;
+    margin-bottom: 16px;
+  }
+}
+
+.infoBlock--compact {
+  h3 {
+    font-size: 20px;
+  }
+}
+
+.infoBlock__image {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 24px;
+}

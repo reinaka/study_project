@@ -51,6 +51,17 @@
   text-align: center;
 }
 
+@mixin banner__heading {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 40px;
+
+  @include media.mobile {
+    font-size: 48px;
+    line-height: 50px;
+  }
+}
+
 @mixin placeholder {
   animation-duration: 1.3s;
   animation-fill-mode: forwards;

@@ -1,3 +1,9 @@
+import { BannerCreditCard } from "@components/credit-card-page-blocks/banner-credit-card";
+
 export const CreditCardPage = () => {
-  return <div>credit card page</div>;
+  return (
+    <>
+      <BannerCreditCard />
+    </>
+  );
 };

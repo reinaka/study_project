@@ -1,4 +1,4 @@
-import { BannerHome} from "@components/home-page-blocks/banner-home";
+import { BannerHome } from "@components/home-page-blocks/banner-home";
 import { ExchangeRates } from "@components/home-page-blocks/exchange-rates";
 import { Features } from "@components/home-page-blocks/features";
 import { Locations } from "@components/home-page-blocks/locations";

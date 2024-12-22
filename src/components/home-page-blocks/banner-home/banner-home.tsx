@@ -28,12 +28,12 @@ export const BannerHome = () => {
         <h1 className={styles.banner__heading}>
           Choose the design you like and apply for card right now
         </h1>
-        <Button radius={16}>Choose the card</Button>
+        <Button>Choose the card</Button>
       </div>
       <ul className={styles.card__wrapper}>
         {bannerHomeCards.map(card => (
           <li key={card.src} className={styles.card__item}>
-            <CreditCard card={card} additionalStyles={styles.card}/>
+            <CreditCard card={card} additionalStyles={styles.card} />
           </li>
         ))}
       </ul>

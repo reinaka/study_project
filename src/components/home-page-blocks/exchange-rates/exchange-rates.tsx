@@ -8,11 +8,6 @@ import { getRates } from "@utils/functions";
 import { RateT } from "@utils/types";
 import styles from "./exchange-rates.module.scss";
 
-export type ExchangeRatesPropsT = {
-  chosenRates: RateT[];
-  loadingState: boolean;
-};
-
 export const ExchangeRates = () => {
   const currenciesArr = ["USD", "CNY", "CHF", "EUR", "JPY", "TRY"];
   const [chosenRates, setChosenRates] = useState<RateT[] | null>([]);
@@ -31,11 +26,11 @@ export const ExchangeRates = () => {
   };
 
   //для получения списка валют каждые 15 минут
-  useEffect(() => {
-    void getCurrencyList();
-    const intervalId = setInterval(getCurrencyList, UPDATE_TIME);
-    return () => clearInterval(intervalId);
-  }, []);
+  // useEffect(() => {
+  //   void getCurrencyList();
+  //   const intervalId = setInterval(getCurrencyList, UPDATE_TIME);
+  //   return () => clearInterval(intervalId);
+  // }, []);
 
   return (
     <div className={styles.rates__wrapper}>
