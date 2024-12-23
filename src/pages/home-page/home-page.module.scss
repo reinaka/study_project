@@ -1,9 +1,8 @@
 @use "@styles/media";
+@use "@styles/mixins";
 
-.home__wrapper {
-  display: flex;
-  flex-direction: column;
-  row-gap: 48px;
+.page__wrapper {
+  @include mixins.pageLayout;
   margin-top: 40px;
 
   @include media.mobile {

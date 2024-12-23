@@ -4,3 +4,4 @@ export { ArrowLeft, ArrowRight, IconsWrapper } from "./icons";
 export { Loader } from "./loader";
 export { CreditCard } from "./credit-card";
 export { Tooltip } from "./tooltip";
+export { Tabs } from "./tabs";

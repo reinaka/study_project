@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NewsSlider } from "./news-slider";
-import { NEWS_KEY } from "@utils/const";
-import { UPDATE_TIME } from "@utils/const";
+import { NEWS_KEY } from "@utils/const/const";
+import { UPDATE_TIME } from "@utils/const/const";
 import { getFilteredArticles } from "@utils/functions";
 import { getData } from "@utils/functions";
 import { FilteredNewsItemT } from "@utils/types";
@@ -28,12 +28,12 @@ export const News = () => {
     }
   };
 
-  //для получения списка новостей каждые 15 минут
-  // useEffect(() => {
-  //   void getNews();
-  //   const intervalId = setInterval(getNews, UPDATE_TIME);
-  //   return () => clearInterval(intervalId);
-  // }, []);
+  // для получения списка новостей каждые 15 минут
+  useEffect(() => {
+    void getNews();
+    const intervalId = setInterval(getNews, UPDATE_TIME);
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <section className={styles.news__wrapper}>

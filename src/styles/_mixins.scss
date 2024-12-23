@@ -10,6 +10,12 @@
   }
 }
 
+@mixin pageLayout {
+  display: flex;
+  flex-direction: column;
+  row-gap: 48px;
+}
+
 @mixin navItemDecoration {
   content: "";
   display: block;

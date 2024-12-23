@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Loader } from "@ui/loader";
-import { UPDATE_TIME } from "@utils/const";
+import { UPDATE_TIME } from "@utils/const/const";
 import { RatesConverter } from "./rates-converter/rates-converter";
 import { getChosenRates } from "@utils/functions";
 import { getCurrentDate } from "@utils/functions";
@@ -26,11 +26,11 @@ export const ExchangeRates = () => {
   };
 
   //для получения списка валют каждые 15 минут
-  // useEffect(() => {
-  //   void getCurrencyList();
-  //   const intervalId = setInterval(getCurrencyList, UPDATE_TIME);
-  //   return () => clearInterval(intervalId);
-  // }, []);
+  useEffect(() => {
+    void getCurrencyList();
+    const intervalId = setInterval(getCurrencyList, UPDATE_TIME);
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <div className={styles.rates__wrapper}>

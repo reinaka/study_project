@@ -8,7 +8,7 @@ import styles from "./home-page.module.scss";
 
 export const HomePage = () => {
   return (
-    <div className={styles.home__wrapper}>
+    <div className={styles.page__wrapper}>
       <BannerHome />
       <Features />
       <ExchangeRates />
