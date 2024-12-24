@@ -1,4 +1,4 @@
-import { AboutCard, Cashback, FAQ } from "./components";
+import { AboutCard, Cashback, FAQ, RatesConditions } from "./components";
 
 export const TABS_LIST = [
   {
@@ -8,7 +8,7 @@ export const TABS_LIST = [
   },
   {
     title: "Rates and conditions",
-    content: "kjhnkm",
+    content: <RatesConditions />,
     link: "rates-and-conditions",
   },
   {
