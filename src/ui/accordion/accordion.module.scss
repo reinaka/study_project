@@ -1,0 +1,58 @@
+@use "@styles/colors";
+
+.accordion__heading {
+  font-size: 30px;
+  margin-bottom: 32px;
+}
+
+.accordion__wrapper {
+  border: 1px solid rgba(226, 232, 240, 1);
+}
+
+.accordion__item:not(:last-child) {
+  border-bottom: 1px solid rgba(226, 232, 240, 1);
+}
+
+.accordion__title {
+  padding: 24px 70px 24px 32px;
+  position: relative;
+  cursor: pointer;
+  font-weight: 500;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    top: 24px;
+    right: 32px;
+    border-top: 2px solid colors.$tab;
+    border-right: 2px solid colors.$tab;
+    transform: rotate(135deg);
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.accordion__title--open {
+  &::after {
+    transform: rotate(-45deg);
+    top: 30px;
+  }
+}
+
+.accordion__content {
+  font-family: Ubuntu;
+  letter-spacing: -0.0001em;
+  height: 0px;
+  overflow: hidden;
+  padding: 0px 32px;
+  color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.accordion__content--open {
+  height: auto;
+  padding: 24px 32px;
+  opacity: 1;
+  color: colors.$tab;
+}

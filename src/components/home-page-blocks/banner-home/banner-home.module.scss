@@ -75,7 +75,7 @@
 }
 
 .banner__heading {
-  @include mixins.banner__heading;
   color: colors.$dark;
   margin-bottom: 36px;
+  @include mixins.banner__heading;
 }

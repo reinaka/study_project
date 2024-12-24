@@ -1,6 +1,5 @@
 import { Tabs } from "@ui/tabs";
-import { AboutCard } from "../about-card";
-import { Cashback } from "../cashback";
+import { AboutCard, Cashback, FAQ } from "./components";
 
 export type CreditCardTabT = {
   title: string;
@@ -26,7 +25,7 @@ const TABS_LIST = [
   },
   {
     title: "FAQ",
-    content: "kjhgbjn",
+    content: <FAQ />,
     link: "FAQ",
   },
 ];
