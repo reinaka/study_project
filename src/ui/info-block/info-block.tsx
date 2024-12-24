@@ -6,6 +6,7 @@ export type InfoBlockPropsT = {
   text: string;
   icon?: React.ReactNode;
   type?: "full" | "compact";
+  reverse?: boolean;
   additionalStyles?: string;
 };
 
@@ -14,6 +15,7 @@ export const InfoBlock = ({
   heading,
   text,
   type,
+  reverse,
   additionalStyles,
 }: InfoBlockPropsT) => {
   const cx = classNames.bind(styles);
@@ -21,13 +23,23 @@ export const InfoBlock = ({
     infoBlock__wrapper: true,
     [`infoBlock--${type === "full" ? "full" : "compact"}`]: true,
     [`${additionalStyles}`]: additionalStyles,
+    "infoBlock--reverse": reverse,
   });
 
   return (
     <div className={infoBlockStyles}>
       {icon && <div className={styles.infoBlock__icon}>{icon}</div>}
-      <h3>{heading}</h3>
-      <p>{text}</p>
+      {reverse ? (
+        <>
+          <p>{text}</p>
+          <h3>{heading}</h3>
+        </>
+      ) : (
+        <>
+          <h3>{heading}</h3>
+          <p>{text}</p>
+        </>
+      )}
     </div>
   );
 };

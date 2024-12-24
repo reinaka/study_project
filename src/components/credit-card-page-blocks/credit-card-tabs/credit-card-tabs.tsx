@@ -1,5 +1,6 @@
 import { Tabs } from "@ui/tabs";
 import { AboutCard } from "../about-card";
+import { Cashback } from "../cashback";
 
 export type CreditCardTabT = {
   title: string;
@@ -20,7 +21,7 @@ const TABS_LIST = [
   },
   {
     title: "Cashback",
-    content: "jhbn",
+    content: <Cashback />,
     link: "cashback",
   },
   {
