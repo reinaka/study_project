@@ -1,4 +1,4 @@
-import { IconsWrapper } from "../icons-wrapper";
+import { IconsWrapper } from "./icons-wrapper";
 
 export const ArrowLeft = () => {
   return (

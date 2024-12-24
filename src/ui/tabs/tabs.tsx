@@ -1,9 +1,9 @@
 import { useState, useCallback } from "react";
 import { TabItem } from "./tab-item";
-import { TABS } from "@utils/const";
+import { CreditCardTabT } from "@components/credit-card-page-blocks/credit-card-tabs";
 import styles from "./tabs.module.scss";
 
-export const Tabs = () => {
+export const Tabs = ({ tabs }: { tabs: CreditCardTabT[] }) => {
   const [activeTab, setActiveTab] = useState(0);
   const handleClick = useCallback(
     (index: number) => () => setActiveTab(index),
@@ -13,15 +13,17 @@ export const Tabs = () => {
   return (
     <section>
       <ul className={styles.tabs__list}>
-        {TABS.map((tab, ind) => (
-          <TabItem
-            title={tab.title}
-            handleClick={handleClick(ind)}
-            isActive={activeTab === ind}
-          />
+        {tabs.map((tab, ind) => (
+          <li key={tab.link}>
+            <TabItem
+              title={tab.title}
+              handleClick={handleClick(ind)}
+              isActive={activeTab === ind}
+            />
+          </li>
         ))}
       </ul>
-      <div>{TABS[activeTab].content}</div>
+      <div>{tabs[activeTab].content}</div>
     </section>
   );
 };

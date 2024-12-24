@@ -4,13 +4,13 @@ import styles from "./info-block.module.scss";
 export type InfoBlockPropsT = {
   heading: string;
   text: string;
-  image?: string;
+  icon?: React.ReactNode;
   type?: "full" | "compact";
   additionalStyles?: string;
 };
 
 export const InfoBlock = ({
-  image,
+  icon,
   heading,
   text,
   type,
@@ -25,7 +25,7 @@ export const InfoBlock = ({
 
   return (
     <div className={infoBlockStyles}>
-      {image && <img src={image} className={styles.infoBlock__image} />}
+      {icon && <div className={styles.infoBlock__icon}>{icon}</div>}
       <h3>{heading}</h3>
       <p>{text}</p>
     </div>

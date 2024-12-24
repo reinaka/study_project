@@ -1,0 +1,26 @@
+@use "@styles/colors";
+@use "@styles/media";
+
+.aboutCard__wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.aboutCard__item {
+  flex: 1;
+  min-width: 100%;
+  padding: 32px;
+  border-radius: 28px;
+  background-color: colors.$card-light;
+
+  &:nth-of-type(2n) {
+    background-color: colors.$card-dark-blue;
+  }
+
+  @include media.mobile {
+    min-width: 406px;
+  }
+}
