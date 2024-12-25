@@ -8,11 +8,13 @@ export const RatesConditions = () => {
         <li key={item.title} className={styles.conditions__item}>
           <div className={styles.conditions__title}>{item.title}</div>
           {Array.isArray(item.content) ? (
-            <div>
+            <ul>
               {item.content.map(item => (
-                <p className={styles.conditions__content}>{item}</p>
+                <li key={item}>
+                  <p className={styles.conditions__content}>{item}</p>
+                </li>
               ))}
-            </div>
+            </ul>
           ) : (
             <p className={styles.conditions__content}>{item.content}</p>
           )}
