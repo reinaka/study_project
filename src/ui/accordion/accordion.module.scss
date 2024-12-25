@@ -1,4 +1,5 @@
 @use "@styles/colors";
+@use "@styles/mixins";
 
 .accordion__heading {
   font-size: 30px;
@@ -20,23 +21,16 @@
   font-weight: 500;
 
   &::after {
-    content: "";
-    position: absolute;
-    width: 12px;
-    height: 12px;
     top: 24px;
     right: 32px;
-    border-top: 2px solid colors.$tab;
-    border-right: 2px solid colors.$tab;
-    transform: rotate(135deg);
-    transition: all 0.3s ease-in-out;
+    @include mixins.arrow_default;
   }
 }
 
 .accordion__title--open {
   &::after {
-    transform: rotate(-45deg);
     top: 30px;
+    @include mixins.arrow_open;
   }
 }
 

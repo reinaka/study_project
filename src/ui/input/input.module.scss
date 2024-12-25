@@ -1,0 +1,33 @@
+@use "@styles/colors";
+@use "@styles/mixins";
+
+.input {
+  @include mixins.input;
+}
+
+.input__wrapper {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    top: 13px;
+    right: 8px;
+  }
+}
+
+.input__wrapper--success {
+  &::after {
+    content: url("/icons/success_icon.svg");
+  }
+}
+
+.input__wrapper--failure {
+  &::after {
+    content: url("/icons/failure_icon.svg");
+  }
+}

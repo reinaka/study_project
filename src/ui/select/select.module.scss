@@ -1,0 +1,9 @@
+@use "@styles/mixins";
+
+.select__wrapper {
+  position: relative;
+}
+
+.select {
+  @include mixins.input;
+}

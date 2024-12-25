@@ -1,4 +1,6 @@
-// export { Accordion } from "./accordion";
+export { Label } from "./label";
+export { Input } from "./input";
+export { Accordion } from "./accordion";
 export { Burger } from "./burger";
 export { Button } from "./button";
 export { ArrowLeft, ArrowRight, IconsWrapper } from "./icons";
