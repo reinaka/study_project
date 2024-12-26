@@ -1,4 +1,4 @@
-import { Tabs } from "@ui/tabs";
+import { Tabs } from "@components/ui/tabs";
 import { TABS_LIST } from "./credit-card-tabs.const";
 
 export type CreditCardTabT = {

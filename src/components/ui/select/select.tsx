@@ -1,21 +1,21 @@
-import { Label } from "@ui/label";
+import { Label } from "../label";
 import styles from "./select.module.scss";
 
 export type SelectPropsT = {
-  text: string;
-  required?: boolean;
-  options: {
+  name: string;
+  label: string;
+  options?: {
+    value: string | number;
     text: string;
-    value: string;
   }[];
 };
 
-export const Select = ({ text, required, options }: SelectPropsT) => {
+export const Select = ({ name, label, options }: SelectPropsT) => {
   return (
-    <Label text={text} required={required}>
+    <Label text={label}>
       <div className={styles.select__wrapper}>
-        <select className={styles.select}>
-          {options.map((option: { text: string; value: string }) => (
+        <select className={styles.select} name={name}>
+          {options.map((option: { text: string; value: string | number }) => (
             <option value={option.value} key={option.value}>
               {option.text}
             </option>

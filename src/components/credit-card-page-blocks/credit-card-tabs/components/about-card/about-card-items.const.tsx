@@ -1,4 +1,4 @@
-import { Cash, Calendar, Clock, Bag, Card } from "@ui/icons";
+import { Cash, Calendar, Clock, Bag, Card } from "@components/ui/icons";
 
 export const ABOUT_CARD_ITEMS = [
   {

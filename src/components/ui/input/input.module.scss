@@ -20,14 +20,22 @@
   }
 }
 
-.input__wrapper--success {
+.input--valid {
   &::after {
     content: url("/icons/success_icon.svg");
   }
 }
 
-.input__wrapper--failure {
+.input--invalid {
   &::after {
     content: url("/icons/failure_icon.svg");
   }
+
+  input {
+    border: 2px solid colors.$red;
+  }
+}
+
+.input__error {
+  color: colors.$red;
 }

@@ -1,7 +1,7 @@
-import { Button } from "@ui/button";
-import { CreditCard } from "@ui/credit-card";
-import { InfoBlock } from "@ui/info-block/info-block";
-import { Tooltip } from "@ui/tooltip";
+import { Button } from "@components/ui/button";
+import { CreditCard } from "@components/ui/credit-card";
+import { InfoBlock } from "@components/ui/info-block/info-block";
+import { Tooltip } from "@components/ui/tooltip";
 import styles from "./banner-credit-card.module.scss";
 
 const creditCardInfo = [

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import debounce from "lodash.debounce";
-import { ArrowLeft, ArrowRight } from "@ui/icons";
-import { Button } from "@ui/button";
+import { ArrowLeft, ArrowRight } from "@components/ui/icons";
+import { Button } from "@components/ui/button";
 import styles from "./buttons-block.module.scss";
 
 export const ButtonsBlock = ({

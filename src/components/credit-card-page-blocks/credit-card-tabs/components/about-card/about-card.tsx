@@ -1,4 +1,4 @@
-import { InfoBlock } from "@ui/info-block/info-block";
+import { InfoBlock } from "@components/ui/info-block/info-block";
 import { ABOUT_CARD_ITEMS } from "./about-card-items.const";
 import styles from "./about-card.module.scss";
 

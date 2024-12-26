@@ -1,4 +1,4 @@
-import { InfoBlock } from "@ui/info-block/info-block";
+import { InfoBlock } from "@components/ui/info-block/info-block";
 import { CASHBACK_ITEMS } from "./cashback-items.const";
 import styles from "./cashback.module.scss";
 

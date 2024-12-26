@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Loader } from "@ui/loader";
+import { Loader } from "@components/ui/loader";
 import { UPDATE_TIME } from "@utils/const/const";
 import { RatesConverter } from "./rates-converter/rates-converter";
 import { getChosenRates } from "@utils/functions";

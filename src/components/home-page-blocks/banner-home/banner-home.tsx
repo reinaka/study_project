@@ -1,5 +1,5 @@
-import { Button } from "@ui/button";
-import { CreditCard } from "@ui/credit-card";
+import { Button } from "@components/ui/button";
+import { CreditCard } from "@components/ui/credit-card";
 import styles from "./banner-home.module.scss";
 
 const bannerHomeCards = [

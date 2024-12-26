@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
-import { Burger } from "@ui/burger";
-import { Button } from "@ui/button";
+import { Burger } from "@components/ui/burger";
+import { Button } from "@components/ui/button";
 import { HeaderNavigation } from "./header-navigation";
 import { Logo } from "./logo";
 import styles from "./header.module.scss";

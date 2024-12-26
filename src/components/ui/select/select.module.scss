@@ -5,5 +5,11 @@
 }
 
 .select {
+  -webkit-appearance: none;
+  position: relative;
   @include mixins.input;
+
+  &:after {
+    @include mixins.arrow_default;
+  }
 }
