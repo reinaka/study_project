@@ -8,11 +8,17 @@ export type SelectPropsT = {
     value: string | number;
     text: string;
   }[];
+  additionalStyles?: string;
 };
 
-export const Select = ({ name, label, options }: SelectPropsT) => {
+export const Select = ({
+  name,
+  label,
+  options,
+  additionalStyles,
+}: SelectPropsT) => {
   return (
-    <Label text={label}>
+    <Label text={label} additionalStyles={additionalStyles}>
       <div className={styles.select__wrapper}>
         <select className={styles.select} name={name}>
           {options.map((option: { text: string; value: string | number }) => (

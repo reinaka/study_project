@@ -6,6 +6,16 @@ import styles from "./input.module.scss";
 export type InputPropsT = {
   type?: string;
   placeholder?: string;
+  inputmode?:
+    | "search"
+    | "text"
+    | "numeric"
+    | "email"
+    | "tel"
+    | "url"
+    | "none"
+    | "decimal"
+    | undefined;
   name: string;
   label: string;
   required?: boolean;
@@ -13,11 +23,13 @@ export type InputPropsT = {
   rules?: RegisterOptions<FieldValues, string> | undefined;
   error?: string;
   formSubmitted: boolean;
+  additionalStyles?: string;
 };
 
 export const Input = ({
   type,
   placeholder,
+  inputmode,
   name,
   label,
   required,
@@ -25,6 +37,7 @@ export const Input = ({
   register,
   error,
   formSubmitted,
+  additionalStyles,
 }: InputPropsT) => {
   const cx = classNames.bind(styles);
   const inputStyles = cx({
@@ -35,12 +48,17 @@ export const Input = ({
 
   return (
     <>
-      <Label text={label} required={required}>
+      <Label
+        text={label}
+        required={required}
+        additionalStyles={additionalStyles}
+      >
         <div className={inputStyles}>
           <input
             className={styles.input}
             type={type}
             placeholder={placeholder}
+            inputMode={inputmode}
             {...(register && register(name, rules))}
           />
         </div>

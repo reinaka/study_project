@@ -1,6 +1,16 @@
 export type FormItemT = {
   elem: "input" | "select";
   type?: "text" | "number" | "email";
+  inputmode?:
+    | "search"
+    | "text"
+    | "numeric"
+    | "email"
+    | "tel"
+    | "url"
+    | "none"
+    | "decimal"
+    | undefined;
   name: string;
   label: string;
   placeholder?: string;
@@ -14,6 +24,7 @@ export const FORM_ITEMS = [
   {
     elem: "input",
     type: "number",
+    inputmode: "numeric",
     name: "amount",
     label: "Select amount",
     placeholder: "150000",
@@ -70,6 +81,7 @@ export const FORM_ITEMS = [
   {
     elem: "input",
     type: "email",
+    inputmode: "email",
     name: "email",
     label: "Your email",
     placeholder: "test@gmail.com",
@@ -84,6 +96,7 @@ export const FORM_ITEMS = [
   {
     elem: "input",
     type: "date",
+    inputmode: "numeric",
     name: "birthdate",
     label: "Your date of birth",
     placeholder: "Select Date",
@@ -98,6 +111,7 @@ export const FORM_ITEMS = [
   {
     elem: "input",
     type: "number",
+    inputmode: "numeric",
     name: "passportSeries",
     label: "Your passport series",
     placeholder: "0000",
@@ -116,6 +130,7 @@ export const FORM_ITEMS = [
   {
     elem: "input",
     type: "number",
+    inputmode: "numeric",
     name: "passportNumber",
     label: "Your passport number",
     placeholder: "000000",

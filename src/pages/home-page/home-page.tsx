@@ -5,7 +5,7 @@ import {
   Locations,
   News,
   Subscription,
-} from "@components/home-page-blocks";
+} from "@components/page-blocks/home-page-blocks";
 import styles from "./home-page.module.scss";
 
 export const HomePage = () => {

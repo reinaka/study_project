@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import { TabItem } from "./tab-item";
-import { CreditCardTabT } from "@components/credit-card-page-blocks/credit-card-tabs";
+import { CreditCardTabT } from "@components/page-blocks";
 import styles from "./tabs.module.scss";
 
 export const Tabs = ({ tabs }: { tabs: CreditCardTabT[] }) => {
