@@ -56,10 +56,10 @@
 }
 
 .banner__heading {
-  @include mixins.banner__heading;
   color: colors.$white;
   text-align: center;
   grid-area: heading;
+  @include mixins.banner__heading;
 
   @include media.tablet {
     text-align: left;

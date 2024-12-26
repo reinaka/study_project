@@ -10,10 +10,6 @@ export type FormItemT = {
   options?: { value: string | number; text: string }[];
 };
 
-export const DEFAULT_VALUES = {
-  term: 6,
-};
-
 export const FORM_ITEMS = [
   {
     elem: "input",

@@ -6,7 +6,16 @@
 
 .select {
   -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   position: relative;
+  background: transparent;
+  background-image: url(/icons/arrow_expand.svg);
+  background-repeat: no-repeat;
+  background-position-x: calc(100% - 16px);
+  background-position-y: 50%;
+  padding: 1rem;
+  padding-right: 2rem;
   @include mixins.input;
 
   &:after {
