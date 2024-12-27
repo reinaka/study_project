@@ -1,3 +1,4 @@
+export { Divider } from "./divider";
 export { Select } from "./select";
 export { Label } from "./label";
 export { Input } from "./input";
