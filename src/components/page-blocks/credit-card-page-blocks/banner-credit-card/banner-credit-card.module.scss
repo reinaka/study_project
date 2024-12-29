@@ -16,9 +16,9 @@
     rgba(203, 213, 224, 0.624) 34.33%,
     rgba(254, 235, 200, 0.56) 64.27%
   );
-  box-shadow: 0 2px 4px 0 #00000033;
   padding: 48px 32px;
   margin-top: 20px;
+  @include mixins.boxShadow;
 
   @include media.tablet {
     grid-template-rows: auto 1fr auto;

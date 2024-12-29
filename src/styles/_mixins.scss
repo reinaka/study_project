@@ -44,7 +44,7 @@
 
 @mixin secondaryHeading {
   font-weight: 500;
-  font-size: 20px;
+  font-size: 26px;
   margin-bottom: 8px;
   text-align: center;
 
@@ -124,4 +124,8 @@
 
 @mixin arrow_open {
   transform: rotate(-45deg);
+}
+
+@mixin boxShadow {
+  box-shadow: 0 2px 4px 0 #00000033;
 }

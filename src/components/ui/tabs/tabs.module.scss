@@ -3,3 +3,8 @@
   flex-direction: row;
   margin-bottom: 32px;
 }
+
+.tabs__link {
+  display: flex;
+  align-items: flex-end;
+}

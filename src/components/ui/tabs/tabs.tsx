@@ -14,7 +14,7 @@ export const Tabs = ({ tabs }: { tabs: CreditCardTabT[] }) => {
     <section>
       <ul className={styles.tabs__list}>
         {tabs.map((tab, ind) => (
-          <li key={tab.link}>
+          <li key={tab.link} className={styles.tabs__link}>
             <TabItem
               title={tab.title}
               handleClick={handleClick(ind)}
