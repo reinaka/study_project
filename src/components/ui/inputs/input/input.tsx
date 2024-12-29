@@ -67,7 +67,12 @@ export const Input = ({
               type === "date" ? e => (e.target.type = "date") : undefined
             }
             onBlur={type === "date" ? e => (e.target.type = "text") : undefined}
-            onWheel={type === "number" ? (e: React.WheelEvent<HTMLInputElement>) => e.currentTarget.blur() : undefined}
+            onWheel={
+              type === "number"
+                ? (e: React.WheelEvent<HTMLInputElement>) =>
+                    e.currentTarget.blur()
+                : undefined
+            }
           />
         </div>
       </Label>

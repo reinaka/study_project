@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
-import { Button, Select, Input } from "@components/ui";
+import { Button, Select, Input, Divider } from "@components/ui";
 import { FORM_ITEMS } from "./prescoring-form-items.const";
+import { getFormattedNumber } from "@utils/functions";
 import styles from "./prescoring-form.module.scss";
 
 export const PrescoringForm = () => {
@@ -39,17 +40,15 @@ export const PrescoringForm = () => {
             additionalStyles={styles["form__input--first"]}
           />
         </div>
+        <Divider type="dashed" direction="vertical" />
         <div className={styles.form__headerItem}>
           <h3 className={styles.form__subheading}>
             You have chosen the amount
           </h3>
           <span className={styles.form__chosenAmount}>
-            {(150000).toLocaleString("ru", {
-              style: "currency",
-              currency: "rub",
-              minimumFractionDigits: 0,
-            })}
+            {getFormattedNumber(150000)}
           </span>
+          <Divider additionalStyles={styles.divider} />
         </div>
       </div>
       <div>

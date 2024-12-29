@@ -1,3 +1,4 @@
+export { getFormattedNumber } from "./getFormattedNumber";
 export { checkArticle } from "./checkNewsItem";
 export { getChosenRates } from "./getChosenRates";
 export { getCurrentDate } from "./getCurrentDate";

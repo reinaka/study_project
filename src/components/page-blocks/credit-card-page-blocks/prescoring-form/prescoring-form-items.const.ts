@@ -101,10 +101,17 @@ export const FORM_ITEMS = [
     label: "Your date of birth",
     placeholder: "Select Date",
     rules: {
+      valueAsDate: true,
       required: "Enter your date of birth",
       pattern: {
         value: /^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/,
         message: "Incorrect date of birth",
+      },
+      validate: (birthdate: Date) => {
+        const selectedDate = new Date(birthdate).getFullYear();
+        const now = new Date().getFullYear();
+        const isValidAge = now - selectedDate >= 18;
+        return isValidAge || "You must be 18 y.o. or older";
       },
     },
   },

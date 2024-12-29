@@ -21,11 +21,12 @@ export const Select = ({
     <Label text={label} additionalStyles={additionalStyles}>
       <div className={styles.select__wrapper}>
         <select className={styles.select} name={name}>
-          {options.map((option: { text: string; value: string | number }) => (
-            <option value={option.value} key={option.value}>
-              {option.text}
-            </option>
-          ))}
+          {options &&
+            options.map((option: { text: string; value: string | number }) => (
+              <option value={option.value} key={option.value}>
+                {option.text}
+              </option>
+            ))}
         </select>
       </div>
     </Label>

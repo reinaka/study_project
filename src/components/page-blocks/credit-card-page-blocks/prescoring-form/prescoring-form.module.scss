@@ -6,7 +6,7 @@
   padding: 32px;
   background-color: colors.$white;
   border-radius: 28px;
-  box-shadow: 0 2px 4px 0 #00000033;
+  @include mixins.boxShadow;
 }
 
 .form__header {
@@ -100,10 +100,15 @@
 .form__chosenAmount {
   display: block;
   margin-top: 16px;
+  margin-bottom: 10px;
 }
 
 .button {
   padding: 16px 40px;
   justify-self: flex-end;
   margin-top: 24px;
+}
+
+.divider {
+  width: 220px;
 }
