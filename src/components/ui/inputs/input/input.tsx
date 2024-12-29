@@ -1,3 +1,4 @@
+import { FieldError, FieldErrorsImpl, Merge } from "react-hook-form";
 import { Label } from "@components/ui/label";
 import { UseFormRegister, RegisterOptions, FieldValues } from "react-hook-form";
 import classNames from "classnames/bind";
@@ -21,7 +22,7 @@ export type InputPropsT = {
   required?: boolean;
   register?: UseFormRegister<FieldValues>;
   rules?: RegisterOptions<FieldValues, string> | undefined;
-  error?: string;
+  error?: string | FieldError | Merge<FieldError, FieldErrorsImpl> | undefined;
   formSubmitted: boolean;
   additionalStyles?: string;
 };
@@ -55,15 +56,22 @@ export const Input = ({
       >
         <div className={inputStyles}>
           <input
+            name={name}
             className={styles.input}
-            type={type}
+            type={type === "date" ? "text" : type}
             placeholder={placeholder}
             inputMode={inputmode}
             {...(register && register(name, rules))}
+            // Тут начинаются костыли
+            onFocus={
+              type === "date" ? e => (e.target.type = "date") : undefined
+            }
+            onBlur={type === "date" ? e => (e.target.type = "text") : undefined}
+            onWheel={type === "number" ? (e: React.WheelEvent<HTMLInputElement>) => e.currentTarget.blur() : undefined}
           />
         </div>
       </Label>
-      {error && <p className={styles.input__error}>{error || "Error"}</p>}
+      {error && <p className={styles.input__error}>{`${error}` || "Error"}</p>}
     </>
   );
 };

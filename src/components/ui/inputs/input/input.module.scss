@@ -21,6 +21,10 @@
   &::after {
     content: url("/icons/success_icon.svg");
   }
+
+  input {
+    padding-right: 50px;
+  }
 }
 
 .input--invalid {
@@ -30,6 +34,7 @@
 
   input {
     border: 2px solid colors.$red;
+    padding-right: 50px;
   }
 }
 
@@ -39,29 +44,12 @@
 
 input[type="date"] {
   position: relative;
-}
+  color: #808080;
+  font-family: "Ubuntu", serif;
 
-input[type="date"]::-webkit-calendar-picker-indicator {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: auto;
-  height: auto;
-  color: transparent;
-  background: transparent;
-}
-
-input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-clear-button {
-  z-index: -10;
-}
-
-input[type="date"]::-webkit-input-placeholder {
-  z-index: 99;
-}
-
-input[type="date"]:placeholder {
-  z-index: 99;
+  &::-webkit-calendar-picker-indicator {
+    margin-top: 1px;
+    cursor: pointer;
+    filter: invert(50%);
+  }
 }
