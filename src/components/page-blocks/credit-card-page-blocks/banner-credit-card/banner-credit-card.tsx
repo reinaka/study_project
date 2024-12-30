@@ -22,7 +22,11 @@ const creditCardInfo = [
   },
 ];
 
-export const BannerCreditCard = () => {
+export type BannerCreditCardPropsT = {
+  handleScroll: () => void;
+};
+
+export const BannerCreditCard = ({ handleScroll }: BannerCreditCardPropsT) => {
   return (
     <section role="banner" className={styles.banner__wrapper}>
       <h1 className={styles.banner__heading}>Platinum digital credit card</h1>
@@ -44,7 +48,9 @@ export const BannerCreditCard = () => {
             </li>
           ))}
         </ul>
-        <Button radius={8}>Apply for card</Button>
+        <Button radius={8} onClick={handleScroll}>
+          Apply for card
+        </Button>
       </div>
       <CreditCard
         card={{ title: "credit card", src: "/credit-cards/card1.jpg" }}
