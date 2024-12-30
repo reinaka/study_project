@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { FieldValues, useForm } from "react-hook-form";
 import { Button, Select, Input, Divider } from "@components/ui";
 import { FORM_ITEMS } from "./prescoring-form-items.const";
 import { getFormattedNumber } from "@utils/functions";
@@ -11,7 +11,7 @@ export const PrescoringForm = () => {
     handleSubmit,
   } = useForm();
 
-  const handleFormSubmit = formData => {
+  const handleFormSubmit = (formData: FieldValues) => {
     console.log(formData);
   };
 

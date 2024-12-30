@@ -1,25 +1,3 @@
-export type FormItemT = {
-  elem: "input" | "select";
-  type?: "text" | "number" | "email";
-  inputmode?:
-    | "search"
-    | "text"
-    | "numeric"
-    | "email"
-    | "tel"
-    | "url"
-    | "none"
-    | "decimal"
-    | undefined;
-  name: string;
-  label: string;
-  placeholder?: string;
-  rules?: {
-    required?: string;
-  };
-  options?: { value: string | number; text: string }[];
-};
-
 export const FORM_ITEMS = [
   {
     elem: "input",
@@ -101,7 +79,6 @@ export const FORM_ITEMS = [
     label: "Your date of birth",
     placeholder: "Select Date",
     rules: {
-      valueAsDate: true,
       required: "Enter your date of birth",
       pattern: {
         value: /^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/,
