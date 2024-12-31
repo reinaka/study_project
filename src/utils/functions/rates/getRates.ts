@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { RATES_KEY } from "../const/const";
+import { RATES_KEY } from "../../const/const";
 
 export const getRates = async (base: string) => {
   try {

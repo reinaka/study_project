@@ -1,7 +1,7 @@
+export { removeSpaces } from "./removeSpaces";
 export { getFormattedNumber } from "./getFormattedNumber";
-export { checkArticle } from "./checkNewsItem";
-export { getChosenRates } from "./getChosenRates";
+export { checkArticle } from "./news/checkNewsItem";
+export { getChosenRates } from "./rates/getChosenRates";
 export { getCurrentDate } from "./getCurrentDate";
-export { getData } from "./getData";
-export { getFilteredArticles } from "./getFilteredNews";
-export { getRates } from "./getRates";
+export { getFilteredArticles } from "./news/getFilteredNews";
+export { getRates } from "./rates/getRates";

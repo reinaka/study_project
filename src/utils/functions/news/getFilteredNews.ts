@@ -1,4 +1,4 @@
-import { FilteredNewsItemT, NewsItemT } from "../types";
+import { FilteredNewsItemT, NewsItemT } from "../../types";
 import { checkArticle } from "./checkNewsItem";
 
 export const getFilteredArticles = (
