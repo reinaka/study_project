@@ -3,7 +3,7 @@ import styles from "./label.module.scss";
 
 export type LabelPropsT = {
   children: React.ReactNode;
-  text: string;
+  text?: string;
   required?: boolean;
   additionalStyles?: string;
 };

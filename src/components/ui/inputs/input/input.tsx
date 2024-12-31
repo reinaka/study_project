@@ -1,8 +1,9 @@
 import { FieldError, FieldErrorsImpl, Merge } from "react-hook-form";
-import { Label } from "@components/ui/label";
+import { Label } from "@components/ui/inputs/label";
 import { UseFormRegister, RegisterOptions, FieldValues } from "react-hook-form";
 import classNames from "classnames/bind";
 import styles from "./input.module.scss";
+import { ErrorMessage } from "../error-message";
 
 export type InputPropsT = {
   type?: string;
@@ -76,7 +77,7 @@ export const Input = ({
           />
         </div>
       </Label>
-      {error && <p className={styles.input__error}>{`${error}` || "Error"}</p>}
+      {error && <ErrorMessage>{`${error}` || "Error"}</ErrorMessage>}
     </>
   );
 };

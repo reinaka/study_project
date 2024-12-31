@@ -1,7 +1,6 @@
 export { Notification } from "./notification";
 export { Divider } from "./divider";
-export { Input, Select, ErrorMessage } from "./inputs";
-export { Label } from "./label";
+export { Input, Select, ErrorMessage, Label } from "./inputs";
 export { Accordion } from "./accordion";
 export { Burger } from "./burger";
 export { Button } from "./button";
