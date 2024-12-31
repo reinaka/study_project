@@ -1,4 +1,4 @@
-import { NewsItemT } from "../types";
+import { NewsItemT } from "@utils/types";
 
 const checkTags = (text: string) => {
   if (

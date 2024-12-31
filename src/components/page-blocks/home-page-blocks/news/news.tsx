@@ -3,7 +3,7 @@ import { NewsSlider } from "./news-slider";
 import { NEWS_KEY } from "@utils/const/const";
 import { UPDATE_TIME } from "@utils/const/const";
 import { getFilteredArticles } from "@utils/functions";
-import { getData } from "@utils/functions";
+import { api } from "@utils/functions/api";
 import { FilteredNewsItemT } from "@utils/types";
 import styles from "./news.module.scss";
 
@@ -18,8 +18,12 @@ export const News = () => {
     const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${NEWS_KEY}&pageSize=100`;
     try {
       setIsLoading(true);
-      const data = await getData(url, "Unable to load articles");
-      const filteredArticles = getFilteredArticles(data.articles);
+      const response = await api({
+        method: "get",
+        url: url,
+        error_message: "Unable to load articles",
+      });
+      const filteredArticles = getFilteredArticles(response.data.articles);
       setFilteredNews(filteredArticles);
     } catch {
       setFilteredNews(null);
