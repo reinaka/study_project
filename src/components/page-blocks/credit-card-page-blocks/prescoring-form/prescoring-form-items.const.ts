@@ -7,6 +7,7 @@ export const FORM_ITEMS = [
     label: "Select amount",
     placeholder: "150000",
     rules: {
+      valueAsNumber: true,
       required: "Enter amount",
       min: {
         value: 150000,
@@ -49,6 +50,9 @@ export const FORM_ITEMS = [
     elem: "select",
     name: "term",
     label: "Select term",
+    rules: {
+      valueAsNumber: true,
+    },
     options: [
       { value: 6, text: "6 months" },
       { value: 12, text: "12 months" },

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { SubscriptionForm } from "./subscription-form";
+import { Notification } from "@components/ui";
 import styles from "./subscription.module.scss";
 
 export const Subscription = () => {
@@ -19,7 +20,9 @@ export const Subscription = () => {
         </span>
       </h2>
       {isSubscribed ? (
-        <div>You are already subscribed to the bank's newsletter</div>
+        <Notification>
+          You are already subscribed to the bank's newsletter
+        </Notification>
       ) : (
         <SubscriptionForm setIsSubscribed={setIsSubscribed} />
       )}
