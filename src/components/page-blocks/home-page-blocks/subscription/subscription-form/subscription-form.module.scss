@@ -2,11 +2,6 @@
 @use "@styles/media";
 
 .form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
   background-color: colors.$white;
   padding: 22px;
   border-radius: 20px;
@@ -15,8 +10,19 @@
   max-width: 100%;
 
   @include media.tablet {
-    flex-direction: row;
     padding: 22px 32px;
+  }
+}
+
+.form__mainBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+
+  @include media.tablet {
+    flex-direction: row;
   }
 }
 

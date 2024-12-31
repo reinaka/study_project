@@ -1,7 +1,12 @@
+import { useState } from "react";
 import { SubscriptionForm } from "./subscription-form";
 import styles from "./subscription.module.scss";
 
 export const Subscription = () => {
+  const [isSubscribed, setIsSubscribed] = useState(
+    Boolean(localStorage.getItem("isSubscribedToNews")),
+  );
+
   return (
     <section className={styles.subscription__wrapper}>
       <p className={styles.subscription__support}>Support</p>
@@ -13,7 +18,11 @@ export const Subscription = () => {
           Bank News
         </span>
       </h2>
-      <SubscriptionForm />
+      {isSubscribed ? (
+        <div>You are already subscribed to the bank's newsletter</div>
+      ) : (
+        <SubscriptionForm setIsSubscribed={setIsSubscribed} />
+      )}
     </section>
   );
 };
