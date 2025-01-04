@@ -13,15 +13,15 @@ export const ButtonsBlock = ({
   const [canScrollRight, setCanScrollRight] = useState(true);
 
   // Отслеживание скролла
-  const checkForScrollPosition = useCallback(() => {
+  const checkScrollPosition = useCallback(() => {
     if (listRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = listRef.current;
       setCanScrollLeft(scrollLeft > 0);
       setCanScrollRight(scrollLeft !== scrollWidth - clientWidth);
     }
-  }, []);
+  }, [listRef]);
 
-  const debounceCheckForScrollPosition = debounce(checkForScrollPosition, 50);
+  const debounceCheckScrollPosition = debounce(checkScrollPosition, 50);
 
   const scrollContainerBy = (scrollStep: number) => {
     listRef.current?.scrollBy({ left: scrollStep, behavior: "smooth" });
@@ -29,15 +29,15 @@ export const ButtonsBlock = ({
 
   // Навешивание слушателя скролла на слайдер
   useEffect(() => {
-    checkForScrollPosition();
+    checkScrollPosition();
     const current = listRef.current;
-    current?.addEventListener("scroll", debounceCheckForScrollPosition);
+    current?.addEventListener("scroll", debounceCheckScrollPosition);
 
     return () => {
-      current?.removeEventListener("scroll", debounceCheckForScrollPosition);
-      debounceCheckForScrollPosition.cancel();
+      current?.removeEventListener("scroll", debounceCheckScrollPosition);
+      debounceCheckScrollPosition.cancel();
     };
-  }, [checkForScrollPosition, debounceCheckForScrollPosition, listRef]);
+  }, [checkScrollPosition, debounceCheckScrollPosition, listRef]);
 
   return (
     <div className={styles.buttons__wrapper}>
