@@ -1,15 +1,18 @@
-import { FilteredNewsItemT, NewsItemT } from "../../types";
+import { FilteredNewsItemT, NewsItemT } from "@utils/types";
 import { checkArticle } from "./checkNewsItem";
 
-export const getFilteredArticles = (
+export const getFilteredArticles = async (
   articles: NewsItemT[] | [],
-): FilteredNewsItemT[] => {
-  const limit = 20; // лимит отображаемых статей
-  const filteredArticles: FilteredNewsItemT[] = [];
-  articles.forEach(async article => {
-    const validArticle = await checkArticle(article);
-    if (validArticle && filteredArticles.length < limit)
-      filteredArticles.push(validArticle);
-  });
+  limit: number,
+) => {
+  const promises = articles.map(article => checkArticle(article));
+  const result = (await Promise.allSettled(promises)) as {
+    status: "fulfilled" | "rejected";
+    value: FilteredNewsItemT;
+  }[];
+  const filteredArticles = result
+    .filter(article => article.status === "fulfilled" && article.value)
+    .slice(0, limit)
+    .map(article => article.value);
   return filteredArticles;
 };
