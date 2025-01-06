@@ -1,10 +1,10 @@
+import axios from "axios";
 import { useState } from "react";
 import { useForm, FieldValues } from "react-hook-form";
 import { Button } from "@components/ui/button";
 import { ErrorMessage, Label } from "@components/ui";
 import { Loader } from "@components/ui";
 import { removeSpaces } from "@utils/functions";
-import { api } from "@utils/functions/api";
 import styles from "./subscription-form.module.scss";
 import { BASE_URL } from "@utils/const/const";
 
@@ -30,16 +30,7 @@ export const SubscriptionForm = ({
 
     try {
       setIsLoading(true);
-      const result = await api({
-        method: "post",
-        url: `${BASE_URL}/email`,
-        config: {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          data: formattedData,
-        },
-      });
+      const result = await axios.post(`${BASE_URL}/email`, formattedData);
       if (result.status === 200) {
         setIsSubscribed(true);
         localStorage.setItem("isSubscribedToNews", "true");

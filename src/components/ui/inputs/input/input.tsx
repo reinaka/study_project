@@ -1,32 +1,8 @@
-import { FieldError, FieldErrorsImpl, Merge } from "react-hook-form";
-import { Label } from "@components/ui/inputs/label";
-import { UseFormRegister, RegisterOptions, FieldValues } from "react-hook-form";
+import { Label } from "../label";
+import { ErrorMessage } from "../error-message";
+import { InputPropsT } from "../inputProps.type";
 import classNames from "classnames/bind";
 import styles from "./input.module.scss";
-import { ErrorMessage } from "../error-message";
-
-export type InputPropsT = {
-  type?: string;
-  placeholder?: string;
-  inputmode?:
-    | "search"
-    | "text"
-    | "numeric"
-    | "email"
-    | "tel"
-    | "url"
-    | "none"
-    | "decimal"
-    | undefined;
-  name: string;
-  label: string;
-  required?: boolean;
-  register?: UseFormRegister<FieldValues>;
-  rules?: RegisterOptions<FieldValues, string> | undefined;
-  error?: string | FieldError | Merge<FieldError, FieldErrorsImpl> | undefined;
-  formSubmitted: boolean;
-  additionalStyles?: string;
-};
 
 export const Input = ({
   type,
@@ -63,7 +39,6 @@ export const Input = ({
             placeholder={placeholder}
             inputMode={inputmode}
             {...(register && register(name, rules))}
-            // Тут начинаются костыли
             onFocus={
               type === "date" ? e => (e.target.type = "date") : undefined
             }

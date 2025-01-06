@@ -1,18 +1,11 @@
 import { Label } from "../label";
-import { UseFormRegister, FieldValues, RegisterOptions } from "react-hook-form";
+import { InputPropsT } from "../inputProps.type";
 import styles from "./select.module.scss";
 
-export type SelectPropsT = {
-  name: string;
-  label: string;
-  register?: UseFormRegister<FieldValues>;
-  rules?: RegisterOptions<FieldValues, string> | undefined;
-  options?: {
-    value: string | number;
-    text: string;
-  }[];
-  additionalStyles?: string;
-};
+export type SelectPropsT = Pick<
+  InputPropsT,
+  "name" | "label" | "options" | "register" | "rules" | "additionalStyles"
+>;
 
 export const Select = ({
   name,

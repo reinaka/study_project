@@ -1,7 +1,7 @@
 export const FORM_ITEMS = [
   {
     elem: "input",
-    type: "number",
+    type: "range",
     inputmode: "numeric",
     name: "amount",
     label: "Select amount",
@@ -10,8 +10,8 @@ export const FORM_ITEMS = [
       valueAsNumber: true,
       required: "Enter amount",
       min: {
-        value: 150000,
-        message: "Minimum amount 150 000 ₽",
+        value: 15000,
+        message: "Minimum amount 15 000 ₽",
       },
       max: {
         value: 600000,

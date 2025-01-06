@@ -1,8 +1,15 @@
 import { useState } from "react";
 import axios from "axios";
-import { FieldValues, useForm } from "react-hook-form";
-import { Button, Select, Input, Divider, Notification } from "@components/ui";
-import { Loader } from "@components/ui";
+import { FieldValues, useForm, useWatch } from "react-hook-form";
+import {
+  Button,
+  Select,
+  Range,
+  Input,
+  Divider,
+  Notification,
+  Loader,
+} from "@components/ui";
 import { FORM_ITEMS } from "./prescoring-form-items.const";
 import { getFormattedNumber, removeSpaces } from "@utils/functions";
 import { BASE_URL } from "@utils/const/const";
@@ -18,11 +25,13 @@ export const PrescoringForm = () => {
     register,
     formState: { errors, isSubmitted },
     handleSubmit,
+    control,
   } = useForm();
 
   const handleFormSubmit = async (formData: FieldValues) => {
     const formattedData = {
       ...formData,
+      amount: Number(formData.amount),
       firstName: removeSpaces(formData.firstName),
       lastName: removeSpaces(formData.lastName),
       middleName:
@@ -44,6 +53,12 @@ export const PrescoringForm = () => {
       setIsLoading(false);
     }
   };
+
+  const amount = useWatch({
+    control,
+    name: "amount",
+    defaultValue: "150000",
+  });
 
   return (
     <section>
@@ -67,18 +82,15 @@ export const PrescoringForm = () => {
                 <h2 className={styles.form__heading}>Customize your card</h2>
                 <div>Step 1 of 5</div>
               </div>
-              <Input
-                type={FORM_ITEMS[0].type}
-                placeholder={FORM_ITEMS[0].placeholder}
+              <Range
                 name={FORM_ITEMS[0].name}
                 label={FORM_ITEMS[0].label}
                 rules={FORM_ITEMS[0].rules}
                 register={register}
-                required={!!FORM_ITEMS[0].rules?.required}
-                error={errors[FORM_ITEMS[0].name]?.message}
-                key={FORM_ITEMS[0].name}
-                formSubmitted={isSubmitted}
-                additionalStyles={styles["form__input--first"]}
+                value={amount}
+                min={FORM_ITEMS[0].rules?.min?.value}
+                max={FORM_ITEMS[0].rules?.max?.value}
+                step={15000}
               />
             </div>
             <Divider type="dashed" direction="vertical" />
@@ -87,7 +99,7 @@ export const PrescoringForm = () => {
                 You have chosen the amount
               </h3>
               <span className={styles.form__chosenAmount}>
-                {getFormattedNumber(150000)}
+                {getFormattedNumber(amount)}
               </span>
               <Divider additionalStyles={styles.divider} />
             </div>
