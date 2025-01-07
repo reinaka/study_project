@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { FieldValues, useForm, useWatch } from "react-hook-form";
+import { Form } from "../..";
 import {
   Button,
   Select,
@@ -11,6 +12,7 @@ import {
   Loader,
 } from "@components/ui";
 import { FORM_ITEMS } from "./prescoring-form-items.const";
+import { FormTitle } from "../form-title/form-title";
 import { getFormattedNumber, removeSpaces } from "@utils/functions";
 import { BASE_URL } from "@utils/const/const";
 import styles from "./prescoring-form.module.scss";
@@ -71,23 +73,17 @@ export const PrescoringForm = () => {
             : "Something went wrong"}
         </Notification>
       ) : (
-        <form
-          onSubmit={handleSubmit(handleFormSubmit)}
-          className={styles.form__wrapper}
-        >
+        <Form submitHandler={handleSubmit(handleFormSubmit)}>
           {/* Верхний блок */}
           <div className={styles.form__header}>
             <div className={styles.form__headerItem}>
-              <div className={styles.form__title}>
-                <h2 className={styles.form__heading}>Customize your card</h2>
-                <div>Step 1 of 5</div>
-              </div>
+              <FormTitle text="Customize your card" step={1} />
               <Range
                 name={FORM_ITEMS[0].name}
                 label={FORM_ITEMS[0].label}
                 rules={FORM_ITEMS[0].rules}
                 register={register}
-                value={amount}
+                value={Number(amount)}
                 min={FORM_ITEMS[0].rules?.min?.value}
                 max={FORM_ITEMS[0].rules?.max?.value}
                 step={15000}
@@ -99,7 +95,7 @@ export const PrescoringForm = () => {
                 You have chosen the amount
               </h3>
               <span className={styles.form__chosenAmount}>
-                {getFormattedNumber(amount)}
+                {getFormattedNumber(Number(amount))}
               </span>
               <Divider additionalStyles={styles.divider} />
             </div>
@@ -142,7 +138,7 @@ export const PrescoringForm = () => {
           <Button type="submit" radius={8} additionalStyles={styles.button}>
             Continue
           </Button>
-        </form>
+        </Form>
       )}
     </section>
   );

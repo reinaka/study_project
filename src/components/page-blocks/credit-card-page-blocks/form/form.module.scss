@@ -1,0 +1,9 @@
+@use "@styles/colors";
+@use "@styles/mixins";
+
+.form__wrapper {
+  padding: 32px;
+  background-color: colors.$white;
+  border-radius: 28px;
+  @include mixins.boxShadow;
+}

@@ -4,7 +4,7 @@ import {
   Merge,
   UseFormRegister,
   RegisterOptions,
-  FieldValues
+  FieldValues,
 } from "react-hook-form";
 
 export type InputPropsT = {

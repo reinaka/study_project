@@ -91,8 +91,10 @@ export const FORM_ITEMS = [
       validate: (birthdate: Date) => {
         const selectedDate = new Date(birthdate).getFullYear();
         const now = new Date().getFullYear();
-        const isValidAge = now - selectedDate >= 18;
-        return isValidAge || "You must be 18 y.o. or older";
+        const age = now - selectedDate;
+        if (age < 18) return "You must be 18 y.o. or older";
+        else if (age > 120) return "Invalid year of birth";
+        else return true;
       },
     },
   },

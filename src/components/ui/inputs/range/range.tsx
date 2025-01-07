@@ -37,6 +37,7 @@ export const Range = ({
           max={`${max}`}
           step={`${step}`}
           {...(register && register(name, rules))}
+          value={value}
         />
       </Label>
       <div className={styles.range__minMaxBlock}>

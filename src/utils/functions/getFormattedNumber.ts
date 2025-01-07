@@ -7,5 +7,5 @@ export const getFormattedNumber = (
     currency: "rub",
     minimumFractionDigits: 0,
   });
-  return noCurrency ? result.replace(/[^0-9\s]/g, " ") : result;
+  return noCurrency ? result.replace(/[^0-9\s]/g, " ").trim() : result;
 };
