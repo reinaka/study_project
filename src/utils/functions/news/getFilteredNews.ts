@@ -8,8 +8,9 @@ export const getFilteredArticles = async (
   async function filterArticles(
     resultArr: FilteredNewsItemT[],
     start: number,
-    end: number,
+    end: number | undefined,
   ) {
+    if (end != undefined && articles.length <= end) end = undefined;
     const articlesSlice = articles.slice(start, end);
     const promises = articlesSlice.map(article => checkArticle(article));
     const result = (await Promise.allSettled(promises)) as {
@@ -21,12 +22,13 @@ export const getFilteredArticles = async (
       .map(article => article.value);
     if (filteredArticles.length)
       resultArr = [...resultArr, ...filteredArticles];
-    if (resultArr.length < limit) {
+    if (resultArr.length < limit && end != undefined) {
       start = end;
       end += limit - resultArr.length;
       return filterArticles(resultArr, start, end);
     } else return resultArr;
   }
+
   const filteredArticlesResult = await filterArticles([], 0, limit + 1);
   return filteredArticlesResult;
 };
