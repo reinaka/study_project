@@ -6,8 +6,4 @@ export {
   News,
   Subscription,
 } from "./home-page-blocks";
-export {
-  BannerCreditCard,
-  CreditCardTabs,
-  PrescoringForm,
-} from "./credit-card-page-blocks";
+export { BannerLoan, LoanTabs, PrescoringForm } from "./loan-page-blocks";

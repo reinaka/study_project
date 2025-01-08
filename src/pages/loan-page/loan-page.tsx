@@ -1,13 +1,13 @@
 import { useRef } from "react";
 import {
-  BannerCreditCard,
-  CreditCardTabs,
+  BannerLoan,
+  LoanTabs,
   GetCard,
   PrescoringForm,
-} from "@components/page-blocks/credit-card-page-blocks";
-import styles from "./credit-card-page.module.scss";
+} from "@components/page-blocks/loan-page-blocks";
+import styles from "./loan-page.module.scss";
 
-export const CreditCardPage = () => {
+export const LoanPage = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   const handleScroll = () =>
@@ -15,8 +15,8 @@ export const CreditCardPage = () => {
 
   return (
     <div className={styles.page__wrapper}>
-      <BannerCreditCard handleScroll={handleScroll} />
-      <CreditCardTabs />
+      <BannerLoan handleScroll={handleScroll} />
+      <LoanTabs />
       <GetCard />
       <div ref={ref}>
         <PrescoringForm />

@@ -1,11 +1,11 @@
-export type BannerCreditCardItemT = {
+export type BannerLoanItemT = {
   heading: string;
   text: string;
   tooltip: string;
   id: string;
 };
 
-export const BANNER_CREDIT_CARD_ITEMS = [
+export const BANNER_LOAN_ITEMS = [
   {
     heading: "Up to 160 days",
     text: "No percent",

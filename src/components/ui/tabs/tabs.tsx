@@ -1,9 +1,9 @@
 import { useState, useCallback } from "react";
 import { TabItem } from "./tab-item";
-import { CreditCardTabT } from "@components/page-blocks";
+import { LoanTabT } from "@components/page-blocks/loan-page-blocks";
 import styles from "./tabs.module.scss";
 
-export const Tabs = ({ tabs }: { tabs: CreditCardTabT[] }) => {
+export const Tabs = ({ tabs }: { tabs: LoanTabT[] }) => {
   const [activeTab, setActiveTab] = useState(0);
   const handleClick = useCallback(
     (index: number) => () => setActiveTab(index),

@@ -8,7 +8,7 @@ export type FormPropsT = {
 
 export const Form = ({ children, submitHandler }: FormPropsT) => {
   return (
-    <form onSubmit={submitHandler} className={styles.form__wrapper}>
+    <form onSubmit={submitHandler} className={styles.form__wrapper} noValidate>
       {children}
     </form>
   );

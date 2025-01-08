@@ -6,9 +6,9 @@
 }
 
 .heading {
-  @include mixins.secondaryHeading;
   font-weight: 700;
   margin-bottom: 14px;
+  @include mixins.secondaryHeading;
 }
 
 .list {

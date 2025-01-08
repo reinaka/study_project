@@ -1,12 +1,12 @@
 import { AboutCard, Cashback, FAQ, RatesConditions } from "./components";
 
-export type CreditCardTabT = {
+export type LoanTabT = {
   title: string;
   content: React.ReactNode | string;
   link: string;
 };
 
-export const CREDIT_CARD_TABS_ITEMS = [
+export const LOAN_TABS_ITEMS = [
   {
     title: "About card",
     content: <AboutCard />,
