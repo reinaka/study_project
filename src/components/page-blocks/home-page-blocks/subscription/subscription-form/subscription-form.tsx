@@ -26,7 +26,7 @@ export const SubscriptionForm = ({
   } = useForm();
 
   const handleFormSubmit = async (formData: FieldValues) => {
-    const formattedData = removeSpaces(formData.email);
+    const formattedData = { email: removeSpaces(formData.email) };
 
     try {
       setIsLoading(true);
