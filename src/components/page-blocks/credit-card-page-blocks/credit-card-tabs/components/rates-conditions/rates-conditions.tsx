@@ -5,7 +5,7 @@ export const RatesConditions = () => {
   return (
     <ul>
       {RATES_CONDITIONS_ITEMS.map(item => (
-        <li key={item.title} className={styles.conditions__item}>
+        <li key={item.id} className={styles.conditions__item}>
           <div className={styles.conditions__title}>{item.title}</div>
           {Array.isArray(item.content) ? (
             <ul>

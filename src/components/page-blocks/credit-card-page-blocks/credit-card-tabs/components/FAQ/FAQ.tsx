@@ -1,5 +1,5 @@
 import { Accordion } from "@components/ui/accordion";
-import { FAQ_ITEMS_1, FAQ_ITEMS_2 } from "./accordion.const";
+import { FAQ_ITEMS_1, FAQ_ITEMS_2 } from "./accordion-items.const";
 import styles from "./FAQ.module.scss";
 
 export const FAQ = () => {

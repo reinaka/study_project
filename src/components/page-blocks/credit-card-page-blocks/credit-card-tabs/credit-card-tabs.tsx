@@ -1,6 +1,6 @@
 import { Tabs } from "@components/ui/tabs";
-import { TABS_LIST } from "./credit-card-tabs.const";
+import { CREDIT_CARD_TABS_ITEMS } from "./credit-card-tabs-items.const";
 
 export const CreditCardTabs = () => {
-  return <Tabs tabs={TABS_LIST} />;
+  return <Tabs tabs={CREDIT_CARD_TABS_ITEMS} />;
 };

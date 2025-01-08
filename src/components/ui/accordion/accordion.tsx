@@ -4,6 +4,7 @@ import styles from "./accordion.module.scss";
 export type AccordionItemT = {
   title: string;
   content: string;
+  id: string;
 };
 
 export const Accordion = ({
@@ -26,7 +27,7 @@ export const Accordion = ({
       {heading && <h2 className={styles.accordion__heading}>{heading}</h2>}
       <ul className={styles.accordion__wrapper}>
         {list.map((item, ind) => (
-          <li key={item.content} className={styles.accordion__item}>
+          <li key={item.id} className={styles.accordion__item}>
             <div
               className={`${styles.accordion__title} ${ind === openItem && styles["accordion__title--open"]}`}
               onClick={handleOpenItem(ind)}

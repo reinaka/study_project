@@ -11,4 +11,3 @@ export {
   CreditCardTabs,
   PrescoringForm,
 } from "./credit-card-page-blocks";
-export type { CreditCardTabT } from "./credit-card-page-blocks/credit-card-tabs/credit-card-tabs.const";

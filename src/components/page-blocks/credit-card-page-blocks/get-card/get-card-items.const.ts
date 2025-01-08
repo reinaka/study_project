@@ -1,4 +1,4 @@
-export const INFO_BLOCK_ITEMS = [
+export const GET_CARD_ITEMS = [
   {
     text: "Fill out an online application - you do not need to visit the bank",
     id: "001",

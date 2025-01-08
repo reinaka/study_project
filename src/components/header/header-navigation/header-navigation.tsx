@@ -1,26 +1,8 @@
 import classNames from "classnames/bind";
 import { SwitchBurgerStateT } from "../header";
 import { HeaderNavLink } from "../header-nav-link";
+import { HEADER_NAVIGATION_ITEMS } from "./header-navigation-items.const";
 import styles from "./header-navigation.module.scss";
-
-const links = [
-  {
-    title: "Credit card",
-    to: "/credit-card",
-  },
-  {
-    title: "Product",
-    to: "/product",
-  },
-  {
-    title: "Account",
-    to: "/account",
-  },
-  {
-    title: "Resources",
-    to: "/resources",
-  },
-];
 
 export type HeaderNavigationPropsT = {
   isBurgerOpen: boolean;
@@ -39,7 +21,7 @@ export const HeaderNavigation = ({
   return (
     <nav className={navigationStyles}>
       <ul className={styles.navigation}>
-        {links.map(item => (
+        {HEADER_NAVIGATION_ITEMS.map(item => (
           <li key={item.title} className={styles.navLink__wrapper}>
             <HeaderNavLink to={item.to} switchBurgerState={switchBurgerState}>
               {item.title}

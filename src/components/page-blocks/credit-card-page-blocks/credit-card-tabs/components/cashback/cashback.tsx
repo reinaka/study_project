@@ -6,7 +6,7 @@ export const Cashback = () => {
   return (
     <ul className={styles.cashback__wrapper}>
       {CASHBACK_ITEMS.map(item => (
-        <li key={item.content} className={styles.cashback__item}>
+        <li key={item.id} className={styles.cashback__item}>
           <InfoBlock
             heading={item.title}
             text={item.content}

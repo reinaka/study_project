@@ -1,2 +1,2 @@
 export * from "./FAQ";
-export * from "./accordion.const";
+export * from "./accordion-items.const";

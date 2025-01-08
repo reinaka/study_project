@@ -6,7 +6,7 @@ export type CreditCardTabT = {
   link: string;
 };
 
-export const TABS_LIST = [
+export const CREDIT_CARD_TABS_ITEMS = [
   {
     title: "About card",
     content: <AboutCard />,

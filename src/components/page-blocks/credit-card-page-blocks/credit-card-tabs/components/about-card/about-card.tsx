@@ -6,7 +6,7 @@ export const AboutCard = () => {
   return (
     <ul className={styles.aboutCard__wrapper}>
       {ABOUT_CARD_ITEMS.map(item => (
-        <li key={item.title} className={styles.aboutCard__item}>
+        <li key={item.id} className={styles.aboutCard__item}>
           <InfoBlock
             heading={item.title}
             text={item.content}

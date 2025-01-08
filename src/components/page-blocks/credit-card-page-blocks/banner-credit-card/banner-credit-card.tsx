@@ -3,24 +3,7 @@ import { CreditCard } from "@components/ui/credit-card";
 import { InfoBlock } from "@components/ui/info-block/info-block";
 import { Tooltip } from "@components/ui/tooltip";
 import styles from "./banner-credit-card.module.scss";
-
-const creditCardInfo = [
-  {
-    heading: "Up to 160 days",
-    text: "No percent",
-    tooltip: "When repaying the full debt up to 160 days.",
-  },
-  {
-    heading: "Up to 600 000 ₽",
-    text: "Credit limit",
-    tooltip: "Over the limit willaccrue percent",
-  },
-  {
-    heading: "0 ₽",
-    text: "Card service is free",
-    tooltip: "Promotion valid until December 31, 2022.",
-  },
-];
+import { BANNER_CREDIT_CARD_ITEMS } from "./banner-credit-card-items.const";
 
 export type BannerCreditCardPropsT = {
   handleScroll: () => void;
@@ -36,8 +19,8 @@ export const BannerCreditCard = ({ handleScroll }: BannerCreditCardPropsT) => {
       </p>
       <div className={styles.infoBlock__wrapper}>
         <ul className={styles.infoBlock__list}>
-          {creditCardInfo.map(item => (
-            <li key={item.heading}>
+          {BANNER_CREDIT_CARD_ITEMS.map(item => (
+            <li key={item.id}>
               <Tooltip text={item.tooltip}>
                 <InfoBlock
                   heading={item.heading}
