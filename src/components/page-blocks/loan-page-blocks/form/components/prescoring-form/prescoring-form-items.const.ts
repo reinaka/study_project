@@ -26,7 +26,7 @@ export const FORM_ITEMS = [
     label: "Your last name",
     placeholder: "For Example Doe",
     rules: {
-      required: "Enter term",
+      required: "Enter your last name",
     },
   },
   {
