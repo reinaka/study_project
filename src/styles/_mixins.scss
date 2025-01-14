@@ -1,4 +1,5 @@
 @use "@styles/media";
+@use "@styles/colors";
 
 @mixin mainLayout {
   width: 90%;
@@ -8,6 +9,12 @@
     width: 100%;
     max-width: 1300px;
   }
+}
+
+@mixin pageLayout {
+  display: flex;
+  flex-direction: column;
+  row-gap: 48px;
 }
 
 @mixin navItemDecoration {
@@ -37,7 +44,7 @@
 
 @mixin secondaryHeading {
   font-weight: 500;
-  font-size: 20px;
+  font-size: 26px;
   margin-bottom: 8px;
   text-align: center;
 
@@ -49,6 +56,17 @@
 @mixin sectionText {
   margin-bottom: 48px;
   text-align: center;
+}
+
+@mixin banner__heading {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 40px;
+
+  @include media.mobile {
+    font-size: 48px;
+    line-height: 50px;
+  }
 }
 
 @mixin placeholder {
@@ -75,4 +93,39 @@
       background-position: -100% 0;
     }
   }
+}
+
+@mixin input {
+  background-color: colors.$input-beige;
+  padding: 13px 24px 13px 16px;
+  border-radius: 6px;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  outline-color: colors.$violet;
+  width: 100%;
+  font-family: "Ubuntu", serif;
+  font-size: 16px;
+
+  &::placeholder {
+    color: #808080;
+    font-size: 14px;
+  }
+}
+
+@mixin arrow_default {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid colors.$tab;
+  border-right: 2px solid colors.$tab;
+  transform: rotate(135deg);
+  transition: all 0.3s ease-in-out;
+}
+
+@mixin arrow_open {
+  transform: rotate(-45deg);
+}
+
+@mixin boxShadow {
+  box-shadow: 0 2px 6px 0 #00000033;
 }

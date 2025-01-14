@@ -1,0 +1,42 @@
+@use "@styles/colors";
+
+.divider--solid {
+  background-color: colors.$divider;
+}
+
+.divider--horizontal {
+  width: 100%;
+
+  &.divider--narrow {
+    height: 1px;
+  }
+
+  &.divider--wide {
+    height: 2px;
+  }
+
+  &.divider--dashed {
+    background-image: linear-gradient(
+      to right,
+      colors.$divider 60%,
+      rgba(255, 255, 255, 0) 0%
+    );
+    background-size: 12px 1px;
+    background-repeat: repeat-x;
+  }
+}
+
+.divider--vertical {
+  &.divider--narrow {
+    width: 1px;
+  }
+
+  &.divider--wide {
+    width: 2px;
+  }
+
+  &.divider--dashed {
+    background: conic-gradient(at 2px, #0000 75%, #808080 0) 50px /
+      calc(50px + 2px) 12px;
+  }
+}

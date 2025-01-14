@@ -1,0 +1,81 @@
+@use "@styles/media";
+@use "@styles/mixins";
+@use "@styles/colors";
+
+.banner__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include media.desktop {
+    flex-direction: row;
+  }
+}
+
+.card__wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @include media.desktop {
+    max-width: 518px;
+  }
+}
+
+.card {
+  max-width: 252px;
+}
+
+.card__item {
+  display: flex;
+  width: calc(50% - 8px);
+
+  &:first-of-type,
+  &:nth-last-of-type(2) {
+    justify-content: flex-end;
+  }
+
+  @include media.tablet {
+    width: calc(25% - 12px);
+    justify-content: center;
+
+    &:first-of-type,
+    &:nth-last-of-type(2) {
+      justify-content: center;
+    }
+  }
+
+  @include media.desktop {
+    width: calc(50% - 8px);
+    max-width: 250px;
+  }
+
+  @include media.desktop {
+    width: calc(50% - 8px);
+    max-width: 250px;
+  }
+}
+
+.banner__applyBlock {
+  max-width: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 36px;
+
+  @include media.desktop {
+    max-width: 622px;
+    text-align: left;
+    align-items: flex-start;
+    margin-bottom: 0;
+  }
+}
+
+.banner__heading {
+  color: colors.$dark;
+  margin-bottom: 36px;
+  @include mixins.banner__heading;
+}

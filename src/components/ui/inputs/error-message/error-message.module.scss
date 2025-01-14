@@ -1,0 +1,6 @@
+@use "@styles/colors";
+
+.error {
+  color: colors.$red;
+  margin-top: 2px;
+}

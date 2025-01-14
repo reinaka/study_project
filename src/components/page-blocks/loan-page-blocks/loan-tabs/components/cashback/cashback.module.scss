@@ -1,0 +1,28 @@
+@use "@styles/colors";
+@use "@styles/media";
+@use "@styles/mixins";
+
+.cashback__wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.cashback__item {
+  flex: 1;
+  min-width: 100%;
+  padding: 32px;
+  border-radius: 28px;
+  background-color: colors.$card-light;
+  @include mixins.boxShadow;
+
+  &:nth-of-type(2n) {
+    background-color: colors.$card-dark-green;
+  }
+
+  @include media.mobile {
+    min-width: 406px;
+  }
+}

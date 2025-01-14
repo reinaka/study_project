@@ -1,0 +1,20 @@
+@use "@styles/media";
+@use "@styles/mixins";
+
+.form__title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 32px;
+
+  @include media.tablet {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.form__heading {
+  font-weight: 700;
+  @include mixins.secondaryHeading;
+}

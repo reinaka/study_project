@@ -1,0 +1,52 @@
+@use "@styles/colors";
+@use "@styles/mixins";
+
+.accordion__heading {
+  font-size: 30px;
+  margin-bottom: 32px;
+}
+
+.accordion__wrapper {
+  border: 1px solid rgba(226, 232, 240, 1);
+}
+
+.accordion__item:not(:last-child) {
+  border-bottom: 1px solid rgba(226, 232, 240, 1);
+}
+
+.accordion__title {
+  padding: 24px 70px 24px 32px;
+  position: relative;
+  cursor: pointer;
+  font-weight: 500;
+
+  &::after {
+    top: 24px;
+    right: 32px;
+    @include mixins.arrow_default;
+  }
+}
+
+.accordion__title--open {
+  &::after {
+    top: 30px;
+    @include mixins.arrow_open;
+  }
+}
+
+.accordion__content {
+  font-family: Ubuntu;
+  letter-spacing: -0.0001em;
+  height: 0px;
+  overflow: hidden;
+  padding: 0px 32px;
+  color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.accordion__content--open {
+  height: auto;
+  padding: 24px 32px;
+  opacity: 1;
+  color: colors.$tab;
+}

@@ -1,0 +1,45 @@
+@use "@styles/mixins";
+@use "@styles/media";
+
+.wrapper {
+  margin-top: 48px;
+}
+
+.heading {
+  font-weight: 700;
+  margin-bottom: 14px;
+  @include mixins.secondaryHeading;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+
+  @include media.tablet {
+    flex-direction: row;
+  }
+}
+
+.list__item {
+  width: 100%;
+
+  &:nth-child(1) {
+    @include media.tablet {
+      width: 334px;
+    }
+  }
+
+  &:nth-child(2) {
+    @include media.tablet {
+      width: 385px;
+    }
+  }
+
+  &:nth-child(3) {
+    @include media.tablet {
+      width: 424px;
+    }
+  }
+}

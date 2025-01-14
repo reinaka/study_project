@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import {
   AccountPage,
-  CreditCardPage,
+  LoanPage,
   HomePage,
   MainLayoutPage,
   Page404,
@@ -14,7 +14,7 @@ export const App = () => {
     <Routes>
       <Route path="/" element={<MainLayoutPage />}>
         <Route index element={<HomePage />} />
-        <Route path="/credit-card" element={<CreditCardPage />} />
+        <Route path="/credit-card" element={<LoanPage />} />
         <Route path="/product" element={<ProductPage />} />
         <Route path="/account" element={<AccountPage />} />
         <Route path="/resources" element={<ResourcesPage />} />

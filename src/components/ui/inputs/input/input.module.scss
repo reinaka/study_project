@@ -1,0 +1,51 @@
+@use "@styles/colors";
+@use "@styles/mixins";
+
+.input {
+  @include mixins.input;
+}
+
+.input__wrapper {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 13px;
+    right: 16px;
+  }
+}
+
+.input--valid {
+  &::after {
+    content: url("/icons/success_icon.svg");
+  }
+
+  input {
+    padding-right: 50px;
+  }
+}
+
+.input--invalid {
+  &::after {
+    content: url("/icons/failure_icon.svg");
+  }
+
+  input {
+    border: 2px solid colors.$red;
+    padding-right: 50px;
+  }
+}
+
+input[type="date"] {
+  position: relative;
+  color: #808080;
+  font-family: "Ubuntu", serif;
+
+  &::-webkit-calendar-picker-indicator {
+    margin-top: 1px;
+    cursor: pointer;
+    filter: invert(50%);
+  }
+}

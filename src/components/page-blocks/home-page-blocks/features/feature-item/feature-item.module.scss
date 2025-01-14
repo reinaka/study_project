@@ -1,0 +1,17 @@
+.feature {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  &:before {
+    content: url("/icons/success_icon.svg");
+    width: 24px;
+    height: 24px;
+    padding: 2px;
+    margin-right: 16px;
+  }
+}
+
+.feture__text {
+  padding-bottom: 2px;
+}

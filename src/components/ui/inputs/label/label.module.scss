@@ -1,0 +1,17 @@
+@use "@styles/colors";
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label__text {
+  font-weight: 500;
+  position: relative;
+}
+
+.label__text--required {
+  color: colors.$red;
+  margin-left: 2px;
+}

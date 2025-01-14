@@ -1,0 +1,40 @@
+@use "@styles/colors";
+@use "@styles/media";
+
+.conditions__item {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-wrap: nowrap;
+  font-weight: 500;
+
+  &:not(:first-child) {
+    padding-top: 24px;
+  }
+
+  &:not(:last-child) {
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(127, 146, 172, 1);
+  }
+
+  @include media.mobile {
+    flex-direction: row;
+  }
+}
+
+.conditions__title {
+  width: 100%;
+
+  @include media.mobile {
+    min-width: 200px;
+    width: 200px;
+  }
+
+  @include media.tablet {
+    min-width: 294px;
+  }
+}
+
+.conditions__content {
+  color: colors.$tab;
+}
