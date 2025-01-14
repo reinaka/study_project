@@ -22,19 +22,25 @@ export const App = () => {
         <Route path="/loan" element={<LoanPage />} />
         <Route
           path="/loan/:applicationId"
-          element={<ProtectedPage page={<ScoringFormPage />} />}
+          element={<ProtectedPage statusCode={1} page={<ScoringFormPage />} />}
         />
         <Route
           path="/loan/:applicationId/document"
-          element={<ProtectedPage page={<PaymentSchedulePage />} />}
+          element={
+            <ProtectedPage statusCode={2} page={<PaymentSchedulePage />} />
+          }
         />
         <Route
           path="/loan/:applicationId/document/sign"
-          element={<ProtectedPage page={<DocumentsSignPage />} />}
+          element={
+            <ProtectedPage statusCode={3} page={<DocumentsSignPage />} />
+          }
         />
         <Route
           path="/loan/:applicationId/code"
-          element={<ProtectedPage page={<ConfirmationCodePage />} />}
+          element={
+            <ProtectedPage statusCode={4} page={<ConfirmationCodePage />} />
+          }
         />
         <Route path="/product" element={<ProductPage />} />
         <Route path="/account" element={<AccountPage />} />

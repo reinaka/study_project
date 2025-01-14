@@ -68,13 +68,9 @@ export const ApplicationWrapper = ({
   })(elem);
 
   const successNotofication = (elem => {
-    return elem === "CONFIRMATION_CODE"
-    ? (
+    return elem === "CONFIRMATION_CODE" ? (
       <div className={styles.codeNotification__wrapper}>
-        <img
-          src="/creditCardOffer.svg"
-          alt="Successfull offer application"
-        />
+        <img src="/creditCardOffer.svg" alt="Successfull offer application" />
         <Notification
           title={notificationTitle}
           additionalStyles={styles.notification}
@@ -83,15 +79,14 @@ export const ApplicationWrapper = ({
         </Notification>
         <Button>View other offers of our bank</Button>
       </div>
-    )
-    : (
+    ) : (
       <Notification
         title={notificationTitle}
         additionalStyles={styles.notification}
       >
         {notificationText}
       </Notification>
-    )
+    );
   })(elem);
 
   return (
