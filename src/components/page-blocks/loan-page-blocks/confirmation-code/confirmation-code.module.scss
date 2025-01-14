@@ -1,9 +1,23 @@
 @use "@styles/colors";
+@use "@styles/mixins";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.heading {
+  @include mixins.secondaryHeading;
+}
 
 .inputBlock__wrapper {
   display: flex;
   flex-direction: row;
   gap: 16px;
+  align-items: center;
 }
 
 .input {
@@ -14,8 +28,15 @@
   text-align: center;
   font-size: 20px;
   font-weight: 500;
+  caret-color: transparent;
 
   &:focus {
     border-color: colors.$blue-medium;
   }
+}
+
+.input--bg {
+  background-image: url('/code-input-bg.svg');
+  background-repeat: no-repeat;
+  background-position: center;
 }

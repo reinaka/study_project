@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Loader, Notification } from "@components/ui";
+import { Loader, Notification, Button } from "@components/ui";
 import { ScoringForm } from "../form/components";
 import { PaymentSchedule } from "../payment-schedule";
 import { DocumentsSign } from "../documents-sign";
@@ -67,6 +67,33 @@ export const ApplicationWrapper = ({
       );
   })(elem);
 
+  const successNotofication = (elem => {
+    return elem === "CONFIRMATION_CODE"
+    ? (
+      <div className={styles.codeNotification__wrapper}>
+        <img
+          src="/creditCardOffer.svg"
+          alt="Successfull offer application"
+        />
+        <Notification
+          title={notificationTitle}
+          additionalStyles={styles.notification}
+        >
+          {notificationText}
+        </Notification>
+        <Button>View other offers of our bank</Button>
+      </div>
+    )
+    : (
+      <Notification
+        title={notificationTitle}
+        additionalStyles={styles.notification}
+      >
+        {notificationText}
+      </Notification>
+    )
+  })(elem);
+
   return (
     <div className={styles.page__wrapper}>
       {isLoading ? (
@@ -74,12 +101,7 @@ export const ApplicationWrapper = ({
       ) : isError ? (
         <Notification>Something went wrong, try again later</Notification>
       ) : isSuccess ? (
-        <Notification
-          title={notificationTitle}
-          additionalStyles={styles.notification}
-        >
-          {notificationText}
-        </Notification>
+        successNotofication
       ) : (
         content
       )}
