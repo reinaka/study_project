@@ -8,8 +8,8 @@ import styles from "./confirmation-code.module.scss";
 export const ConfirmationCode = ({
   setIsLoading,
   setIsSuccess,
-  length
-}: ApplicationWrapperStateSettersT & { length: number}) => {
+  length,
+}: ApplicationWrapperStateSettersT & { length: number }) => {
   const [code, setCode] = useState(new Array(length).fill(""));
 
   const handleChange = (
@@ -33,7 +33,10 @@ export const ConfirmationCode = ({
     (e.target as HTMLInputElement).blur();
   };
 
-  const handleDelete = (e: React.KeyboardEvent<HTMLInputElement>, index: number) => {
+  const handleDelete = (
+    e: React.KeyboardEvent<HTMLInputElement>,
+    index: number,
+  ) => {
     if (e.key === "Backspace" || e.code === "Backspace") {
       if (index !== 0) {
         const prevInput = (e.target as HTMLInputElement)?.parentElement
