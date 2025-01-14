@@ -1,0 +1,24 @@
+.offer {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    right: -32px;
+  }
+}
+
+.offer--included {
+  &::after {
+    content: url("/icons/success_icon.svg");
+  }
+}
+
+.offer--notIncluded {
+  &::after {
+    content: url("/icons/failure_icon.svg");
+  }
+}

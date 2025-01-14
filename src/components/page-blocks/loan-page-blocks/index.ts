@@ -3,3 +3,5 @@ export { BannerLoan } from "./banner-loan";
 export { LoanTabs } from "./loan-tabs";
 export type { LoanTabT } from "./loan-tabs/";
 export { Form, FormTitle, PrescoringForm } from "./form";
+export { PrescoringWrapper } from "./prescoring-wrapper";
+export { Offers } from "./offers";

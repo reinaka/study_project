@@ -1,7 +1,7 @@
 export const HEADER_NAVIGATION_ITEMS = [
   {
     title: "Credit card",
-    to: "/credit-card",
+    to: "/loan",
     id: "001",
   },
   {
