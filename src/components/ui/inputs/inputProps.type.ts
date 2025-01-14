@@ -23,6 +23,7 @@ export type InputPropsT = {
   name: string;
   label: string;
   required?: boolean;
+  noDefault?: boolean;
   register?: UseFormRegister<FieldValues>;
   rules?: RegisterOptions<FieldValues, string> | undefined;
   error?: string | FieldError | Merge<FieldError, FieldErrorsImpl> | undefined;
