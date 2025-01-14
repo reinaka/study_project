@@ -4,13 +4,16 @@ import { OfferWithStatus } from "../offer-with-status";
 import { getFormattedNumber } from "@utils/functions";
 import { OfferT } from "../offer.type";
 import { BASE_URL } from "@utils/const/const";
-import { usePrescoringStore, selectPrescoring } from "@store/prescoring.store";
+import {
+  usePrescoringStore,
+  selectPrescoringStore,
+} from "@store/prescoring.store";
 import styles from "./offer.module.scss";
 
 export const Offer = ({ offer }: { offer: OfferT }) => {
-  const setLoading = usePrescoringStore(selectPrescoring.setLoading);
-  const setCompleted = usePrescoringStore(selectPrescoring.setCompleted);
-  const setError = usePrescoringStore(selectPrescoring.setError);
+  const setLoading = usePrescoringStore(selectPrescoringStore.setLoading);
+  const setCompleted = usePrescoringStore(selectPrescoringStore.setCompleted);
+  const setError = usePrescoringStore(selectPrescoringStore.setError);
 
   const handleSelectOffer = (offer: OfferT) => async () => {
     try {

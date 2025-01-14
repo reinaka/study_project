@@ -13,7 +13,7 @@ type PrescoringStateT = {
   setOffers: (offersArr: OfferT[]) => void;
 };
 
-export const selectPrescoring = {
+export const selectPrescoringStore = {
   completed: (state: PrescoringStateT) => state.completed,
   loading: (state: PrescoringStateT) => state.loading,
   error: (state: PrescoringStateT) => state.error,

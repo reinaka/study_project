@@ -4,12 +4,18 @@ import { InfoBlock } from "@components/ui/info-block/info-block";
 import { Tooltip } from "@components/ui/tooltip";
 import { BANNER_LOAN_ITEMS } from "./banner-loan-items.const";
 import styles from "./banner-loan.module.scss";
+import {
+  selectPrescoringStore,
+  usePrescoringStore,
+} from "@store/prescoring.store";
 
 export type BannerLoanPropsT = {
   handleScroll: () => void;
 };
 
 export const BannerLoan = ({ handleScroll }: BannerLoanPropsT) => {
+  const offers = usePrescoringStore(selectPrescoringStore.offers);
+
   return (
     <section role="banner" className={styles.banner__wrapper}>
       <h1 className={styles.banner__heading}>Platinum digital credit card</h1>
@@ -31,8 +37,12 @@ export const BannerLoan = ({ handleScroll }: BannerLoanPropsT) => {
             </li>
           ))}
         </ul>
-        <Button radius={8} onClick={handleScroll}>
-          Apply for card
+        <Button
+          radius={8}
+          onClick={handleScroll}
+          additionalStyles={styles.button}
+        >
+          {offers ? "Choose an offer" : "Apply for card"}
         </Button>
       </div>
       <CreditCard

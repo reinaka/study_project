@@ -1,13 +1,16 @@
 import { PrescoringForm, Offers } from "@components/page-blocks";
 import { Loader, Notification } from "@components/ui";
-import { selectPrescoring, usePrescoringStore } from "@store/prescoring.store";
+import {
+  selectPrescoringStore,
+  usePrescoringStore,
+} from "@store/prescoring.store";
 import styles from "./prescoring-wrapper.module.scss";
 
 export const PrescoringWrapper = () => {
-  const completed = usePrescoringStore(selectPrescoring.completed);
-  const loading = usePrescoringStore(selectPrescoring.loading);
-  const error = usePrescoringStore(selectPrescoring.error);
-  const offers = usePrescoringStore(selectPrescoring.offers);
+  const completed = usePrescoringStore(selectPrescoringStore.completed);
+  const loading = usePrescoringStore(selectPrescoringStore.loading);
+  const error = usePrescoringStore(selectPrescoringStore.error);
+  const offers = usePrescoringStore(selectPrescoringStore.offers);
 
   return completed ? (
     <Notification
