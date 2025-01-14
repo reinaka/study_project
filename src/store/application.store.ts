@@ -2,16 +2,17 @@ import { create } from "zustand";
 import axios from "axios";
 import { BASE_URL } from "@utils/const/const";
 
+type StatusT =
+  | "APPROVED"
+  | "CC_APPROVED"
+  | "DOCUMENT_CREATED"
+  | "CREDIT_ISSUED";
+
 type ApplicationStateT = {
   loading: boolean;
   error: boolean;
   id: number | undefined;
-  status:
-    | "APPROVED"
-    | "CC_APPROVED"
-    | "DOCUMENT_CREATED"
-    | "CREDIT_ISSUED"
-    | undefined;
+  status: StatusT | undefined;
   schedule: null | [];
   code: number | undefined;
   access: boolean | undefined;
@@ -70,8 +71,9 @@ export const useApplicationStore = create<ApplicationStateT>(set => ({
               ? statusCode === 4
               : data.id && !data.status
                 ? statusCode === 1
-                : data.status && statusDict[data.status]
-                  ? statusCode <= statusDict[data.status]
+                : data.status !== undefined &&
+                    statusDict[data.status as StatusT]
+                  ? statusCode <= statusDict[data.status as StatusT]
                   : false,
         }));
       }

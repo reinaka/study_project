@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useApplicationStore, selectApplicationStore } from "@store/application.store";
+import {
+  useApplicationStore,
+  selectApplicationStore,
+} from "@store/application.store";
 import { Notification } from "@components/ui";
 
 export type ProtectedPagePropsT = {
@@ -17,10 +20,13 @@ export const ProtectedPage = ({ page, statusCode }: ProtectedPagePropsT) => {
 
   useEffect(() => {
     void fetchData(applicationId, statusCode);
-  },[]);
-  
-  return loading? <></>
-  : access === false
-  ? <Notification>You don't have access to this page</Notification>
-  : page;
+  }, []);
+
+  return loading ? (
+    <></>
+  ) : access === false ? (
+    <Notification>You don't have access to this page</Notification>
+  ) : (
+    page
+  );
 };
