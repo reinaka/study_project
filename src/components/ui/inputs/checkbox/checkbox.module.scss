@@ -1,0 +1,42 @@
+@use "@styles/colors";
+
+.checkbox__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  padding: 8px;
+}
+
+.checkbox {
+  appearance: none;
+  width: 20px;
+
+  &:checked + .checkbox__label:before {
+    background: #3182ce;
+    border: 1px solid #3182ce;
+    content: url("/public/tick.svg");
+    color: colors.$white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.checkbox__label {
+  cursor: pointer;
+  position: relative;
+
+  &:before {
+    position: absolute;
+    content: "";
+    left: -34px;
+    top: -2px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-radius: 2px;
+    border: 1px solid #808080;
+    cursor: pointer;
+  }
+}
