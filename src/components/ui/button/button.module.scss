@@ -45,6 +45,18 @@
   }
 }
 
+.button--red {
+  background-color: colors.$red-dimmed;
+
+  &:hover {
+    background-color: colors.$red;
+  }
+
+  &:active {
+    background-color: colors.$red-dimmed;
+  }
+}
+
 .button--8 {
   border-radius: 8px;
 }

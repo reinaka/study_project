@@ -15,7 +15,7 @@
   &:checked + .checkbox__label:before {
     background: #3182ce;
     border: 1px solid #3182ce;
-    content: url("/public/tick.svg");
+    content: url("/tick.svg");
     color: colors.$white;
     display: flex;
     align-items: center;

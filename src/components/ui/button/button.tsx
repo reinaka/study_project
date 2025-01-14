@@ -6,7 +6,7 @@ export type ButtonPropsT = {
   radius?: 8 | 16 | 20 | "rounded";
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
-  color?: "blue" | "violet";
+  color?: "blue" | "violet" | "red";
   additionalStyles?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 };
