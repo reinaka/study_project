@@ -54,6 +54,14 @@ export const DocumentsSign = ({
           policy regarding the processing of personal data, a form of consent to
           the processing of personal data.
         </p>
+        <a
+          href="/credit-card-offer.pdf"
+          download
+          aria-label="Download ZIP-file"
+          className={styles.file}
+        >
+          Information on your card
+        </a>
         <div className={styles.form}>
           <Checkbox label="I agree" register={register} name="checkbox" />
           <Button
