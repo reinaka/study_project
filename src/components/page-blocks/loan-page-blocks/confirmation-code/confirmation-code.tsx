@@ -4,6 +4,10 @@ import axios from "axios";
 import { BASE_URL } from "@utils/const/const";
 import { ApplicationWrapperStateSettersT } from "../application-wrapper";
 import styles from "./confirmation-code.module.scss";
+import {
+  selectApplicationStore,
+  useApplicationStore,
+} from "@store/application.store";
 
 export const ConfirmationCode = ({
   setIsLoading,
@@ -11,6 +15,9 @@ export const ConfirmationCode = ({
   length,
 }: ApplicationWrapperStateSettersT & { length: number }) => {
   const [code, setCode] = useState(new Array(length).fill(""));
+  const [codeError, setCodeError] = useState(false);
+  const sesCode = useApplicationStore(selectApplicationStore.code);
+  const applicationId = useParams().applicationId;
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -37,16 +44,19 @@ export const ConfirmationCode = ({
     e: React.KeyboardEvent<HTMLInputElement>,
     index: number,
   ) => {
+    setCodeError(false);
     if (e.key === "Backspace" || e.code === "Backspace") {
       if (index !== 0) {
+        if (index === 3) {
+          const formattedCode = code.slice(0, 3).concat([""]);
+          setCode(formattedCode);
+        }
         const prevInput = (e.target as HTMLInputElement)?.parentElement
           ?.previousSibling?.firstChild;
         if (prevInput) (prevInput as HTMLInputElement).focus();
       }
     }
   };
-
-  const applicationId = useParams().applicationId;
 
   const handleSubmit = async (code: number) => {
     try {
@@ -60,12 +70,11 @@ export const ConfirmationCode = ({
           },
         },
       );
-      console.log(response);
       if (response.status === 200) {
         setIsSuccess(true);
       }
     } catch {
-      // setIsError(true);
+      throw new Error("Error");
     } finally {
       setIsLoading(false);
     }
@@ -73,7 +82,12 @@ export const ConfirmationCode = ({
 
   useEffect(() => {
     if (code[length - 1] !== "") {
-      handleSubmit(Number(code.join("")));
+      const formattedCode = Number(code.join(""));
+      if (formattedCode === Number(sesCode)) {
+        handleSubmit(formattedCode);
+      } else {
+        setCodeError(true);
+      }
     }
   }, [code, length]);
 
@@ -96,6 +110,9 @@ export const ConfirmationCode = ({
           </li>
         ))}
       </ul>
+      {codeError && (
+        <div className={styles.error}>Invalid confirmation code</div>
+      )}
     </section>
   );
 };

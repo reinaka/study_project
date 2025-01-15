@@ -21,6 +21,7 @@ export const Table = ({ data, tableCols }: TablePropsT) => {
         <tr>
           {Object.keys(tableCols).map(key => (
             <th
+              key={key}
               onClick={() => requestSort(key)}
               className={`${styles.table__button} ${styles[`${getClassNamesFor(key)}`]}`}
             >
@@ -31,7 +32,7 @@ export const Table = ({ data, tableCols }: TablePropsT) => {
       </thead>
       <tbody>
         {items.map(item => (
-          <tr key={item}>
+          <tr key={item[Object.keys(item)[0]]}>
             {Object.keys(item).map(key => (
               <td key={key}>{item[key]}</td>
             ))}
