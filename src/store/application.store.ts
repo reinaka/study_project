@@ -64,8 +64,8 @@ export const useApplicationStore = create<ApplicationStateT>(set => ({
           ...state,
           id: data.id,
           status: data.status,
-          code: data.sesCode || null,
-          schedule: data.credit?.paymentSchedule || null,
+          code: data.sesCode,
+          schedule: data.credit?.paymentSchedule,
           access:
             data.status === "DOCUMENT_CREATED" && data.sesCode
               ? statusCode === 4

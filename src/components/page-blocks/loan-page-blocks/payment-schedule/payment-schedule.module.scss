@@ -10,10 +10,15 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 42px;
 }
 
 .form {
   display: flex;
   flex-direction: row;
   gap: 40px;
+}
+
+.table {
+  overflow-x: auto;
 }
