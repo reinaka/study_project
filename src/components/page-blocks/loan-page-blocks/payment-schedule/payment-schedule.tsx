@@ -51,7 +51,6 @@ export const PaymentSchedule = ({
   };
 
   const schedule = useApplicationStore(selectApplicationStore.schedule);
-  console.log(schedule);
 
   return (
     <section className={styles.form__wrapper}>

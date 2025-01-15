@@ -3,18 +3,46 @@ import { CreditCard } from "@components/ui/credit-card";
 import { InfoBlock } from "@components/ui/info-block/info-block";
 import { Tooltip } from "@components/ui/tooltip";
 import { BANNER_LOAN_ITEMS } from "./banner-loan-items.const";
-import styles from "./banner-loan.module.scss";
 import {
   selectPrescoringStore,
   usePrescoringStore,
 } from "@store/prescoring.store";
+import {
+  selectApplicationStore,
+  useApplicationStore,
+  StatusT,
+} from "@store/application.store";
+import styles from "./banner-loan.module.scss";
 
 export type BannerLoanPropsT = {
   handleScroll: () => void;
 };
 
+const statusForLink = ["APPROVED", "CC_APPROVED", "DOCUMENT_CREATED"];
+const getStatusLink = (
+  applicationId: number,
+  status: StatusT,
+  code: number | undefined,
+) => {
+  switch (status) {
+    case "APPROVED":
+      return `/loan/${applicationId}`;
+    case "CC_APPROVED":
+      return `/loan/${applicationId}/document`;
+    case "DOCUMENT_CREATED":
+      return code
+        ? `/loan/${applicationId}/code`
+        : `/loan/${applicationId}/document/sign`;
+  }
+};
+
 export const BannerLoan = ({ handleScroll }: BannerLoanPropsT) => {
   const offers = usePrescoringStore(selectPrescoringStore.offers);
+  const applicationStatus: StatusT | undefined = useApplicationStore(
+    selectApplicationStore.status,
+  );
+  const applicationId = useApplicationStore(selectApplicationStore.id);
+  const code = useApplicationStore(selectApplicationStore.code);
 
   return (
     <section role="banner" className={styles.banner__wrapper}>
@@ -41,8 +69,22 @@ export const BannerLoan = ({ handleScroll }: BannerLoanPropsT) => {
           radius={8}
           onClick={handleScroll}
           additionalStyles={styles.button}
+          link={
+            !!applicationId && applicationStatus
+              ? statusForLink.includes(applicationStatus)
+              : false
+          }
+          address={
+            applicationId && applicationStatus
+              ? getStatusLink(applicationId, applicationStatus, code)
+              : ""
+          }
         >
-          {offers ? "Choose an offer" : "Apply for card"}
+          {applicationStatus
+            ? "Continue registration"
+            : offers
+              ? "Choose an offer"
+              : "Apply for card"}
         </Button>
       </div>
       <CreditCard

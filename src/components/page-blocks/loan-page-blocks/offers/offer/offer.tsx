@@ -8,18 +8,25 @@ import {
   usePrescoringStore,
   selectPrescoringStore,
 } from "@store/prescoring.store";
+import {
+  useApplicationStore,
+  selectApplicationStore,
+} from "@store/application.store";
 import styles from "./offer.module.scss";
 
 export const Offer = ({ offer }: { offer: OfferT }) => {
   const setLoading = usePrescoringStore(selectPrescoringStore.setLoading);
   const setCompleted = usePrescoringStore(selectPrescoringStore.setCompleted);
   const setError = usePrescoringStore(selectPrescoringStore.setError);
+  const fetchData = useApplicationStore(selectApplicationStore.fetchData);
+  const applicationId = localStorage.getItem("id");
 
   const handleSelectOffer = (offer: OfferT) => async () => {
     try {
       setLoading(true);
       const response = await axios.post(`${BASE_URL}/application/apply`, offer);
       if (response.status === 200) {
+        if (applicationId) fetchData(Number(applicationId), undefined);
         setCompleted(true);
         localStorage.removeItem("offers");
       }

@@ -44,6 +44,7 @@ export const PrescoringForm = () => {
       );
       if (response.status === 200) {
         localStorage.setItem("offers", JSON.stringify(response.data));
+        localStorage.setItem("id", response.data[0].applicationId);
         setOffers(response.data);
       }
     } catch {

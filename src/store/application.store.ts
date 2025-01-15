@@ -2,7 +2,7 @@ import { create } from "zustand";
 import axios from "axios";
 import { BASE_URL } from "@utils/const/const";
 
-type StatusT =
+export type StatusT =
   | "APPROVED"
   | "CC_APPROVED"
   | "DOCUMENT_CREATED"
@@ -17,10 +17,14 @@ type ApplicationStateT = {
   code: number | undefined;
   access: boolean | undefined;
 
-  fetchData: (applicationId: number, statusCode: number) => Promise<void>;
+  fetchData: (
+    applicationId: number,
+    statusCode: number | undefined,
+  ) => Promise<void>;
 };
 
-const statusDict = {
+export const statusDict = {
+  PREAPPROVAL: 0,
   APPROVED: 1,
   CC_APPROVED: 2,
   DOCUMENT_CREATED: 3,
@@ -49,7 +53,7 @@ export const useApplicationStore = create<ApplicationStateT>(set => ({
   code: undefined,
   access: undefined,
 
-  fetchData: async (applicationId: number, statusCode: number) => {
+  fetchData: async (applicationId: number, statusCode: number | undefined) => {
     set({ loading: true });
     try {
       const response = await axios.get(
@@ -73,7 +77,9 @@ export const useApplicationStore = create<ApplicationStateT>(set => ({
                 ? statusCode === 1
                 : data.status !== undefined &&
                     statusDict[data.status as StatusT]
-                  ? statusCode <= statusDict[data.status as StatusT]
+                  ? statusCode !== undefined
+                    ? statusCode <= statusDict[data.status as StatusT]
+                    : false
                   : false,
         }));
       }
