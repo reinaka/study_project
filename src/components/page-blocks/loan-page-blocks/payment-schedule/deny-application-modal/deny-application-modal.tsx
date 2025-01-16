@@ -1,5 +1,8 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import { Button } from "@components/ui";
+import { BASE_URL } from "@utils/const/const";
 import styles from "./deny-application-modal.module.scss";
 
 export type DenyApplicationModalPropsT = {
@@ -10,6 +13,20 @@ export const DenyApplicationModal = ({
   onClose,
 }: DenyApplicationModalPropsT) => {
   const [confirmed, setConfirmed] = useState(false);
+  const applicationId = useParams().applicationId;
+
+  const handleDeny = async (applicationId: string) => {
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/application/${applicationId}/deny`,
+      );
+      if (response.status === 200) {
+        setConfirmed(true);
+      }
+    } catch {
+      console.log("Error");
+    }
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -25,7 +42,10 @@ export const DenyApplicationModal = ({
           </Button>
         ) : (
           <>
-            <Button color="red" onClick={() => setConfirmed(true)}>
+            <Button
+              color="red"
+              onClick={() => handleDeny(applicationId as string)}
+            >
               Deny
             </Button>
             <Button onClick={onClose}>Cancel</Button>

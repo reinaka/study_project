@@ -80,7 +80,7 @@ export const BannerLoan = ({ handleScroll }: BannerLoanPropsT) => {
               : ""
           }
         >
-          {applicationStatus
+          {applicationStatus && applicationStatus !== "CLIENT_DENIED"
             ? "Continue registration"
             : offers
               ? "Choose an offer"

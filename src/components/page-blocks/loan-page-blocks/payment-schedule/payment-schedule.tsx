@@ -28,16 +28,14 @@ export const PaymentSchedule = ({
   setIsError,
   setIsSuccess,
 }: ApplicationWrapperStateSettersT) => {
-  const [isModal, setIsModal] = useState(false);
-
-  const closeButton = useCallback(() => setIsModal(false), []);
-
   const {
     register,
     formState: { isValid },
     handleSubmit,
   } = useForm();
 
+  const [isModal, setIsModal] = useState(false);
+  const closeButton = useCallback(() => setIsModal(false), []);
   const applicationId = useParams().applicationId;
 
   const handleFormSubmit = async () => {
