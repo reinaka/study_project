@@ -112,7 +112,6 @@ export const SCORING_FORM_ITEMS__EMPLOYMENT = [
     label: "Your employer INN",
     placeholder: "000000000000",
     rules: {
-      valueAsNumber: true,
       required: "Enter your employer INN",
       minLength: {
         value: 12,
