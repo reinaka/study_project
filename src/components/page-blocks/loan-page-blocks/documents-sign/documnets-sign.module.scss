@@ -1,3 +1,5 @@
+@use "@styles/media";
+
 .form__wrapper {
   width: 100%;
 }
@@ -5,9 +7,14 @@
 .form {
   display: flex;
   flex-direction: row;
-  gap: 80px;
+  gap: 40px;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
+
+  @include media.mobile {
+    gap: 80px;
+    justify-content: flex-end;
+  }
 }
 
 .button {

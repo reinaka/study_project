@@ -31,8 +31,8 @@ export const Table = ({ data, tableCols }: TablePropsT) => {
         </tr>
       </thead>
       <tbody>
-        {items.map(item => (
-          <tr key={item[Object.keys(item)[0]]}>
+        {items.map((item, index) => (
+          <tr key={index}>
             {Object.keys(item).map(key => (
               <td key={key}>{item[key]}</td>
             ))}
