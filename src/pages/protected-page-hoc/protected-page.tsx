@@ -17,6 +17,7 @@ export const ProtectedPage = ({ page, statusCode }: ProtectedPagePropsT) => {
   const fetchData = useApplicationStore(selectApplicationStore.fetchData);
   const loading = useApplicationStore(selectApplicationStore.loading);
   const access = useApplicationStore(selectApplicationStore.access);
+  const userId = useApplicationStore(selectApplicationStore.id);
 
   useEffect(() => {
     void fetchData(applicationId, statusCode);
@@ -24,7 +25,7 @@ export const ProtectedPage = ({ page, statusCode }: ProtectedPagePropsT) => {
 
   return loading ? (
     <></>
-  ) : access === false ? (
+  ) : access === false || userId !== applicationId ? (
     <Notification>You don't have access to this page</Notification>
   ) : (
     page

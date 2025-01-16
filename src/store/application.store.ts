@@ -3,12 +3,14 @@ import axios from "axios";
 import { BASE_URL } from "@utils/const/const";
 
 export type StatusT =
+  | "PREAPPROVAL"
   | "APPROVED"
   | "CC_APPROVED"
   | "DOCUMENT_CREATED"
   | "CREDIT_ISSUED"
   | "CLIENT_DENIED"
-  | "CREDIT_ISSUED";
+  | "CREDIT_ISSUED"
+  | "CC_DENIED";
 
 type ApplicationStateT = {
   loading: boolean;
@@ -32,6 +34,7 @@ export const statusDict = {
   DOCUMENT_CREATED: 3,
   CREDIT_ISSUED: 5,
   CLIENT_DENIED: -1,
+  CC_DENIED: -1,
 };
 
 export const selectApplicationStore = {

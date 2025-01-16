@@ -4,15 +4,16 @@ import { InfoBlock } from "@components/ui/info-block/info-block";
 import { Tooltip } from "@components/ui/tooltip";
 import { BANNER_LOAN_ITEMS } from "./banner-loan-items.const";
 import {
-  selectPrescoringStore,
-  usePrescoringStore,
-} from "@store/prescoring.store";
-import {
   selectApplicationStore,
   useApplicationStore,
   StatusT,
 } from "@store/application.store";
 import styles from "./banner-loan.module.scss";
+import {
+  selectPrescoringStore,
+  usePrescoringStore,
+} from "@store/prescoring.store";
+import { OfferT } from "../offers/offer.type";
 
 export type BannerLoanPropsT = {
   handleScroll: () => void;
@@ -36,13 +37,21 @@ const getStatusLink = (
   }
 };
 
+const getButtonText = (applicationStatus: StatusT, offers: OfferT[] | null) => {
+  if (statusForLink.includes(applicationStatus)) {
+    return "Continue registration";
+  } else if (offers || applicationStatus === "PREAPPROVAL") {
+    return "Choose an offer";
+  } else return "Apply for card";
+};
+
 export const BannerLoan = ({ handleScroll }: BannerLoanPropsT) => {
-  const offers = usePrescoringStore(selectPrescoringStore.offers);
   const applicationStatus: StatusT | undefined = useApplicationStore(
     selectApplicationStore.status,
   );
   const applicationId = useApplicationStore(selectApplicationStore.id);
   const code = useApplicationStore(selectApplicationStore.code);
+  const offers = usePrescoringStore(selectPrescoringStore.offers);
 
   return (
     <section role="banner" className={styles.banner__wrapper}>
@@ -80,8 +89,8 @@ export const BannerLoan = ({ handleScroll }: BannerLoanPropsT) => {
               : ""
           }
         >
-          {applicationStatus && applicationStatus !== "CLIENT_DENIED"
-            ? "Continue registration"
+          {applicationStatus
+            ? getButtonText(applicationStatus, offers)
             : offers
               ? "Choose an offer"
               : "Apply for card"}
