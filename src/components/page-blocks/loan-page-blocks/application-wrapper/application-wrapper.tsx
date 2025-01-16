@@ -77,7 +77,7 @@ export const ApplicationWrapper = ({
         >
           {notificationText}
         </Notification>
-        <Button>View other offers of our bank</Button>
+        <Button link address="/">View other offers of our bank</Button>
       </div>
     ) : (
       <Notification
