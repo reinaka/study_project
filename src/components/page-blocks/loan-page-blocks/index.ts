@@ -7,5 +7,5 @@ export { PrescoringWrapper } from "./prescoring-wrapper";
 export { Offers } from "./offers";
 export { ApplicationWrapper } from "./application-wrapper";
 export { DocumentsSign } from "./documents-sign";
-export { PaymentSchedule } from "./payment-schedule";
+export { PaymentSchedule, DenyApplicationModal } from "./payment-schedule";
 export type { ApplicationWrapperStateSettersT } from "./application-wrapper";

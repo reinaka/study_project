@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { Form } from "../form/form";
 import { FormTitle } from "../form";
 import { Button, Checkbox, Table, Modal } from "@components/ui";
+import { DenyApplicationModal } from "./deny-application-modal";
 import { ApplicationWrapperStateSettersT } from "@components/page-blocks/loan-page-blocks/";
 import { BASE_URL } from "@utils/const/const";
 import {
@@ -28,6 +29,8 @@ export const PaymentSchedule = ({
   setIsSuccess,
 }: ApplicationWrapperStateSettersT) => {
   const [isModal, setIsModal] = useState(false);
+
+  const closeButton = useCallback(() => setIsModal(false), []);
 
   const {
     register,
@@ -89,7 +92,11 @@ export const PaymentSchedule = ({
           </div>
         </div>
       </Form>
-      {isModal && <Modal handleClose={() => setIsModal(false)} />}
+      {isModal && (
+        <Modal title="Deny application" handleClose={closeButton}>
+          <DenyApplicationModal onClose={closeButton} />
+        </Modal>
+      )}
     </section>
   );
 };
