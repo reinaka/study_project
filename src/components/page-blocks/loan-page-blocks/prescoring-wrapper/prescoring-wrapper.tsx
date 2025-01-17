@@ -4,11 +4,11 @@ import {
   selectPrescoringStore,
   usePrescoringStore,
 } from "@store/prescoring.store";
-import styles from "./prescoring-wrapper.module.scss";
 import {
   selectApplicationStore,
   useApplicationStore,
 } from "@store/application.store";
+import styles from "./prescoring-wrapper.module.scss";
 
 export const PrescoringWrapper = () => {
   const completed = usePrescoringStore(selectPrescoringStore.completed);

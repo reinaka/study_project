@@ -3,11 +3,11 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "@utils/const/const";
 import { ApplicationWrapperStateSettersT } from "../application-wrapper";
-import styles from "./confirmation-code.module.scss";
 import {
   selectApplicationStore,
   useApplicationStore,
 } from "@store/application.store";
+import styles from "./confirmation-code.module.scss";
 
 export const ConfirmationCode = ({
   setIsLoading,

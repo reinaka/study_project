@@ -3,17 +3,17 @@ import { CreditCard } from "@components/ui/credit-card";
 import { InfoBlock } from "@components/ui/info-block/info-block";
 import { Tooltip } from "@components/ui/tooltip";
 import { BANNER_LOAN_ITEMS } from "./banner-loan-items.const";
+import { OfferT } from "../offers/offer.type";
 import {
   selectApplicationStore,
   useApplicationStore,
   StatusT,
 } from "@store/application.store";
-import styles from "./banner-loan.module.scss";
 import {
   selectPrescoringStore,
   usePrescoringStore,
 } from "@store/prescoring.store";
-import { OfferT } from "../offers/offer.type";
+import styles from "./banner-loan.module.scss";
 
 export type BannerLoanPropsT = {
   handleScroll: () => void;
