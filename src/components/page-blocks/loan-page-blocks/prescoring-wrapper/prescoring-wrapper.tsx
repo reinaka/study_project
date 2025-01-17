@@ -5,14 +5,19 @@ import {
   usePrescoringStore,
 } from "@store/prescoring.store";
 import styles from "./prescoring-wrapper.module.scss";
+import {
+  selectApplicationStore,
+  useApplicationStore,
+} from "@store/application.store";
 
 export const PrescoringWrapper = () => {
   const completed = usePrescoringStore(selectPrescoringStore.completed);
   const loading = usePrescoringStore(selectPrescoringStore.loading);
   const error = usePrescoringStore(selectPrescoringStore.error);
   const offers = usePrescoringStore(selectPrescoringStore.offers);
+  const applicationId = useApplicationStore(selectApplicationStore.id);
 
-  return completed ? (
+  return completed && applicationId ? (
     <Notification
       border
       title="The preliminary decision has been sent to your email."
@@ -25,7 +30,7 @@ export const PrescoringWrapper = () => {
     <Loader />
   ) : error ? (
     <Notification>Something went wrong, try again later</Notification>
-  ) : offers ? (
+  ) : offers && applicationId ? (
     <Offers offersArr={offers} />
   ) : (
     <PrescoringForm />

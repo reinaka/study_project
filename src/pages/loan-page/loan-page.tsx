@@ -28,7 +28,7 @@ export const LoanPage = () => {
       if (storageOffers) setOffers(JSON.parse(storageOffers));
     }
     if (applicationId) void fetchData(Number(applicationId), undefined);
-  }, []);
+  }, [offers, applicationId, fetchData, setOffers]);
 
   const handleScroll = () =>
     ref.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });

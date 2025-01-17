@@ -91,7 +91,10 @@ export const BannerLoan = ({ handleScroll }: BannerLoanPropsT) => {
         >
           {applicationStatus
             ? getButtonText(applicationStatus, offers)
-            : offers
+            : offers &&
+                applicationId &&
+                (applicationId === undefined ||
+                  applicationStatus === "PREAPPROVAL")
               ? "Choose an offer"
               : "Apply for card"}
         </Button>
