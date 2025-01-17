@@ -1,0 +1,63 @@
+@use "@styles/media";
+
+.form__content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.form__inputList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.form__inputList--general {
+  li {
+    width: 100%;
+  }
+
+  @include media.mobile {
+    li {
+      flex: 1;
+      min-width: 374px;
+    }
+  }
+
+  @include media.desktop {
+    li {
+      min-width: 400px;
+    }
+  }
+}
+
+.form__inputList--employment {
+  li {
+    min-width: calc((100% - 16px) / 2);
+  }
+
+  @include media.desktop {
+    li {
+      min-width: calc((100% - 16px * 2) / 3);
+    }
+  }
+}
+
+.form__input {
+  width: 100%;
+
+  @include media.tablet {
+    width: calc((100% - 16px) / 2);
+  }
+
+  @include media.desktop {
+    width: calc((100% - 48px) / 4);
+  }
+}
+
+.button {
+  padding: 16px 40px;
+  justify-self: flex-end;
+  margin-top: 24px;
+}

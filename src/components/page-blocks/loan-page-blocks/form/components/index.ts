@@ -1,2 +1,3 @@
-export { FormTitle } from "./form-title/form-title";
-export { PrescoringForm } from "./prescoring-form/prescoring-form";
+export { FormTitle } from "./form-title";
+export { PrescoringForm } from "./prescoring-form";
+export { ScoringForm } from "./scoring-form";

@@ -1,0 +1,32 @@
+@use "@styles/mixins";
+@use "@styles/colors";
+
+.offer__wrapper {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include mixins.boxShadow;
+  border-radius: 28px;
+  background-color: colors.$white;
+  font-weight: 500;
+  min-width: 294px;
+}
+
+.offer__image {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 32px;
+}
+
+.offer__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 90px;
+  gap: 14px;
+}
+
+.offer__button {
+  min-width: 148px;
+}

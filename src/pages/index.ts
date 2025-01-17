@@ -5,3 +5,8 @@ export { MainLayoutPage } from "@pages/main-layout-page/main-layout-page";
 export { LoanPage } from "./loan-page/loan-page";
 export { AccountPage } from "./account-page/account-page";
 export { HomePage } from "@pages/home-page/home-page";
+export { ScoringFormPage } from "./scoring-form-page/scoring-form-page";
+export { ProtectedPage } from "./protected-page-hoc/protected-page";
+export { PaymentSchedulePage } from "./payment-schedule-page/payment-schedule-page";
+export { DocumentsSignPage } from "./documents-sign-page/documents-sign-page";
+export { ConfirmationCodePage } from "./confirmation-code-page/confirmation-code-page";

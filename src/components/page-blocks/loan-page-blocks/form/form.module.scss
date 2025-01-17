@@ -2,8 +2,17 @@
 @use "@styles/mixins";
 
 .form__wrapper {
-  padding: 32px;
-  background-color: colors.$white;
   border-radius: 28px;
+  width: 100%;
+}
+
+.form--transparent {
+  background-color: transparent;
+  padding: 32px 0px;
+}
+
+.form--background {
+  background-color: colors.$white;
+  padding: 32px;
   @include mixins.boxShadow;
 }

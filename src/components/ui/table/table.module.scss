@@ -1,0 +1,42 @@
+@use "@styles/colors";
+
+.table {
+  width: 100%;
+  text-align: left;
+  border-spacing: 0;
+  font-size: 12px;
+  white-space: nowrap;
+
+  th,
+  td {
+    border-bottom: 1px solid colors.$gray;
+  }
+
+  th {
+    color: colors.$dark-dimmed;
+    font-weight: 500;
+  }
+
+  tr {
+    height: 40px;
+  }
+}
+
+.table__button {
+  position: relative;
+  cursor: pointer;
+
+  &::after {
+    content: url("/arrow-bottom.svg");
+    margin-left: 4px;
+    position: relative;
+    bottom: 3px;
+    transform: rotate(180deg);
+  }
+}
+
+.descending {
+  &::after {
+    content: url("/arrow-top.svg");
+  }
+}

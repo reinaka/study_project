@@ -11,6 +11,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  text-align: center;
 
   &:disabled {
     background-color: colors.$gray;
@@ -42,6 +43,18 @@
 
   &:active {
     background-color: colors.$violet-dimmed;
+  }
+}
+
+.button--red {
+  background-color: colors.$red-dimmed;
+
+  &:hover {
+    background-color: colors.$red;
+  }
+
+  &:active {
+    background-color: colors.$red-dimmed;
   }
 }
 

@@ -1,0 +1,65 @@
+@use "@styles/mixins";
+@use "@styles/media";
+
+.notFound__wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  margin-top: 24px;
+  justify-content: space-between;
+  gap: 60px;
+
+  @include media.tablet {
+    flex-direction: row;
+  }
+}
+
+.notFound__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 32px;
+  align-items: center;
+  text-align: center;
+
+  @include media.tablet {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.notFound__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+  font-weight: 700;
+  margin: 0;
+  @include mixins.secondaryHeading;
+
+  h1 {
+    text-align: left;
+    @include mixins.secondaryHeading;
+  }
+
+  @include media.tablet {
+    gap: 32px;
+    text-align: left;
+  }
+}
+
+.notFound__button {
+  width: 192px;
+}
+
+.notFound__image {
+  width: 30%;
+
+  @include media.tablet {
+    width: 40%;
+  }
+
+  @include media.desktop {
+    width: 526px;
+  }
+}

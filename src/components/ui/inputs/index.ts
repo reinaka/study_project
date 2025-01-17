@@ -4,3 +4,4 @@ export { Input } from "./input";
 export { Range } from "./range";
 export { ErrorMessage } from "./error-message";
 export type { InputPropsT } from "./inputProps.type";
+export { Checkbox } from "./checkbox";
