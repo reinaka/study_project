@@ -34,7 +34,7 @@ export const FORM_ITEMS = [
     type: "text",
     name: "firstName",
     label: "Your first name",
-    placeholder: "For Example Jhon",
+    placeholder: "For Example John",
     rules: {
       required: "Enter your first name",
     },

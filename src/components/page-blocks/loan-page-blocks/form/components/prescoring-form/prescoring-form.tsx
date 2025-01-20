@@ -6,10 +6,7 @@ import { FORM_ITEMS } from "./prescoring-form-items.const";
 import { FormTitle } from "../form-title/form-title";
 import { getFormattedNumber, removeSpaces } from "@utils/functions";
 import { BASE_URL } from "@utils/const/const";
-import {
-  selectPrescoringStore,
-  usePrescoringStore,
-} from "@store/prescoring.store";
+import { usePrescoringStore } from "@store/index";
 import styles from "./prescoring-form.module.scss";
 
 export const PrescoringForm = () => {
@@ -20,9 +17,9 @@ export const PrescoringForm = () => {
     control,
   } = useForm();
 
-  const setLoading = usePrescoringStore(selectPrescoringStore.setLoading);
-  const setOffers = usePrescoringStore(selectPrescoringStore.setOffers);
-  const setError = usePrescoringStore(selectPrescoringStore.setError);
+  const setLoading = usePrescoringStore.use.setLoading();
+  const setOffers = usePrescoringStore.use.setOffers();
+  const setError = usePrescoringStore.use.setError();
 
   const handleFormSubmit = async (formData: FieldValues) => {
     const formattedData = {

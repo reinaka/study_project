@@ -4,15 +4,7 @@ import { InfoBlock } from "@components/ui/info-block/info-block";
 import { Tooltip } from "@components/ui/tooltip";
 import { BANNER_LOAN_ITEMS } from "./banner-loan-items.const";
 import { OfferT } from "../offers/offer.type";
-import {
-  selectApplicationStore,
-  useApplicationStore,
-  StatusT,
-} from "@store/application.store";
-import {
-  selectPrescoringStore,
-  usePrescoringStore,
-} from "@store/prescoring.store";
+import { usePrescoringStore, useApplicationStore, StatusT } from "@store/index";
 import styles from "./banner-loan.module.scss";
 
 export type BannerLoanPropsT = {
@@ -46,12 +38,11 @@ const getButtonText = (applicationStatus: StatusT, offers: OfferT[] | null) => {
 };
 
 export const BannerLoan = ({ handleScroll }: BannerLoanPropsT) => {
-  const applicationStatus: StatusT | undefined = useApplicationStore(
-    selectApplicationStore.status,
-  );
-  const applicationId = useApplicationStore(selectApplicationStore.id);
-  const code = useApplicationStore(selectApplicationStore.code);
-  const offers = usePrescoringStore(selectPrescoringStore.offers);
+  const applicationStatus: StatusT | undefined =
+    useApplicationStore.use.status();
+  const applicationId = useApplicationStore.use.id();
+  const code = useApplicationStore.use.code();
+  const offers = usePrescoringStore.use.offers();
 
   return (
     <section role="banner" className={styles.banner__wrapper}>

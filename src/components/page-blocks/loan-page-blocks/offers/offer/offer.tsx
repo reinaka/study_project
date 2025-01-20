@@ -4,21 +4,14 @@ import { OfferWithStatus } from "../offer-with-status";
 import { getFormattedNumber } from "@utils/functions";
 import { OfferT } from "../offer.type";
 import { BASE_URL } from "@utils/const/const";
-import {
-  usePrescoringStore,
-  selectPrescoringStore,
-} from "@store/prescoring.store";
-import {
-  useApplicationStore,
-  selectApplicationStore,
-} from "@store/application.store";
+import { usePrescoringStore, useApplicationStore } from "@store/index";
 import styles from "./offer.module.scss";
 
 export const Offer = ({ offer }: { offer: OfferT }) => {
-  const setLoading = usePrescoringStore(selectPrescoringStore.setLoading);
-  const setCompleted = usePrescoringStore(selectPrescoringStore.setCompleted);
-  const setError = usePrescoringStore(selectPrescoringStore.setError);
-  const fetchData = useApplicationStore(selectApplicationStore.fetchData);
+  const setLoading = usePrescoringStore.use.setLoading();
+  const setCompleted = usePrescoringStore.use.setCompleted();
+  const setError = usePrescoringStore.use.setError();
+  const fetchData = useApplicationStore.use.fetchData();
   const applicationId = localStorage.getItem("id");
 
   const handleSelectOffer = (offer: OfferT) => async () => {

@@ -5,22 +5,15 @@ import {
   GetCard,
   PrescoringWrapper,
 } from "@components/page-blocks/loan-page-blocks";
-import {
-  usePrescoringStore,
-  selectPrescoringStore,
-} from "@store/prescoring.store";
-import {
-  useApplicationStore,
-  selectApplicationStore,
-} from "@store/application.store";
+import { usePrescoringStore, useApplicationStore } from "@store/index";
 import styles from "./loan-page.module.scss";
 
 export const LoanPage = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const offers = usePrescoringStore(selectPrescoringStore.offers);
-  const setOffers = usePrescoringStore(selectPrescoringStore.setOffers);
+  const offers = usePrescoringStore.use.offers;
+  const setOffers = usePrescoringStore.use.setOffers();
   const applicationId = localStorage.getItem("id");
-  const fetchData = useApplicationStore(selectApplicationStore.fetchData);
+  const fetchData = useApplicationStore.use.fetchData();
 
   useEffect(() => {
     if (!offers) {

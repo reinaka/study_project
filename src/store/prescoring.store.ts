@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { OfferT } from "@components/page-blocks/loan-page-blocks/offers/offer.type";
+import { createSelectors } from "./utils/createSelectors";
 
 type PrescoringStateT = {
   completed: boolean;
@@ -13,19 +14,7 @@ type PrescoringStateT = {
   setOffers: (offersArr: OfferT[]) => void;
 };
 
-export const selectPrescoringStore = {
-  completed: (state: PrescoringStateT) => state.completed,
-  loading: (state: PrescoringStateT) => state.loading,
-  error: (state: PrescoringStateT) => state.error,
-  offers: (state: PrescoringStateT) => state.offers,
-
-  setCompleted: (state: PrescoringStateT) => state.setCompleted,
-  setLoading: (state: PrescoringStateT) => state.setLoading,
-  setError: (state: PrescoringStateT) => state.setError,
-  setOffers: (state: PrescoringStateT) => state.setOffers,
-};
-
-export const usePrescoringStore = create<PrescoringStateT>(set => ({
+export const prescoringStore = create<PrescoringStateT>(set => ({
   completed: false,
   loading: false,
   error: false,
@@ -39,3 +28,5 @@ export const usePrescoringStore = create<PrescoringStateT>(set => ({
     set(state => ({ ...state, error: errorState })),
   setOffers: offersArr => set(state => ({ ...state, offers: offersArr })),
 }));
+
+export const usePrescoringStore = createSelectors(prescoringStore);

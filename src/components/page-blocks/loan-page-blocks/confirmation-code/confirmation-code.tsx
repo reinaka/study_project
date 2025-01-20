@@ -3,10 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "@utils/const/const";
 import { ApplicationWrapperStateSettersT } from "../application-wrapper";
-import {
-  selectApplicationStore,
-  useApplicationStore,
-} from "@store/application.store";
+import { useApplicationStore } from "@store/index";
 import styles from "./confirmation-code.module.scss";
 
 export const ConfirmationCode = ({
@@ -16,7 +13,7 @@ export const ConfirmationCode = ({
 }: ApplicationWrapperStateSettersT & { length: number }) => {
   const [code, setCode] = useState(new Array(length).fill(""));
   const [codeError, setCodeError] = useState(false);
-  const sesCode = useApplicationStore(selectApplicationStore.code);
+  const sesCode = useApplicationStore.use.code();
   const applicationId = useParams().applicationId;
 
   const handleChange = (

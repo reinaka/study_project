@@ -8,10 +8,7 @@ import { Button, Checkbox, Table, Modal } from "@components/ui";
 import { DenyApplicationModal } from "./deny-application-modal";
 import { ApplicationWrapperStateSettersT } from "@components/page-blocks/loan-page-blocks/";
 import { BASE_URL } from "@utils/const/const";
-import {
-  selectApplicationStore,
-  useApplicationStore,
-} from "@store/application.store";
+import { useApplicationStore } from "@store/index";
 import styles from "./payment-schedule.module.scss";
 
 const tableCols = {
@@ -54,7 +51,7 @@ export const PaymentSchedule = ({
     }
   };
 
-  const schedule = useApplicationStore(selectApplicationStore.schedule);
+  const schedule = useApplicationStore.use.schedule();
 
   return (
     <section className={styles.form__wrapper}>

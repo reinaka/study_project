@@ -1,9 +1,6 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import {
-  useApplicationStore,
-  selectApplicationStore,
-} from "@store/application.store";
+import { useApplicationStore } from "@store/index";
 import { Notification } from "@components/ui";
 
 export type ProtectedPagePropsT = {
@@ -14,10 +11,10 @@ export type ProtectedPagePropsT = {
 
 export const ProtectedPage = ({ page, statusCode }: ProtectedPagePropsT) => {
   const applicationId = Number(useParams().applicationId);
-  const fetchData = useApplicationStore(selectApplicationStore.fetchData);
-  const loading = useApplicationStore(selectApplicationStore.loading);
-  const access = useApplicationStore(selectApplicationStore.access);
-  const userId = useApplicationStore(selectApplicationStore.id);
+  const fetchData = useApplicationStore.use.fetchData();
+  const loading = useApplicationStore.use.loading();
+  const access = useApplicationStore.use.access();
+  const userId = useApplicationStore.use.id();
 
   useEffect(() => {
     void fetchData(applicationId, statusCode);

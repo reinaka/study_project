@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import axios from "axios";
 import { BASE_URL } from "@utils/const/const";
+import { createSelectors } from "./utils/createSelectors";
 
 export type StatusT =
   | "PREAPPROVAL"
@@ -37,19 +38,7 @@ export const statusDict = {
   CC_DENIED: -1,
 };
 
-export const selectApplicationStore = {
-  loading: (state: ApplicationStateT) => state.loading,
-  status: (state: ApplicationStateT) => state.status,
-  id: (state: ApplicationStateT) => state.id,
-  error: (state: ApplicationStateT) => state.error,
-  schedule: (state: ApplicationStateT) => state.schedule,
-  code: (state: ApplicationStateT) => state.code,
-  access: (state: ApplicationStateT) => state.access,
-
-  fetchData: (state: ApplicationStateT) => state.fetchData,
-};
-
-export const useApplicationStore = create<ApplicationStateT>(set => ({
+export const applicationStore = create<ApplicationStateT>(set => ({
   loading: false,
   error: false,
 
@@ -111,3 +100,5 @@ export const useApplicationStore = create<ApplicationStateT>(set => ({
     }
   },
 }));
+
+export const useApplicationStore = createSelectors(applicationStore);
