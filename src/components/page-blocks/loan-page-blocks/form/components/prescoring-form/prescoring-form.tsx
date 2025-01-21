@@ -121,7 +121,12 @@ export const PrescoringForm = () => {
             }
           })}
         </ul>
-        <Button type="submit" radius={8} additionalStyles={styles.button}>
+        <Button
+          type="submit"
+          radius={8}
+          additionalStyles={styles.button}
+          dataTestId="form-button"
+        >
           Continue
         </Button>
       </Form>

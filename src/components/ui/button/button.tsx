@@ -12,6 +12,7 @@ export type ButtonPropsT = {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   link?: boolean;
   address?: string;
+  dataTestId?: string;
 };
 
 export const Button = ({
@@ -24,6 +25,7 @@ export const Button = ({
   onClick,
   link,
   address,
+  dataTestId,
 }: ButtonPropsT) => {
   const cx = classNames.bind(styles);
   const buttonStyles = cx({
@@ -49,6 +51,7 @@ export const Button = ({
       disabled={disabled}
       type={type || "button"}
       onClick={onClick}
+      data-testid={dataTestId}
     >
       {children}
     </button>

@@ -52,7 +52,11 @@ export const Input = ({
           />
         </div>
       </Label>
-      {error && <ErrorMessage>{`${error}` || "Error"}</ErrorMessage>}
+      {error && (
+        <ErrorMessage data-testid="input-error">
+          {`${error}` || "Error"}
+        </ErrorMessage>
+      )}
     </>
   );
 };
