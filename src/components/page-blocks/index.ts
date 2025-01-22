@@ -11,4 +11,5 @@ export {
   LoanTabs,
   PrescoringForm,
   Offers,
+  Offer,
 } from "./loan-page-blocks";

@@ -10,7 +10,7 @@ import styles from "./loan-page.module.scss";
 
 export const LoanPage = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const offers = usePrescoringStore.use.offers;
+  const offers = usePrescoringStore.use.offers();
   const setOffers = usePrescoringStore.use.setOffers();
   const applicationId = localStorage.getItem("id");
   const fetchData = useApplicationStore.use.fetchData();
