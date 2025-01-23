@@ -11,7 +11,7 @@ import { BASE_URL } from "@utils/const/const";
 import { useApplicationStore } from "@store/index";
 import styles from "./payment-schedule.module.scss";
 
-const tableCols = {
+export const tableCols = {
   number: "number",
   date: "date",
   totalPayment: "total payment",
@@ -67,6 +67,7 @@ export const PaymentSchedule = ({
             additionalStyles={styles.button}
             color="red"
             onClick={() => setIsModal(true)}
+            dataTestId="deny-button"
           >
             Deny
           </Button>
@@ -81,6 +82,7 @@ export const PaymentSchedule = ({
               radius={8}
               additionalStyles={styles.button}
               disabled={!isValid}
+              dataTestId="submit-button"
             >
               Send
             </Button>
