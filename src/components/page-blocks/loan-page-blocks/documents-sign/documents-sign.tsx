@@ -69,6 +69,7 @@ export const DocumentsSign = ({
             radius={8}
             additionalStyles={styles.button}
             disabled={!isValid}
+            dataTestId="submit-button"
           >
             Send
           </Button>
