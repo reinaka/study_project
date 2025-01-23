@@ -16,8 +16,14 @@ describe("Prescoring Form", () => {
   const getFirstName = () => screen.getByPlaceholderText("For Example John");
   const getEmail = () => screen.getByPlaceholderText("test@gmail.com");
   const getBirthDate = () => screen.getByPlaceholderText("Select Date");
-  const getPassportSeries = () => screen.getByPlaceholderText("0000");
-  const getPassportNumber = () => screen.getByPlaceholderText("000000");
+  const getPassportSeries = () =>
+    screen.getByRole("spinbutton", {
+      name: "Your passport series *",
+    });
+  const getPassportNumber = () =>
+    screen.getByRole("spinbutton", {
+      name: "Your passport number *",
+    });
 
   it("Prescoring form should be rendered", () => {
     render(<PrescoringForm />, { wrapper: MemoryRouter });
@@ -146,19 +152,19 @@ describe("Prescoring Form", () => {
     expect(screen.queryByText("Enter passport series")).toBeInTheDocument();
 
     await act(async () => {
-      fireEvent.change(getPassportSeries(), { target: { value: "22" } });
+      fireEvent.change(getPassportSeries(), { target: { value: "12" } });
     });
     expect(screen.queryByText("Enter passport series")).not.toBeInTheDocument();
     expect(screen.queryByText("Series must be 4 digits")).toBeInTheDocument();
 
     await act(async () => {
-      fireEvent.change(getPassportSeries(), { target: { value: "222222" } });
+      fireEvent.change(getPassportSeries(), { target: { value: "123456" } });
     });
     expect(screen.queryByText("Enter passport series")).not.toBeInTheDocument();
     expect(screen.queryByText("Series must be 4 digits")).toBeInTheDocument();
 
     await act(async () => {
-      fireEvent.change(getPassportSeries(), { target: { value: "2222" } });
+      fireEvent.change(getPassportSeries(), { target: { value: "1234" } });
     });
     expect(screen.queryByText("Enter passport series")).not.toBeInTheDocument();
     expect(
@@ -175,19 +181,19 @@ describe("Prescoring Form", () => {
     expect(screen.queryByText("Enter passport number")).toBeInTheDocument();
 
     await act(async () => {
-      fireEvent.change(getPassportNumber(), { target: { value: "22" } });
+      fireEvent.change(getPassportNumber(), { target: { value: "12" } });
     });
     expect(screen.queryByText("Enter passport number")).not.toBeInTheDocument();
     expect(screen.queryByText("Number must be 6 digits")).toBeInTheDocument();
 
     await act(async () => {
-      fireEvent.change(getPassportNumber(), { target: { value: "22222222" } });
+      fireEvent.change(getPassportNumber(), { target: { value: "1234567" } });
     });
     expect(screen.queryByText("Enter passport number")).not.toBeInTheDocument();
     expect(screen.queryByText("Number must be 6 digits")).toBeInTheDocument();
 
     await act(async () => {
-      fireEvent.change(getPassportNumber(), { target: { value: "222222" } });
+      fireEvent.change(getPassportNumber(), { target: { value: "123456" } });
     });
     expect(screen.queryByText("Enter passport number")).not.toBeInTheDocument();
     expect(
