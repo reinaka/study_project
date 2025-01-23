@@ -1,0 +1,37 @@
+@use "@styles/media";
+
+.form__wrapper {
+  width: 100%;
+}
+
+.button {
+  min-width: 96px;
+}
+
+.bottomBlock {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 42px;
+  gap: 20px;
+
+  @include media.tablet {
+    flex-direction: row;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+
+  @include media.tablet {
+    gap: 40px;
+  }
+}
+
+.table {
+  overflow-x: auto;
+}
