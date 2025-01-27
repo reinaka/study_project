@@ -60,7 +60,6 @@ export const ApplicationWrapper = ({
       return (
         <ConfirmationCode
           setIsLoading={setIsLoading}
-          setIsError={setIsError}
           setIsSuccess={setIsSuccess}
           length={4}
         />
