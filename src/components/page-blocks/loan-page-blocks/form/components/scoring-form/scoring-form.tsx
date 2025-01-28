@@ -113,7 +113,12 @@ export const ScoringForm = ({
             {itemsToRender(SCORING_FORM_ITEMS__EMPLOYMENT)}
           </ul>
         </div>
-        <Button type="submit" radius={8} additionalStyles={styles.button}>
+        <Button
+          type="submit"
+          radius={8}
+          additionalStyles={styles.button}
+          dataTestId="form-button"
+        >
           Continue
         </Button>
       </Form>

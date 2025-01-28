@@ -10,7 +10,9 @@ export const ConfirmationCode = ({
   setIsLoading,
   setIsSuccess,
   length,
-}: ApplicationWrapperStateSettersT & { length: number }) => {
+}: Omit<ApplicationWrapperStateSettersT, "setIsError"> & {
+  length: number;
+}) => {
   const [code, setCode] = useState(new Array(length).fill(""));
   const [codeError, setCodeError] = useState(false);
   const sesCode = useApplicationStore.use.code();

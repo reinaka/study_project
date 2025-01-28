@@ -54,6 +54,7 @@ export const SubscriptionForm = ({
           className={styles.form}
           onSubmit={handleSubmit(handleFormSubmit)}
           noValidate
+          data-testid="subscription-form"
         >
           <div className={styles.form__mainBlock}>
             <Label additionalStyles={styles.input__wrapper}>

@@ -115,11 +115,11 @@ export const SCORING_FORM_ITEMS__EMPLOYMENT = [
       required: "Enter your employer INN",
       minLength: {
         value: 12,
-        message: "Code must be 12 digits",
+        message: "INN must be 12 digits",
       },
       maxLength: {
         value: 12,
-        message: "Code must be 12 digits",
+        message: "INN must be 12 digits",
       },
     },
   },

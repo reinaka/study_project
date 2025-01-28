@@ -16,6 +16,7 @@ export const Page404 = () => {
         <Button
           onClick={() => navigate(-1)}
           additionalStyles={styles.notFound__button}
+          dataTestId="404-button"
         >
           Go Back
         </Button>

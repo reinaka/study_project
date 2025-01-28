@@ -31,7 +31,7 @@ export const Offer = ({ offer }: { offer: OfferT }) => {
   };
 
   return (
-    <section className={styles.offer__wrapper}>
+    <section className={styles.offer__wrapper} data-testid="offer">
       <img
         src="/creditCardOffer.svg"
         alt="offer box"

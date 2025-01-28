@@ -5,5 +5,9 @@ export type ErrorMessagePropsT = {
 };
 
 export const ErrorMessage = ({ children }: ErrorMessagePropsT) => {
-  return <p className={styles.error}>{children}</p>;
+  return (
+    <p className={styles.error} data-testid="input-error">
+      {children}
+    </p>
+  );
 };
